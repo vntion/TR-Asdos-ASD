@@ -25,6 +25,42 @@ struct receipts{
     long harga_total;
 };
 
+void search(){}
+
+void create_med(){
+
+}
+void (){
+
+}
+void create_med(){
+
+}
+void create_med(){
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 int main(){
 
     return 0;
