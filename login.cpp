@@ -8,7 +8,7 @@ using namespace std;
 WORD original = 0;
 
 // Line and bar characters
-const int lineh = 205, linev = 186;
+const int lineH1 = 205, linev1 = 186;
 const int corner1 = 201, corner2 = 187, corner3 = 200, corner4 = 188;
 const int bar1 = 177, bar2 = 219;
 
@@ -118,15 +118,15 @@ void login() {
 
         for (int i = 0; i <= 161; i++) {
             gotoxy(i, 0);
-            cout << (char)lineh;
+            cout << (char)lineH1;
         }
         for (int i = 0; i <= 161; i++) {
             gotoxy(i, 10);
-            cout << (char)lineh;
+            cout << (char)lineH1;
         }
         for (int i = 0; i <= 161; i++) {
             gotoxy(i, 35);
-            cout << (char)lineh;
+            cout << (char)lineH1;
         }
 
         // Drawing login box
@@ -136,19 +136,19 @@ void login() {
         cout << (char)corner2;
         for (int i = 55; i <= 95; i++) {
             gotoxy(i, 13);
-            cout << (char)lineh;
+            cout << (char)lineH1;
         }
         for (int i = 14; i <= 22; i++) {
             gotoxy(54, i);
-            cout << (char)linev;
+            cout << (char)linev1;
         }
         for (int i = 14; i <= 22; i++) {
             gotoxy(96, i);
-            cout << (char)linev;
+            cout << (char)linev1;
         }
         for (int i = 55; i <= 95; i++) {
             gotoxy(i, 23);
-            cout << (char)lineh;
+            cout << (char)lineH1;
         }
         gotoxy(54, 23);
         cout << (char)corner3;
