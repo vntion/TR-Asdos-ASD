@@ -1,3 +1,6 @@
 {
-  "cSpell.words": ["correctpw", "correctuser", "gotoxy", "lineh", "linev"]
+  "cSpell.words": ["correctpw", "correctuser", "gotoxy", "lineh", "linev"],
+  "files.associations": {
+    "iostream": "cpp"
+  }
 }

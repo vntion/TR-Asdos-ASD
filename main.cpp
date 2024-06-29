@@ -1,15 +1,17 @@
 #include <iostream>
 #include <string>
+#include <fstream>
 
 using namespace std;
 
-string pegawai[] =  {"Budi", "Kusno", "Gusno"};
+const string pegawai[] =  {"Budi", "Kusno", "Gusno"};
 
 struct Pharmacist{
     int no_id;
     string nama_apoteker;
     Pharmacist* next;
-}; Pharmacist* HEAD_Pharmacist = NULL;
+}; 
+Pharmacist* HEAD_Pharmacist = NULL;
 
 struct Medicine{
     string nama_obat;
@@ -18,12 +20,14 @@ struct Medicine{
     string supplier;
     Medicine* next;
 };
+Medicine* HEAD_Medicine = NULL;
 
 struct Buyer{
     string nomor_bpjs;
     string nama_buyer;
    Buyer* next;
 };
+Buyer* HEAD_Buyer = NULL;
 
 struct Receipts{
     string tanggal;
@@ -34,11 +38,7 @@ struct Receipts{
     long harga_total;
     Receipts* next;
 };
-
-int main(){
-
-    return 0;
-}
+Receipts* HEAD_Receipts = NULL;
 
 void search(){
 
@@ -57,14 +57,14 @@ void create_med(){
 
     int i = 1; // Iteration
 
-    // Proses input data apotik
+    // User memasukkan input data 
     do {
         cout << "Data Apotik ke - " << i << endl << endl;
 
         
-
-
     } while (i != input_jumlah_data);
+
+    // Memasukkan input ke data
 
     Pharmacist* newPharmacist = new Pharmacist;
     newPharmacist->no_id = 1;
@@ -99,23 +99,6 @@ void delete_med(){
 	// C->data = 7;
 	// C->next = NULL;
 	// B->next = C;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 int main(){
 
