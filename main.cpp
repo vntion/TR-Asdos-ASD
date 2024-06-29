@@ -1,41 +1,77 @@
 #include <iostream>
+#include <string>
 
 using namespace std;
 
-struct pharmacist{
+string pegawai[] =  {"Budi", "Kusno", "Gusno"};
+
+struct Pharmacist{
     int no_id;
     string nama_apoteker;
-    pharmacist* next;
-};
-struct medicine{
+    Pharmacist* next;
+}; Pharmacist* HEAD_Pharmacist = NULL;
+
+struct Medicine{
     string nama_obat;
     int kode_obat;
     string expired_obat;
     string supplier;
-    medicine* next;
-
+    Medicine* next;
 };
-struct buyer{
+
+struct Buyer{
     string nomor_bpjs;
     string nama_buyer;
-   buyer* next;
-
+   Buyer* next;
 };
-struct receipts{
+
+struct Receipts{
     string tanggal;
     string nomor_bpjs;
     string nama_buyer;
     string nama_obat;
-    int quantity;
+    int jumlah;
     long harga_total;
-    receipts* next;
-
+    Receipts* next;
 };
+
+int main(){
+
+    return 0;
+}
 
 void search(){
 
 }
+
+// Input data
 void create_med(){
+    int input_jumlah_data; // Jumlah data yang ingin dimasukkan
+    int input_no_id, input_kode_obat, input_jumlah;
+    long input_harga_total;
+    string input_nama_apoteker, input_nama_obat, input_expired_obat, input_supplier, input_nomor_bpjs, input_nama_buyer, input_tanggal, input_nomor_bpjs, input_nama_buyer, nama_obat;
+
+    cout << "Masukkan Jumlah Data: ";
+    cin >> input_jumlah_data;
+    cout << endl << endl;
+
+    int i = 1; // Iteration
+
+    // Proses input data apotik
+    do {
+        cout << "Data Apotik ke - " << i << endl << endl;
+
+        
+
+
+    } while (i != input_jumlah_data);
+
+    Pharmacist* newPharmacist = new Pharmacist;
+    newPharmacist->no_id = 1;
+    newPharmacist->nama_apoteker = pegawai[0];
+    newPharmacist->next = NULL;
+
+    HEAD_Pharmacist = newPharmacist;
 
 }
 void read_med(){
@@ -49,20 +85,20 @@ void delete_med(){
 }
 
 
-    pharmacist* HEAD = new pharmacist;
-	new pharmacist->no_id = 2;
-    HEAD->na
-	HEAD->next = NULL;
+    // pharmacist* HEAD = new pharmacist;
+	// new pharmacist->no_id = 2;
+    // HEAD->na
+	// HEAD->next = NULL;
 
-	pharmacist* B = new pharmacist;
-	B->data = 5;
-	B->next = NULL;
-	HEAD->next = B;
+	// pharmacist* B = new pharmacist;
+	// B->data = 5;
+	// B->next = NULL;
+	// HEAD->next = B;
 
-	pharmacist* C = new pharmacist;
-	C->data = 7;
-	C->next = NULL;
-	B->next = C;
+	// pharmacist* C = new pharmacist;
+	// C->data = 7;
+	// C->next = NULL;
+	// B->next = C;
 
 
 
