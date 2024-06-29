@@ -32,9 +32,9 @@ Buyer* HEAD_Buyer = NULL;
 
 struct Receipts{
     string tanggal;
-    string nomor_bpjs;
-    string nama_buyer;
-    string nama_obat;
+    // string nomor_bpjs;
+    // string nama_buyer;
+    // string nama_obat;
     int jumlah;
     long harga_total;
     Receipts* next;
