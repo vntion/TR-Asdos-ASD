@@ -4,7 +4,8 @@
 
 using namespace std;
 
-const string pegawai[] =  {"Budi", "Kusno", "Gusno"};
+const string pegawai[] = {"Budi", "Kusno", "Gusno"};
+const string FILE = "data.txt";
 
 struct Pharmacist{
     int no_id;
