@@ -64,7 +64,7 @@ void create_med(){
         
     } while (i != input_jumlah_data);
 
-    // Memasukkan input ke data
+    // Setelah user memasukkan input, proses selanjutnya memasukkan input ke data
 
     Pharmacist* newPharmacist = new Pharmacist;
     newPharmacist->no_id = 1;
