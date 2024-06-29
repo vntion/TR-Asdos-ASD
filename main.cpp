@@ -66,6 +66,33 @@ void create_med(){
     do {
         cout << "Data Apotik ke - " << i << endl << endl;
 
+        cout << "Nama Pasien\t : ";
+        cin >> input_nama_buyer;
+
+        cout << "Nomor BPJS\t : ";
+        cin >> input_nomor_bpjs;
+
+        cout << "Tanggal\t : ";
+        cin >> input_tanggal;
+
+        cout << "Nama Obat\t : ";
+        cin >> input_nama_obat;
+
+        cout << "Kode Obat\t : ";
+        cin >> input_kode_obat;
+
+        cout << "Expired Obat\t : ";
+        cin >> input_expired_obat;
+
+        cout << "Supplier\t : ";
+        cin >> input_supplier;
+
+        cout << "Jumlah\t : ";
+        cin >> input_jumlah;
+
+        cout << "Harga Total\t : ";
+        cin >> input_harga_total;
+
         
     } while (i != input_jumlah_data);
 
