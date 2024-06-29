@@ -7,6 +7,7 @@ using namespace std;
 const string pegawai[] = {"Budi", "Kusno", "Gusno"};
 const string FILE = "data.txt";
 
+// Linked list
 struct Pharmacist{
     int no_id;
     string nama_apoteker;
@@ -40,6 +41,9 @@ struct Receipts{
     Receipts* next;
 };
 Receipts* HEAD_Receipts = NULL;
+
+////////////////////////////////////////////////////////////////
+///////////////////////////////////
 
 void search(){
 
