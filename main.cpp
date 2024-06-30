@@ -54,7 +54,7 @@ void create_med(){
     int input_jumlah_data; // Jumlah data yang ingin dimasukkan
     int input_no_id, input_kode_obat, input_jumlah;
     long input_harga_total;
-    string input_nama_apoteker, input_nama_obat, input_expired_obat, input_supplier, input_nomor_bpjs, input_nama_buyer, input_tanggal, input_nomor_bpjs, input_nama_buyer, nama_obat;
+    string input_nama_apoteker, input_nama_obat, input_expired_obat, input_supplier, input_nomor_bpjs, input_nama_buyer, input_tanggal, nama_obat;
 
     cout << "Masukkan Jumlah Data: ";
     cin >> input_jumlah_data;
@@ -97,15 +97,56 @@ void create_med(){
     } while (i != input_jumlah_data);
 
     // Setelah user memasukkan input, proses selanjutnya memasukkan input ke data
-
-    Pharmacist* newPharmacist = new Pharmacist;
-    newPharmacist->no_id = 1;
-    newPharmacist->nama_apoteker = pegawai[0];
-    newPharmacist->next = NULL;
-
-    HEAD_Pharmacist = newPharmacist;
-
+    addMedicine(input_nama_obat, input_kode_obat, input_expired_obat, input_supplier);    
+    addBuyer(input_nomor_bpjs, input_nama_buyer);
+    addReceipts(input_tanggal, input_jumlah, input_harga_total);
 }
+
+void addMedicine(string nama_obat, int kode_obat, string expired_obat, string supplier){
+    Medicine* newMedicine = new Medicine;
+    newMedicine->nama_obat = nama_obat;
+    newMedicine->kode_obat = kode_obat;
+    newMedicine->expired_obat = expired_obat;
+    newMedicine->supplier = supplier;
+    newMedicine->next = NULL;
+
+    if (HEAD_Medicine == NULL) HEAD_Medicine = newMedicine;
+    else {
+        Medicine* temp = HEAD_Medicine;
+        while (temp->next != NULL) temp = temp->next;
+        temp->next = newMedicine;
+    }
+}
+
+void addBuyer(string nomor_bpjs, string nama_buyer) {
+    Buyer* newBuyer = new Buyer;
+    newBuyer->nomor_bpjs = nomor_bpjs;
+    newBuyer->nama_buyer = nama_buyer;
+    newBuyer->next = NULL;
+
+    if (HEAD_Buyer == NULL) HEAD_Buyer = newBuyer;
+    else {
+        Buyer* temp = HEAD_Buyer;
+        while (temp->next != NULL) temp = temp->next;
+        temp->next = newBuyer;
+    }
+}
+
+void addReceipts(string tanggal, int jumlah, long harga_total){
+    Receipts* newReceipts = new Receipts;
+    newReceipts->tanggal = tanggal;
+    newReceipts->jumlah = jumlah;
+    newReceipts->harga_total = harga_total;
+    newReceipts->next = NULL;
+
+    if (HEAD_Receipts == NULL) HEAD_Receipts = newReceipts;
+    else {
+        Receipts* temp = HEAD_Receipts;
+        while (temp->next != NULL) temp = temp->next;
+        temp->next = newReceipts;
+    }
+}
+
 void read_med(){
 
 }
