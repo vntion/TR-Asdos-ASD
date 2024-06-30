@@ -5,7 +5,7 @@
 using namespace std;
 
 const string pegawai[] = {"Budi", "Kusno", "Gusno"};
-const string nama_file = "data.txt";
+const string nama_file = "data2.txt";
 
 // Linked list
 struct Data{
