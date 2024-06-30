@@ -45,6 +45,8 @@ Receipts* HEAD_Receipts = NULL;
 ////////////////////////////////////////////////////////////////
 ///////////////////////////////////
 
+void set_data(){}
+
 void search(){
 
 }
@@ -93,16 +95,19 @@ void create_med(){
         cout << "Harga Total\t : ";
         cin >> input_harga_total;
 
-        
+        i++;
     } while (i != input_jumlah_data);
 
     // Setelah user memasukkan input, proses selanjutnya memasukkan input ke data
-    addMedicine(input_nama_obat, input_kode_obat, input_expired_obat, input_supplier);    
-    addBuyer(input_nomor_bpjs, input_nama_buyer);
-    addReceipts(input_tanggal, input_jumlah, input_harga_total);
+    add_medicine(input_nama_obat, input_kode_obat, input_expired_obat, input_supplier);    
+    add_buyer(input_nomor_bpjs, input_nama_buyer);
+    add_receipts(input_tanggal, input_jumlah, input_harga_total);
+
+    // Menambahkan data ke file 
+    set_data();
 }
 
-void addMedicine(string nama_obat, int kode_obat, string expired_obat, string supplier){
+void add_medicine(string nama_obat, int kode_obat, string expired_obat, string supplier){
     Medicine* newMedicine = new Medicine;
     newMedicine->nama_obat = nama_obat;
     newMedicine->kode_obat = kode_obat;
@@ -118,7 +123,7 @@ void addMedicine(string nama_obat, int kode_obat, string expired_obat, string su
     }
 }
 
-void addBuyer(string nomor_bpjs, string nama_buyer) {
+void add_buyer(string nomor_bpjs, string nama_buyer) {
     Buyer* newBuyer = new Buyer;
     newBuyer->nomor_bpjs = nomor_bpjs;
     newBuyer->nama_buyer = nama_buyer;
@@ -132,7 +137,7 @@ void addBuyer(string nomor_bpjs, string nama_buyer) {
     }
 }
 
-void addReceipts(string tanggal, int jumlah, long harga_total){
+void add_receipts(string tanggal, int jumlah, long harga_total){
     Receipts* newReceipts = new Receipts;
     newReceipts->tanggal = tanggal;
     newReceipts->jumlah = jumlah;
@@ -174,6 +179,7 @@ void delete_med(){
 	// B->next = C;
 
 int main(){
+    // get_data();
 
     return 0;
 }
