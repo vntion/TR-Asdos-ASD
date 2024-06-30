@@ -5,7 +5,7 @@
 using namespace std;
 
 const string pegawai[] = {"Budi", "Kusno", "Gusno"};
-const string FILE = "data.txt";
+const string nama_file = "data.txt";
 
 // Linked list
 struct Pharmacist{
@@ -45,7 +45,18 @@ Receipts* HEAD_Receipts = NULL;
 ////////////////////////////////////////////////////////////////
 ///////////////////////////////////
 
-void set_data(){}
+void get_data(){}
+
+void set_data(){
+    ofstream outFile(nama_file);
+
+    if (!outFile) {
+        cerr << "Ada yang salah, tidak bisa membaca file" << endl;
+        return;
+    }
+
+    outFile.close();
+}
 
 void search(){
 
@@ -179,7 +190,7 @@ void delete_med(){
 	// B->next = C;
 
 int main(){
-    // get_data();
+    get_data(); // Mengambil data dari file txt
 
     return 0;
 }
