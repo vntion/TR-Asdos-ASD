@@ -27,17 +27,40 @@ Data* HEAD = NULL;
 ////////////////////////////////////////////////////////////////
 ///////////////////////////////////
 
-void get_data(){}
+void get_data(){
+    ifstream inFile(nama_file);
 
-void set_data(){
-    ofstream outFile(nama_file);
-
-    if (!outFile) {
+     if (!inFile) {
         cerr << "Ada yang salah, tidak bisa membaca file" << endl;
         return;
     }
 
-    outFile.close();
+    string line;
+
+    while (getline(inFile, line)) {
+        
+    }
+
+    inFile.close();
+}
+
+void set_data() {
+  ofstream outFile(nama_file);
+
+  if (!outFile) {
+    cerr << "Ada yang salah, tidak bisa membaca file" << endl;
+    return;
+  }
+
+  Data * temp = HEAD;
+
+  while (temp != NULL) {
+    outFile << temp -> no_id << ";" << temp -> nama_apoteker << ";" << temp -> tanggal << ";" << temp -> nomor_bpjs << ";" << temp -> nama_buyer << ";" << temp -> nama_obat << ";" <<
+    temp -> kode_obat << ";" << temp -> expired_obat << ";" << temp -> supplier << ";" << temp -> jumlah << ";" << temp -> harga_total << ";" << endl;
+    temp = temp -> next;
+  }
+
+  outFile.close();
 }
 
 void search(){
@@ -92,7 +115,6 @@ void create_med(){
     } while (i != input_jumlah_data);
 
     // Setelah user memasukkan input, proses selanjutnya memasukkan input ke data
-    
     Data* newData = new Data;
     newData->tanggal = input_tanggal;
     newData->nomor_bpjs = input_nomor_bpjs;
