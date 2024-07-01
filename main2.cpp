@@ -188,13 +188,33 @@ void edit_data(){
     int cari_id;
     cout << "Cari No ID yang mau diedit :";
     cin >> cari_id;
-    
+
 
     Data* temp = HEAD;
     while (temp != NULL) {
         if (temp -> no_id == cari_id) break;
         temp = temp -> next;
     }
+    
+    int no_id;
+    string nama_apoteker;
+    string tanggal;
+    string nomor_bpjs;
+    string nama_buyer;
+    string nama_obat;
+    int kode_obat;
+    string expired_obat;
+    string supplier;
+    int jumlah;
+    long harga_total;
+
+    int pilih_menu;
+
+    cout << "1. NO ID \t"         << "5. NAMA BUYER \t"     << "9. SUPPLIER \t"     << endl;
+    cout << "2. NAMA APOTEKER \t" << "6. NAMA OBAT \t"      << "10. JUMLAH \t"      << endl;
+    cout << "3. TANGGAL \t"       << "7. KODE OBAT \t"      << "11. HARGA TOTAL \t" << endl;
+    cout << "4. NO BPJS \t"       << "8. EXPIRED OBAT \t"   << "12. KEMBALI \t"     << endl;
+
 
 
 
