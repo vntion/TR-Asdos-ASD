@@ -211,27 +211,29 @@ void edit_data(){
         return;
     }
 
-    awal:
-    int cari_id;
-    bool found = false;
-    cout << "Cari No ID yang mau diedit :";
-    cin >> cari_id;
-
-    // Cari id dari linked list
     Data* temp = HEAD;
-    while (temp != NULL) {
-        if (temp -> no_id == cari_id) {
-            found = true;
-            break;
-        }
-        temp = temp -> next;
-    }
 
-    // Cek apakah data ditemukan atau tidak
-    if (!found) {
-        cout << "Data tidak ditemukan!";
-        getch();
-        goto awal;
+    while (true) {
+        int cari_id;
+        bool found = false;
+        cout << "Cari No ID yang mau diedit :";
+        cin >> cari_id;
+
+        // Cari id dari linked list
+        while (temp != NULL) {
+            if (temp -> no_id == cari_id) {
+                found = true;
+                break;
+            }
+            temp = temp -> next;
+        }
+
+        // Cek apakah data ditemukan atau tidak
+        if (!found) {
+            cout << "Data tidak ditemukan!";
+            getch();
+        }
+        if (found) break;
     }
 
     // Pilih menu
