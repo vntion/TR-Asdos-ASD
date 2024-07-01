@@ -95,7 +95,6 @@ void set_data() {
   outFile.close();
 }
 
-// Input data
 void tambah_data(){
     int input_jumlah_data; // Jumlah data yang ingin dimasukkan
     int input_no_id, input_kode_obat, input_jumlah;
@@ -197,10 +196,68 @@ void lihat_data(){
         temp = temp -> next;
     }
 
+    cout << "=====================================================================" << endl;
     getch();
 }
 
 void hapus_data(){
+    if (HEAD == NULL) {
+        cout << "Belum ada data :(";
+        getch();
+        return;
+    }
+
+    cout << "=====================================================================" << endl;
+    cout << "||                                    HAPUS DATA                   ||" << endl;
+    cout << "=====================================================================" << endl;
+
+    // Render tabel data
+
+    // Pencarian ID 
+    Data* search = HEAD;
+    int cari_id;
+    bool found = false;
+    while (true) {
+        cout << "Cari No ID yang mau dihapus :";
+        cin >> cari_id;
+
+        while (search != NULL) {
+            if (search->no_id == cari_id) {
+                found = true;
+                break;
+            }
+            search = search -> next;
+        }
+
+        // Cek apakah data ditemukan atau tidak
+        if (!found) {
+            cout << "ID tidak ditemukan!";
+            getch();
+        }
+        if (found) break;
+    }
+
+    ///// Proses hapus data berdasarkan id
+    Data* temp = HEAD;
+    Data* prev = NULL;
+
+    // Jika id yang dicari berada di awal linked list
+    if (HEAD->no_id == cari_id) {
+        HEAD = HEAD -> next;
+        set_data();
+        return;
+    }
+
+    // Jika id yang dicari tidak di awal linked list
+    while (temp != NULL && temp->no_id != cari_id) {
+        prev = temp;
+        temp = temp->next;
+    }
+
+    prev->next = temp->next;
+
+    // Menambahkan data ke file
+    set_data();
 
 }
 
@@ -213,9 +270,10 @@ void edit_data(){
 
     Data* temp = HEAD;
 
+    // Cari ID
+    int cari_id;
+    bool found = false;
     while (true) {
-        int cari_id;
-        bool found = false;
         cout << "Cari No ID yang mau diedit :";
         cin >> cari_id;
 
@@ -236,7 +294,6 @@ void edit_data(){
         if (found) break;
     }
 
-    // Pilih menu
     int no_id;
     string nama_apoteker;
     string tanggal;
@@ -250,77 +307,82 @@ void edit_data(){
     long harga_total;
 
     int pilih_menu;
+    bool is_again = true;
 
-    cout << "1. NO ID \t"         << "5. NAMA BUYER \t"     << "9. SUPPLIER \t"     << endl;
-    cout << "2. NAMA APOTEKER \t" << "6. NAMA OBAT \t"      << "10. JUMLAH \t"      << endl;
-    cout << "3. TANGGAL \t"       << "7. KODE OBAT \t"      << "11. HARGA TOTAL \t" << endl;
-    cout << "4. NO BPJS \t"       << "8. EXPIRED OBAT \t"   << "12. KEMBALI \t"     << endl;
+    // Pilih menu
+    while (is_again) {
+        cout << "1. NO ID \t"         << "5. NAMA BUYER \t"     << "9. SUPPLIER \t"     << endl;
+        cout << "2. NAMA APOTEKER \t" << "6. NAMA OBAT \t"      << "10. JUMLAH \t"      << endl;
+        cout << "3. TANGGAL \t"       << "7. KODE OBAT \t"      << "11. HARGA TOTAL \t" << endl;
+        cout << "4. NO BPJS \t"       << "8. EXPIRED OBAT \t"   << "12. KEMBALI \t"     << endl;
 
-    cout << "Pilihan : ";
-    cin >> pilih_menu;
+        cout << "Pilihan : ";
+        cin >> pilih_menu;
 
-    // Setelah memilih menu
-    switch (pilih_menu) {
-        case 1:
-            cout << "No id baru : ";
-            cin >> no_id;
-            temp -> no_id = no_id;
-            break;
-        case 2:
-            cout << "Nama Apoteker baru : ";
-            cin >> nama_apoteker;
-            temp -> nama_apoteker = nama_apoteker;
-            break;
-        case 3:
-            cout << "Tanggal baru : ";
-            cin >> tanggal;
-            temp -> tanggal = tanggal;
-            break;
-        case 4:
-            cout << "No BPJS baru : ";
-            cin >> nomor_bpjs;
-            temp -> nomor_bpjs = nomor_bpjs;
-            break;
-        case 5:
-            cout << "Nama Buyer baru : ";
-            cin >> nama_buyer;
-            temp -> nama_buyer = nama_buyer;
-            break;
-        case 6:
-            cout << "Nama Obat baru : ";
-            cin >> nama_obat;
-            temp -> nama_obat = nama_obat;
-            break;
-        case 7:
-            cout << "Kode Obat baru : ";
-            cin >> kode_obat;
-            temp -> kode_obat = kode_obat;
-            break;
-        case 8:
-            cout << "Expired Obat baru : ";
-            cin >> expired_obat;
-            temp -> expired_obat = expired_obat;
-            break;
-        case 9:
-            cout << "Supplier baru : ";
-            cin >> supplier;
-            temp -> supplier = supplier;
-            break;
-        case 10:
-            cout << "Jumlah baru : ";
-            cin >> jumlah;
-            temp -> jumlah = jumlah;
-            break;
-        case 11:
-            cout << "Harga Total baru : ";
-            cin >> harga_total;
-            temp -> harga_total = harga_total;
-            break;
-        case 12:
-            cout << "Kembali" << endl;
-            break;
-        default:
-            cout << "Pilih antara angka yang ada di menu (1-12)" << endl;
+        // Setelah memilih menu
+        switch (pilih_menu) {
+            case 1:
+                cout << "No id baru : ";
+                cin >> no_id;
+                temp -> no_id = no_id;
+                break;
+            case 2:
+                cout << "Nama Apoteker baru : ";
+                cin >> nama_apoteker;
+                temp -> nama_apoteker = nama_apoteker;
+                break;
+            case 3:
+                cout << "Tanggal baru : ";
+                cin >> tanggal;
+                temp -> tanggal = tanggal;
+                break;
+            case 4:
+                cout << "No BPJS baru : ";
+                cin >> nomor_bpjs;
+                temp -> nomor_bpjs = nomor_bpjs;
+                break;
+            case 5:
+                cout << "Nama Buyer baru : ";
+                cin >> nama_buyer;
+                temp -> nama_buyer = nama_buyer;
+                break;
+            case 6:
+                cout << "Nama Obat baru : ";
+                cin >> nama_obat;
+                temp -> nama_obat = nama_obat;
+                break;
+            case 7:
+                cout << "Kode Obat baru : ";
+                cin >> kode_obat;
+                temp -> kode_obat = kode_obat;
+                break;
+            case 8:
+                cout << "Expired Obat baru : ";
+                cin >> expired_obat;
+                temp -> expired_obat = expired_obat;
+                break;
+            case 9:
+                cout << "Supplier baru : ";
+                cin >> supplier;
+                temp -> supplier = supplier;
+                break;
+            case 10:
+                cout << "Jumlah baru : ";
+                cin >> jumlah;
+                temp -> jumlah = jumlah;
+                break;
+            case 11:
+                cout << "Harga Total baru : ";
+                cin >> harga_total;
+                temp -> harga_total = harga_total;
+                break;
+            case 12:
+                cout << "Kembali" << endl;
+                is_again = false;
+                break;
+            default:
+                cout << "Pilih antara angka yang ada di menu (1-12)" << endl;
+        }
     }
 
     // Menambahkan data ke file
