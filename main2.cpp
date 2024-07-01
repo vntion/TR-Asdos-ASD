@@ -189,13 +189,13 @@ void edit_data(){
     cout << "Cari No ID yang mau diedit :";
     cin >> cari_id;
 
-
+    // Cari id dari linked list
     Data* temp = HEAD;
     while (temp != NULL) {
         if (temp -> no_id == cari_id) break;
         temp = temp -> next;
     }
-    
+
     int no_id;
     string nama_apoteker;
     string tanggal;
