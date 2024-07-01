@@ -62,6 +62,50 @@ void search(){
 
 }
 
+void add_medicine(string nama_obat, int kode_obat, string expired_obat, string supplier){
+    Medicine* newMedicine = new Medicine;
+    newMedicine->nama_obat = nama_obat;
+    newMedicine->kode_obat = kode_obat;
+    newMedicine->expired_obat = expired_obat;
+    newMedicine->supplier = supplier;
+    newMedicine->next = NULL;
+
+    if (HEAD_Medicine == NULL) HEAD_Medicine = newMedicine;
+    else {
+        Medicine* temp = HEAD_Medicine;
+        while (temp->next != NULL) temp = temp->next;
+        temp->next = newMedicine;
+    }
+}
+
+void add_buyer(string nomor_bpjs, string nama_buyer) {
+    Buyer* newBuyer = new Buyer;
+    newBuyer->nomor_bpjs = nomor_bpjs;
+    newBuyer->nama_buyer = nama_buyer;
+    newBuyer->next = NULL;
+
+    if (HEAD_Buyer == NULL) HEAD_Buyer = newBuyer;
+    else {
+        Buyer* temp = HEAD_Buyer;
+        while (temp->next != NULL) temp = temp->next;
+        temp->next = newBuyer;
+    }
+}
+
+void add_receipts(string tanggal, int jumlah, long harga_total){
+    Receipts* newReceipts = new Receipts;
+    newReceipts->tanggal = tanggal;
+    newReceipts->jumlah = jumlah;
+    newReceipts->harga_total = harga_total;
+    newReceipts->next = NULL;
+
+    if (HEAD_Receipts == NULL) HEAD_Receipts = newReceipts;
+    else {
+        Receipts* temp = HEAD_Receipts;
+        while (temp->next != NULL) temp = temp->next;
+        temp->next = newReceipts;
+    }
+}
 // Input data
 void create_med(){
     int input_jumlah_data; // Jumlah data yang ingin dimasukkan
@@ -118,53 +162,32 @@ void create_med(){
     set_data();
 }
 
-void add_medicine(string nama_obat, int kode_obat, string expired_obat, string supplier){
-    Medicine* newMedicine = new Medicine;
-    newMedicine->nama_obat = nama_obat;
-    newMedicine->kode_obat = kode_obat;
-    newMedicine->expired_obat = expired_obat;
-    newMedicine->supplier = supplier;
-    newMedicine->next = NULL;
-
-    if (HEAD_Medicine == NULL) HEAD_Medicine = newMedicine;
-    else {
-        Medicine* temp = HEAD_Medicine;
-        while (temp->next != NULL) temp = temp->next;
-        temp->next = newMedicine;
-    }
-}
-
-void add_buyer(string nomor_bpjs, string nama_buyer) {
-    Buyer* newBuyer = new Buyer;
-    newBuyer->nomor_bpjs = nomor_bpjs;
-    newBuyer->nama_buyer = nama_buyer;
-    newBuyer->next = NULL;
-
-    if (HEAD_Buyer == NULL) HEAD_Buyer = newBuyer;
-    else {
-        Buyer* temp = HEAD_Buyer;
-        while (temp->next != NULL) temp = temp->next;
-        temp->next = newBuyer;
-    }
-}
-
-void add_receipts(string tanggal, int jumlah, long harga_total){
-    Receipts* newReceipts = new Receipts;
-    newReceipts->tanggal = tanggal;
-    newReceipts->jumlah = jumlah;
-    newReceipts->harga_total = harga_total;
-    newReceipts->next = NULL;
-
-    if (HEAD_Receipts == NULL) HEAD_Receipts = newReceipts;
-    else {
-        Receipts* temp = HEAD_Receipts;
-        while (temp->next != NULL) temp = temp->next;
-        temp->next = newReceipts;
-    }
-}
-
 void read_med(){
-
+    Medicine* temp = HEAD_Medicine;
+    while (temp != NULL) {
+        cout << temp->nama_obat << " ";
+        cout << temp->kode_obat << " ";
+        cout << temp->expired_obat << " ";
+        cout << temp->supplier << " ";
+        temp = temp->next;
+    }
+}
+void read_buyer(){
+    Buyer* temp = HEAD_Buyer;
+    while (temp != NULL) {
+        cout << temp->nomor_bpjs << " ";
+        cout << temp->nama_buyer << " ";
+        temp = temp->next;
+    }
+}
+void read_receipts(){
+    Receipts* temp = HEAD_Receipts;
+    while (temp != NULL) {
+        cout << temp->tanggal << " ";
+        cout << temp->jumlah << " ";
+        cout << temp->harga_total << " ";
+        temp = temp->next;
+    }
 }
 void update_med(){
 
@@ -191,6 +214,7 @@ void delete_med(){
 
 int main(){
     get_data(); // Mengambil data dari file txt
-
+    create_med();
+    read_med();
     return 0;
 }
