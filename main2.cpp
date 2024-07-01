@@ -1,6 +1,9 @@
 #include <iostream>
 #include <string>
 #include <fstream>
+#include <sstream>
+#include <conio.h>
+#include <cstdlib>
 
 using namespace std;
 
@@ -38,7 +41,36 @@ void get_data(){
     string line;
 
     while (getline(inFile, line)) {
-        
+        if (line.empty()) continue;
+
+        string arr[11];
+        int i = 0;
+        stringstream ssin(line);
+        while (ssin.good() && i < 11) {
+            ssin >> arr[i];
+            i++;
+        }
+
+        Data* newData = new Data;
+        newData -> no_id = stoi(arr[0]);
+        newData -> nama_apoteker = arr[1];
+        newData -> tanggal = arr[2];
+        newData->nomor_bpjs = arr[3];
+        newData->nama_buyer = arr[4];
+        newData->nama_obat = arr[5];
+        newData->kode_obat = stoi(arr[6]);
+        newData->expired_obat = arr[7];
+        newData->supplier = arr[8];
+        newData->jumlah = stoi(arr[9]);
+        newData->harga_total = stol(arr[10]);
+        newData->next = NULL;
+
+        if (HEAD == NULL) HEAD = newData;
+        else {
+            Data* temp = HEAD;
+            while (temp->next != NULL) temp = temp->next;
+            temp->next = newData;
+        }
     }
 
     inFile.close();
@@ -55,20 +87,16 @@ void set_data() {
   Data * temp = HEAD;
 
   while (temp != NULL) {
-    outFile << temp -> no_id << ";" << temp -> nama_apoteker << ";" << temp -> tanggal << ";" << temp -> nomor_bpjs << ";" << temp -> nama_buyer << ";" << temp -> nama_obat << ";" <<
-    temp -> kode_obat << ";" << temp -> expired_obat << ";" << temp -> supplier << ";" << temp -> jumlah << ";" << temp -> harga_total << ";" << endl;
+    outFile << temp -> no_id << " " << temp -> nama_apoteker << " " << temp -> tanggal << " " << temp -> nomor_bpjs << " " << temp -> nama_buyer << " " << temp -> nama_obat << " " <<
+    temp -> kode_obat << " " << temp -> expired_obat << " " << temp -> supplier << " " << temp -> jumlah << " " << temp -> harga_total << endl;
     temp = temp -> next;
   }
 
   outFile.close();
 }
 
-void search(){
-
-}
-
 // Input data
-void create_med(){
+void buat_data(){
     int input_jumlah_data; // Jumlah data yang ingin dimasukkan
     int input_no_id, input_kode_obat, input_jumlah;
     long input_harga_total;
@@ -138,50 +166,47 @@ void create_med(){
     set_data();
 }
 
-void add_data(){
-
-};
-
-// void add_receipts(string tanggal, int jumlah, long harga_total){
-//     Receipts* newReceipts = new Receipts;
-//     newReceipts->tanggal = tanggal;
-//     newReceipts->jumlah = jumlah;
-//     newReceipts->harga_total = harga_total;
-//     newReceipts->next = NULL;
-
-//     if (HEAD_Receipts == NULL) HEAD_Receipts = newReceipts;
-//     else {
-//         Receipts* temp = HEAD_Receipts;
-//         while (temp->next != NULL) temp = temp->next;
-//         temp->next = newReceipts;
-//     }
-// }
-
-void read_med(){
-
-}
-void update_med(){
-
-}
-void delete_med(){
+void lihat_data(){
 
 }
 
+void tambah_data(){
 
-    // pharmacist* HEAD = new pharmacist;
-	// new pharmacist->no_id = 2;
-    // HEAD->na
-	// HEAD->next = NULL;
+}
 
-	// pharmacist* B = new pharmacist;
-	// B->data = 5;
-	// B->next = NULL;
-	// HEAD->next = B;
+void hapus_data(){
 
-	// pharmacist* C = new pharmacist;
-	// C->data = 7;
-	// C->next = NULL;
-	// B->next = C;
+}
+
+void edit_data(){
+    if (HEAD == NULL) {
+        cout << "Belum ada data :(";
+        getch();
+        return;
+    }
+
+    int cari_id;
+    cout << "Cari No ID yang mau diedit :";
+    cin >> cari_id;
+    
+
+    Data* temp = HEAD;
+    while (temp != NULL) {
+        if (temp -> no_id == cari_id) break;
+        temp = temp -> next;
+    }
+
+
+
+}
+
+void cari_data(){
+
+}
+
+void urutkan_data(){
+
+}
 
 int main(){
     get_data(); // Mengambil data dari file txt
