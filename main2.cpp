@@ -41,8 +41,6 @@ void get_data(){
     string line;
 
     while (getline(inFile, line)) {
-        if (line.empty()) continue;
-
         string arr[11];
         int i = 0;
         stringstream ssin(line);
