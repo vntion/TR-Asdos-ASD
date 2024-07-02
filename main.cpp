@@ -58,8 +58,43 @@ void set_data(){
     outFile.close();
 }
 
-void search(){
+// SEARCH FUNCTION 
+void cari_IDapoteker(){
+    int search_id;
 
+    cout << "Masukkan keyword id yang ingin dicari : ";
+    cin >> search_id;
+
+    Pharmacist* temp = HEAD_Pharmacist;
+    while (temp != NULL) {
+        if(search_id!=temp->no_id){
+            temp = temp->next;
+        }
+        else{
+            cout << "Data ditemukan !" << endl;
+            cout << temp->no_id << endl;
+            cout << temp->nama_apoteker << endl;
+        }
+    }
+}
+
+void cari_NAMAapoteker(){
+    string search_Namaapoteker;
+
+    cout << "Masukkan keyword nama yang ingin dicari : ";
+    cin >> search_Namaapoteker;
+
+    Pharmacist* temp = HEAD_Pharmacist;
+    while (temp != NULL) {
+        if(search_Namaapoteker!=temp->nama_apoteker){
+            temp = temp->next;
+        }
+        else{
+            cout << "Data ditemukan !" << endl;
+            cout << temp->no_id << endl;
+            cout << temp->nama_apoteker << endl;
+        }
+    }
 }
 
 void add_medicine(string nama_obat, int kode_obat, string expired_obat, string supplier){
