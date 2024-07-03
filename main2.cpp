@@ -636,7 +636,7 @@ void cari_id(){
 
     Data* temp = HEAD;
     while (temp != NULL) {
-        if(search_idpengisian!=temp->no_id){
+        if(search_idpengisian==temp->no_id){
             temp = temp->next;
         }
         else{
