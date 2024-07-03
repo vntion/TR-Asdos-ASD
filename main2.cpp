@@ -112,7 +112,7 @@ void tambah_data(){
     cout << "=====================================================================" << endl;
     cout << "||                           MASUKKAN DATA                         ||" << endl;
     cout << "=====================================================================" << endl;
-    cout << "Kembali: 0" << endl;
+    cout << "Kembali: 0" << endl << endl;
 
     while (true) {
         cout << "Masukkan Jumlah Data: ";
@@ -308,7 +308,7 @@ void hapus_data(){
         getch();
         return;
     }
-    cout << "Kembali: 0" << endl;
+    cout << "Kembali: 0" << endl << endl;
 
     // Render tabel data
     Data* temp = HEAD;
@@ -408,7 +408,7 @@ void edit_data(){
         getch();
         return;
     }
-    cout << "Kembali: 0" << endl;
+    cout << "Kembali: 0" << endl << endl;
 
     Data* temp = HEAD;
 
@@ -1354,8 +1354,8 @@ void cari_data(){
         getch();
         return;
     }
-    int choice;
-    cout << "Kembali: 0" << endl;
+    int choice2;
+    cout << "Kembali: 0" << endl << endl;
 
     do{
         cout << "Cari berdasarkan apa : "     << endl;
@@ -1363,10 +1363,10 @@ void cari_data(){
         cout << "2. NO ID PEGAWAI \t" << "6. NAMA BUYER \t"     << "10. SUPPLIER \t"     << endl;
         cout << "3. NAMA APOTEKER \t" << "7. NAMA OBAT \t"      << "11. JUMLAH \t"      << endl;
         cout << "4. TANGGAL \t"       << "8. KODE OBAT \t"      << "12. HARGA TOTAL \t" << endl;
-        cout << "13. KEMBALI \t"      << endl;
+        cout << "13. KEMBALI \t"      << endl << endl;
 
         while (true) {
-            cin >> choice;
+            cin >> choice2;
             if (cin.fail()) {
                 cout << "Invalid input, masukkan angka bulat" << endl;
                 clearInputBuffer();
@@ -1374,8 +1374,8 @@ void cari_data(){
                 break;
             }
         }
-        if (choice == 0) break;
-        switch (choice) {
+        if (choice2 == 0) break;
+        switch (choice2) {
                         case 1:
                             cari_id();
                             break;
@@ -1422,7 +1422,7 @@ void cari_data(){
                             break;
 
         }
-    } while (choice !=12);
+    } while (choice2 != 13 );
 
 }
 
