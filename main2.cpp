@@ -542,7 +542,7 @@ void edit_data(){
     bool found = false;
     while (true) {
         
-        cout << "\t\t\t\t\t\tCari No ID yang mau di edit :";
+        cout << "\t\tCari No ID yang mau di edit :";
         while (true) {
             cin >> cari_id;
             if (cin.fail() || cari_id < 0) {
