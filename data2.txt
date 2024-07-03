@@ -1,2 +1,3 @@
-123;123;ali;eqweq;qwe;qwe;qwe;123;we;qwrqwe;123;12312321;
-1239;9123;ali;opqwei;023123;pqweqwep;wqieowq;10923;fdsf;213;2133;441;
+3;3;asdf;asdfs;123123;asdf;asdf;123;asdf;asdf;123;123;
+1;3;Baskoro Adi Widagdo;12 Mei 202;1204934;Gusno;uit;234;12 Juni 2024;PT;10;1000;
+1;155;asdf;asdf;13123;asdf;asdf;123;asdf;asdf;123;123;
