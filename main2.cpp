@@ -1998,8 +1998,7 @@ void sort_data(){
         getch();
         return;
     }
-
-    int choice1;
+        int choice1;
 
     do{
         cout << "Sort berdasarkan apa : "     << endl;
@@ -2017,7 +2016,18 @@ void sort_data(){
         cout << "12. HARGA TOTAL \t" << endl;
         cout << "13. KEMBALI \t"      << endl;
 
-        cin >> choice1;
+        while (true) {
+                cin >> choice1;
+
+                if (cin.fail() || cari_id < 0) {
+                cout << "Invalid input, masukkan angka bulat" << endl;
+                clearInputBuffer();
+            } else {
+                break;
+            }
+        }
+        clearInputBuffer();
+        
         switch (choice1) {
                         case 1:
                             sort_ID(HEAD);
@@ -2106,7 +2116,18 @@ void cari_data(){
         cout << "12. HARGA TOTAL \t" << endl;
         cout << "13. KEMBALI \t"      << endl;
 
-        cin >> choice2;
+        while (true) {
+                cin >> choice2;
+
+                if (cin.fail() || cari_id < 0) {
+                cout << "Invalid input, masukkan angka bulat" << endl;
+                clearInputBuffer();
+            } else {
+                break;
+            }
+        }
+        clearInputBuffer();
+
         switch (choice2) {
                         case 1:
                             cari_id();
