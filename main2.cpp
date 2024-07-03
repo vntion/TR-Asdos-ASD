@@ -53,7 +53,6 @@ void get_data(){
         stringstream data(line);
         string line2;
         while (data.good() && getline(data, line2, ';') && i < 12) {
-            // cout << "Mengisi arr[" << i << "] dengan nilai: " << line2 << endl;
             arr[i] = line2;
             i++;
         }
