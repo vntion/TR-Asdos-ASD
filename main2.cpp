@@ -1130,6 +1130,219 @@ void cari_hargatotal(){
     }
 }
 
+void SortNamaApoteker(Data*& HEAD) {
+  int swapped;
+  Data* ptr1;
+  Data* lptr = NULL;
+
+  if (HEAD == NULL)
+    return;
+
+  do {
+    swapped = 0;
+    ptr1 = HEAD;
+
+    while (ptr1->next != lptr) {
+      if (ptr1->nama_apoteker > ptr1->next->nama_apoteker) {
+        int tempNoId = ptr1->no_id;
+        ptr1->no_id = ptr1->next->no_id;
+        ptr1->next->no_id = tempNoId;
+
+        int tempNoIdApoteker = ptr1->no_id_apoteker;
+        ptr1->no_id_apoteker = ptr1->next->no_id_apoteker;
+        ptr1->next->no_id_apoteker = tempNoIdApoteker;
+
+        string tempNamaApoteker = ptr1->nama_apoteker;
+        ptr1->nama_apoteker = ptr1->next->nama_apoteker;
+        ptr1->next->nama_apoteker = tempNamaApoteker;
+
+        string tempTanggal = ptr1->tanggal;
+        ptr1->tanggal = ptr1->next->tanggal;
+        ptr1->next->tanggal = tempTanggal;
+
+        long tempNomorBpjs = ptr1->nomor_bpjs;
+        ptr1->nomor_bpjs = ptr1->next->nomor_bpjs;
+        ptr1->next->nomor_bpjs = tempNomorBpjs;
+
+        string tempNamaBuyer = ptr1->nama_buyer;
+        ptr1->nama_buyer = ptr1->next->nama_buyer;
+        ptr1->next->nama_buyer = tempNamaBuyer;
+
+        string tempNamaObat = ptr1->nama_obat;
+        ptr1->nama_obat = ptr1->next->nama_obat;
+        ptr1->next->nama_obat = tempNamaObat;
+
+        int tempKodeObat = ptr1->kode_obat;
+        ptr1->kode_obat = ptr1->next->kode_obat;
+        ptr1->next->kode_obat = tempKodeObat;
+
+        string tempExpiredObat = ptr1->expired_obat;
+        ptr1->expired_obat = ptr1->next->expired_obat;
+        ptr1->next->expired_obat = tempExpiredObat;
+
+        string tempSupplier = ptr1->supplier;
+        ptr1->supplier = ptr1->next->supplier;
+        ptr1->next->supplier = tempSupplier;
+
+        int tempJumlah = ptr1->jumlah;
+        ptr1->jumlah = ptr1->next->jumlah;
+        ptr1->next->jumlah = tempJumlah;
+
+        long tempHargaTotal = ptr1->harga_total;
+        ptr1->harga_total = ptr1->next->harga_total;
+        ptr1->next->harga_total = tempHargaTotal;
+
+        swapped = 1;
+      }
+      ptr1 = ptr1->next;
+    }
+    lptr = ptr1;
+  } while (swapped);
+}
+
+
+// void cari_IDapoteker(){
+    
+// }
+
+                        
+// void cari_NAMAapoteker(){
+    
+// }
+
+// void cari_tanggalReceipt(){
+    
+// }
+                           
+// void cari_NObpjs(){
+    
+// }
+                            
+// void cari_namabuyer(){
+    
+// }
+
+// void cari_namaobat(){
+    
+// }
+
+// void cari_kodeobat(){
+    
+// }
+
+// void cari_expobat(){
+    
+// }
+
+// void cari_NAMAsupplier(){
+    
+// }
+
+// void cari_jumlahobat(){
+    
+// }
+
+// void cari_hargatotal(){
+    
+// }
+
+
+
+
+
+
+
+void printSorted(Data*& HEAD) {
+  Data* ptr = HEAD;
+  while (ptr!= NULL) {
+            cout << "No id :" << ptr -> no_id << endl;
+            cout << "NO id pegawai :" << ptr->no_id_apoteker << endl;
+            cout << "Nama Apoteker :" << ptr -> nama_apoteker << endl;
+            cout << "Tanggal :" << ptr -> tanggal << endl;
+            cout << "No BPJS :" << ptr -> nomor_bpjs << endl;
+            cout << "Nama Buyer :" << ptr -> nama_buyer << endl;
+            cout << "Nama Obat :" << ptr -> nama_obat << endl;
+            cout << "Kode Obat :" << ptr -> kode_obat << endl;
+            cout << "Expired Obat :" << ptr -> expired_obat << endl;
+            cout << "Supplier :" << ptr -> supplier << endl;
+            cout << "Jumlah :" << ptr -> jumlah << endl;
+            cout << "Harga Total :" << ptr -> harga_total << endl << endl;
+    ptr = ptr->next;
+  }
+  getch();
+}
+
+void sort_data(){
+    if (HEAD == NULL) {
+        cout << "Belum ada data :(";
+        getch();
+        return;
+    }
+
+    int choice1;
+
+    do{
+        cout << "Sort berdasarkan apa : "     << endl;
+        cout << "1. NO ID \t"         << "5. NO BPJS \t"     << "9. EXPIRED OBAT \t"     << endl;
+        cout << "2. NO ID PEGAWAI \t" << "6. NAMA BUYER \t"     << "10. SUPPLIER \t"     << endl;
+        cout << "3. NAMA APOTEKER \t" << "7. NAMA OBAT \t"      << "11. JUMLAH \t"      << endl;
+        cout << "4. TANGGAL \t"       << "8. KODE OBAT \t"      << "12. HARGA TOTAL \t" << endl;
+        cout << "13. KEMBALI \t"      << endl;
+
+        cin >> choice1;
+        switch (choice1) {
+                        // case 1:
+                        //     SortNamaApoteker();
+
+                        //     break;
+                        case 2:
+                            SortNamaApoteker(HEAD);
+                            printSorted(HEAD);
+                            break;
+                        // case 3:
+                        //     cari_NAMAapoteker();
+                        //     break;
+                        // case 4:
+                        //     cari_tanggalReceipt();
+                        //     break;
+                        // case 5:
+                        //     cari_NObpjs();
+                        //     break;
+                        // case 6:
+                        //     cari_namabuyer();
+                        //     break;
+                        // case 7:
+                        //     cari_namaobat();
+                        //     break;
+                        // case 8:
+                        //     cari_kodeobat();
+                        //     break;
+                        // case 9:
+                        //     cari_expobat();
+                        //     break;
+                        // case 10:
+                        //     cari_NAMAsupplier();
+                        //     break;
+                        // case 11:
+                        //     cari_jumlahobat();
+                        //     break;
+                        // case 12:
+                        //     cari_hargatotal();
+                        //     break;
+                        // case 13:
+                        //     cout << "Keluar";
+                        //     getch();
+                        //     break;
+                        default:
+                            cout << "Pilih antara angka yang ada di menu (1-13)";
+                            getch();
+                            break;
+
+        }
+    }while(choice1 !=13);
+
+}
+
 void cari_data(){
     system("cls");
     cout << "=====================================================================" << endl;
