@@ -793,7 +793,7 @@ void cari_tanggalReceipt(){
 }
                            
 void cari_NObpjs(){
-    string search_bpjs;
+    long search_bpjs;
 
     do {
         cout << "Masukkan keyword nama yang ingin dicari : ";
@@ -1161,7 +1161,7 @@ void sort_ID(Data*& HEAD){
         ptr1->tanggal = ptr1->next->tanggal;
         ptr1->next->tanggal = tempTanggal;
 
-        string tempNomorBpjs = ptr1->nomor_bpjs;
+        long tempNomorBpjs = ptr1->nomor_bpjs;
         ptr1->nomor_bpjs = ptr1->next->nomor_bpjs;
         ptr1->next->nomor_bpjs = tempNomorBpjs;
 
@@ -1231,7 +1231,7 @@ void sort_IDapoteker(Data*& HEAD){
         ptr1->tanggal = ptr1->next->tanggal;
         ptr1->next->tanggal = tempTanggal;
 
-        string tempNomorBpjs = ptr1->nomor_bpjs;
+        long tempNomorBpjs = ptr1->nomor_bpjs;
         ptr1->nomor_bpjs = ptr1->next->nomor_bpjs;
         ptr1->next->nomor_bpjs = tempNomorBpjs;
 
@@ -1302,7 +1302,7 @@ void sort_NAMAapoteker(Data*& HEAD){
         ptr1->tanggal = ptr1->next->tanggal;
         ptr1->next->tanggal = tempTanggal;
 
-        string tempNomorBpjs = ptr1->nomor_bpjs;
+        long tempNomorBpjs = ptr1->nomor_bpjs;
         ptr1->nomor_bpjs = ptr1->next->nomor_bpjs;
         ptr1->next->nomor_bpjs = tempNomorBpjs;
 
@@ -1372,7 +1372,7 @@ void sort_tanggalReceipt(Data*& HEAD){
         ptr1->tanggal = ptr1->next->tanggal;
         ptr1->next->tanggal = tempTanggal;
 
-        string tempNomorBpjs = ptr1->nomor_bpjs;
+        long tempNomorBpjs = ptr1->nomor_bpjs;
         ptr1->nomor_bpjs = ptr1->next->nomor_bpjs;
         ptr1->next->nomor_bpjs = tempNomorBpjs;
 
@@ -1442,7 +1442,7 @@ void sort_NObpjs(Data*& HEAD){
         ptr1->tanggal = ptr1->next->tanggal;
         ptr1->next->tanggal = tempTanggal;
 
-        string tempNomorBpjs = ptr1->nomor_bpjs;
+        long tempNomorBpjs = ptr1->nomor_bpjs;
         ptr1->nomor_bpjs = ptr1->next->nomor_bpjs;
         ptr1->next->nomor_bpjs = tempNomorBpjs;
 
@@ -1512,7 +1512,7 @@ void sort_namabuyer(Data*& HEAD){
         ptr1->tanggal = ptr1->next->tanggal;
         ptr1->next->tanggal = tempTanggal;
 
-        string tempNomorBpjs = ptr1->nomor_bpjs;
+        long tempNomorBpjs = ptr1->nomor_bpjs;
         ptr1->nomor_bpjs = ptr1->next->nomor_bpjs;
         ptr1->next->nomor_bpjs = tempNomorBpjs;
 
@@ -1582,7 +1582,7 @@ void sort_namaobat(Data*& HEAD){
         ptr1->tanggal = ptr1->next->tanggal;
         ptr1->next->tanggal = tempTanggal;
 
-        string tempNomorBpjs = ptr1->nomor_bpjs;
+        long tempNomorBpjs = ptr1->nomor_bpjs;
         ptr1->nomor_bpjs = ptr1->next->nomor_bpjs;
         ptr1->next->nomor_bpjs = tempNomorBpjs;
 
@@ -1652,7 +1652,7 @@ void sort_kodeobat(Data*& HEAD){
         ptr1->tanggal = ptr1->next->tanggal;
         ptr1->next->tanggal = tempTanggal;
 
-        string tempNomorBpjs = ptr1->nomor_bpjs;
+        long tempNomorBpjs = ptr1->nomor_bpjs;
         ptr1->nomor_bpjs = ptr1->next->nomor_bpjs;
         ptr1->next->nomor_bpjs = tempNomorBpjs;
 
@@ -1722,7 +1722,7 @@ void sort_expobat(Data*& HEAD){
         ptr1->tanggal = ptr1->next->tanggal;
         ptr1->next->tanggal = tempTanggal;
 
-        string tempNomorBpjs = ptr1->nomor_bpjs;
+        long tempNomorBpjs = ptr1->nomor_bpjs;
         ptr1->nomor_bpjs = ptr1->next->nomor_bpjs;
         ptr1->next->nomor_bpjs = tempNomorBpjs;
 
@@ -1792,7 +1792,7 @@ void sort_NAMAsupplier(Data*& HEAD){
         ptr1->tanggal = ptr1->next->tanggal;
         ptr1->next->tanggal = tempTanggal;
 
-        string tempNomorBpjs = ptr1->nomor_bpjs;
+        long tempNomorBpjs = ptr1->nomor_bpjs;
         ptr1->nomor_bpjs = ptr1->next->nomor_bpjs;
         ptr1->next->nomor_bpjs = tempNomorBpjs;
 
@@ -1862,7 +1862,7 @@ void sort_jumlahobat(Data*& HEAD){
         ptr1->tanggal = ptr1->next->tanggal;
         ptr1->next->tanggal = tempTanggal;
 
-        string tempNomorBpjs = ptr1->nomor_bpjs;
+        long tempNomorBpjs = ptr1->nomor_bpjs;
         ptr1->nomor_bpjs = ptr1->next->nomor_bpjs;
         ptr1->next->nomor_bpjs = tempNomorBpjs;
 
@@ -1932,7 +1932,7 @@ void sort_hargatotal(Data*& HEAD){
         ptr1->tanggal = ptr1->next->tanggal;
         ptr1->next->tanggal = tempTanggal;
 
-        string tempNomorBpjs = ptr1->nomor_bpjs;
+        long tempNomorBpjs = ptr1->nomor_bpjs;
         ptr1->nomor_bpjs = ptr1->next->nomor_bpjs;
         ptr1->next->nomor_bpjs = tempNomorBpjs;
 
