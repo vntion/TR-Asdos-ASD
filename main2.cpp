@@ -1993,6 +1993,11 @@ void printSorted(Data*& HEAD) {
 }
 
 void sort_data(){
+    system("cls");
+    cout << "=====================================================================" << endl;
+    cout << "||                             URUTKAN DATA                        ||" << endl;
+    cout << "=====================================================================" << endl;
+
     if (HEAD == NULL) {
         cout << "Belum ada data :(";
         getch();
@@ -2177,19 +2182,6 @@ void cari_data(){
         }
     }while(choice2 !=13);
 
-}
-
-void urutkan_data(){
-    system("cls");
-    cout << "=====================================================================" << endl;
-    cout << "||                             URUTKAN DATA                        ||" << endl;
-    cout << "=====================================================================" << endl;
-
-    if (HEAD == NULL) {
-        cout << "Belum ada data :(";
-        getch();
-        return;
-    }
 }
 
 void menuUtama(){
