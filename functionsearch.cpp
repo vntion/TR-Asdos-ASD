@@ -41,9 +41,44 @@ void cari_NAMAapoteker(){
     }
 }
                             
-void cari_tanggalReceipt();
+void cari_tanggalReceipt(){
+    string search_tanggal;
+
+    cout << "Masukkan keyword nama yang ingin dicari : ";
+    cin >> search_tanggal;
+
+    Receipts* temp = HEAD_Receipts;
+    while (temp != NULL) {
+        if(search_tanggal!=temp->tanggal){
+            temp = temp->next;
+        }
+        else{
+            cout << "Data ditemukan !" << endl;
+            cout << temp -> tanggal << endl;
+            cout << temp-> jumlah << endl;
+            cout << temp-> harga_total << endl;
+        }
+    }
+}
                            
-void cari_NObpjs();
+void cari_NObpjs(){
+    string search_bpjs;
+
+    cout << "Masukkan keyword nama yang ingin dicari : ";
+    cin >> search_bpjs;
+
+    Buyer* temp = HEAD_Buyer;
+    while (temp != NULL) {
+        if(search_bpjs!=temp->nomor_bpjs){
+            temp = temp->next;
+        }
+        else{
+            cout << "Data ditemukan !" << endl;
+            cout << temp -> nomor_bpjs << endl;
+            cout << temp-> nama_buyer << endl;
+        }
+    }
+}
                             
 void cari_namabuyer();
                            
