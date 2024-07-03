@@ -99,17 +99,29 @@ void cari_namabuyer(){
     }
 }
                            
-void cari_namaobat();
+void cari_namaobat(){
+
+}
                             
-void cari_kodeobat();
+void cari_kodeobat(){
+
+}
                             
-void cari_expobat();
+void cari_expobat(){
+
+}
                            
-void cari_NAMAsupplier();
+void cari_NAMAsupplier(){
+
+}
                            
-void cari_jumlahobat();
+void cari_jumlahobat(){
+
+}
                           
-void cari_hargatotal();
+void cari_hargatotal(){
+    
+}
 
 int main(){
 
