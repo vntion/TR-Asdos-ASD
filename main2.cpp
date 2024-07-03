@@ -429,6 +429,57 @@ void edit_data(){
     // Menambahkan data ke file
     set_data();
 }
+void cari_idpengisian(){
+    int search_idpengisian;
+
+    do {
+        cout << "Masukkan keyword id yang ingin dicari : ";
+        cin >> search_idpengisian;
+        if (cin.fail()) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout << "Masukkan input yang valid.\n";
+        } else {
+            benar = true; // Input valid, keluar dari loop
+        }
+    } while (!benar);
+    
+    bool found=false;
+
+    Data* temp = HEAD;
+    while (temp != NULL) {
+        if(search_idpengisian!=temp->no_id){
+            temp = temp->next;
+        }
+        else{
+            cout << "Data ditemukan !" << endl;
+            cout << "Data ke - " << i << endl;
+            cout << "No id :" << temp -> no_id << endl;
+            cout << "NO id pegawai :" << temp->no_id_apoteker << endl;
+            cout << "Nama Apoteker :" << temp -> nama_apoteker << endl;
+            cout << "Tanggal :" << temp -> tanggal << endl;
+            cout << "No BPJS :" << temp -> nomor_bpjs << endl;
+            cout << "Nama Buyer :" << temp -> nama_buyer << endl;
+            cout << "Nama Obat :" << temp -> nama_obat << endl;
+            cout << "Kode Obat :" << temp -> kode_obat << endl;
+            cout << "Expired Obat :" << temp -> expired_obat << endl;
+            cout << "Supplier :" << temp -> supplier << endl;
+            cout << "Jumlah :" << temp -> jumlah << endl;
+            cout << "Harga Total :" << temp -> harga_total << endl << endl;
+            
+            found = true;
+            getchar();
+            getchar();
+            break;
+            system("cls");
+        }
+    }
+    if(!found){
+        cout << "data tidak ada";
+        getchar();
+        getchar();
+    }
+}
 
 void cari_IDapoteker(){
     int search_id;
@@ -456,6 +507,7 @@ void cari_IDapoteker(){
             cout << "Data ditemukan !" << endl;
             cout << temp->no_id_apoteker << endl;
             cout << temp->nama_apoteker << endl;
+           
             found = true;
             getchar();
             getchar();
@@ -487,6 +539,8 @@ void cari_NAMAapoteker(){
         }
     } while (!benar);
 
+    bool found=false;
+
     Data* temp = HEAD;
     while (temp != NULL) {
         if(search_Namaapoteker!=temp->nama_apoteker){
@@ -496,6 +550,12 @@ void cari_NAMAapoteker(){
             cout << "Data ditemukan !" << endl;
             cout << temp->no_id_apoteker << endl;
             cout << temp->nama_apoteker << endl;
+
+            found = true;
+            getchar();
+            getchar();
+            break;
+            system("cls");
         }
     }
 }
@@ -516,6 +576,8 @@ void cari_tanggalReceipt(){
         }
     } while (!benar);
 
+    bool found=false;
+
     Data* temp = HEAD;
     while (temp != NULL) {
         if(search_tanggal!=temp->tanggal){
@@ -526,7 +588,18 @@ void cari_tanggalReceipt(){
             cout << temp -> tanggal << endl;
             cout << temp-> jumlah << endl;
             cout << temp-> harga_total << endl;
+
+            found = true;
+            getchar();
+            getchar();
+            break;
+            system("cls");
         }
+    }
+    if(!found){
+        cout << "data tidak ada";
+        getchar();
+        getchar();
     }
 }
                            
@@ -545,6 +618,8 @@ void cari_NObpjs(){
         }
     } while (!benar);
 
+    bool found=false;
+
     Data* temp = HEAD;
     while (temp != NULL) {
         if(search_bpjs!=temp->nomor_bpjs){
@@ -554,7 +629,18 @@ void cari_NObpjs(){
             cout << "Data ditemukan !" << endl;
             cout << temp -> nomor_bpjs << endl;
             cout << temp-> nama_buyer << endl;
+
+            found = true;
+            getchar();
+            getchar();
+            break;
+            system("cls");
         }
+    }
+    if(!found){
+        cout << "data tidak ada";
+        getchar();
+        getchar();
     }
 }
                             
@@ -574,6 +660,8 @@ void cari_namabuyer(){
         }
     } while (!benar);
 
+    bool found=false;
+
     Data* temp = HEAD;
     while (temp != NULL) {
         if(search_bpjs!=temp->nomor_bpjs){
@@ -583,7 +671,18 @@ void cari_namabuyer(){
             cout << "Data ditemukan !" << endl;
             cout << temp -> nomor_bpjs << endl;
             cout << temp-> nama_buyer << endl;
+
+            found = true;
+            getchar();
+            getchar();
+            break;
+            system("cls");
         }
+    }
+    if(!found){
+        cout << "data tidak ada";
+        getchar();
+        getchar();
     }
 }
 
@@ -603,6 +702,8 @@ void cari_namaobat(){
         }
     } while (!benar);
 
+    bool found=false;
+
     Data* temp = HEAD;
     while (temp != NULL) {
         if(search_obat!=temp->nama_obat){
@@ -614,7 +715,18 @@ void cari_namaobat(){
             cout << temp -> kode_obat << endl;
             cout << temp -> expired_obat << endl;
             cout << temp -> supplier << endl;
+
+            found = true;
+            getchar();
+            getchar();
+            break;
+            system("cls");
         }
+    }
+    if(!found){
+        cout << "data tidak ada";
+        getchar();
+        getchar();
     }
 }
 
@@ -634,6 +746,8 @@ void cari_kodeobat(){
         }
     } while (!benar);
 
+    bool found=false;
+
     Data* temp = HEAD;
     while (temp != NULL) {
         if(search_idobat!=temp->nomor_bpjs){
@@ -645,7 +759,18 @@ void cari_kodeobat(){
             cout << temp -> kode_obat << endl;
             cout << temp -> expired_obat << endl;
             cout << temp -> supplier << endl;
+
+            found = true;
+            getchar();
+            getchar();
+            break;
+            system("cls");
         }
+    }
+    if(!found){
+        cout << "data tidak ada";
+        getchar();
+        getchar();
     }
 }
 
@@ -678,6 +803,7 @@ void cari_expobat(){
             cout << temp -> kode_obat << endl;
             cout << temp -> expired_obat << endl;
             cout << temp -> supplier << endl;
+            
             found = true;
             break;
             getchar();
@@ -708,6 +834,8 @@ void cari_NAMAsupplier(){
         }
     } while (!benar);
 
+    bool found=false;
+
     Data* temp = HEAD;
     while (temp != NULL) {
         if(search_supplier!=temp->supplier){
@@ -719,15 +847,37 @@ void cari_NAMAsupplier(){
             cout << temp -> kode_obat << endl;
             cout << temp -> expired_obat << endl;
             cout << temp -> supplier << endl;
+
+            found = true;
+            break;
+            getchar();
+            getchar();
+            system("cls");
         }
     }
+        if(!found){
+            cout << "data tidak ada";
+            getchar();
+            getchar();
+        }
 }
 
 void cari_jumlahobat(){
     string search_jmlobat;
 
-    cout << "Masukkan keyword nama yang ingin dicari : ";
-    cin >> search_jmlobat;
+    do {
+        cout << "Masukkan keyword nama yang ingin dicari : ";
+        cin >> search_supplier;
+        
+        if (cin.fail()) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout << "Masukkan input yang valid.\n";
+        } else {
+            benar = true; // Input valid, keluar dari loop
+        }
+    } while (!benar);
+
     bool found=false;
 
     Data* temp = HEAD;
@@ -740,6 +890,7 @@ void cari_jumlahobat(){
             cout << temp -> tanggal << endl;
             cout << temp -> jumlah << endl;
             cout << temp -> harga_total << endl;
+            
             found = true;
             getchar();
             getchar();
@@ -757,8 +908,19 @@ void cari_jumlahobat(){
 void cari_hargatotal(){
     string search_bpjs;
 
-    cout << "Masukkan keyword nama yang ingin dicari : ";
-    cin >> search_bpjs;
+    do {
+        cout << "Masukkan keyword nama yang ingin dicari : ";
+        cin >> search_supplier;
+        
+        if (cin.fail()) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout << "Masukkan input yang valid.\n";
+        } else {
+            benar = true; // Input valid, keluar dari loop
+        }
+    } while (!benar);
+    
     bool found=false;
 
     Data* temp = HEAD;
@@ -803,6 +965,9 @@ void cari_data(){
 
         cin >> choice;
         switch (choice) {
+                        case 1:
+                            cari_IDapoteker();
+                            break;
                         case 2:
                             cari_IDapoteker();
                             break;
