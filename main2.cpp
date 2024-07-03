@@ -723,6 +723,67 @@ void cari_NAMAsupplier(){
     }
 }
 
+void cari_jumlahobat(){
+    string search_jmlobat;
+
+    cout << "Masukkan keyword nama yang ingin dicari : ";
+    cin >> search_jmlobat;
+    bool found=false;
+
+    Data* temp = HEAD;
+    while (temp != NULL) {
+        if(search_jmlobat != temp->jumlah){
+            temp = temp->next;
+        }
+        else{
+            cout << "Data ditemukan !" << endl;
+            cout << temp -> tanggal << endl;
+            cout << temp -> jumlah << endl;
+            cout << temp -> harga_total << endl;
+            found = true;
+            getchar();
+            getchar();
+            break;
+            system("cls"); 
+        }
+    }
+    if(!found){
+        cout << "data tidak ada";
+        getchar();
+        getchar();
+    }
+}
+
+void cari_hargatotal(){
+    string search_bpjs;
+
+    cout << "Masukkan keyword nama yang ingin dicari : ";
+    cin >> search_bpjs;
+    bool found=false;
+
+    Data* temp = HEAD;
+    while (temp != NULL) {
+        if(search_bpjs!=temp->nomor_bpjs){
+            temp = temp->next;
+        }
+        else{
+            cout << "Data ditemukan !" << endl;
+            cout << temp -> nomor_bpjs << endl;
+            cout << temp-> nama_buyer << endl;
+            found = true;
+            getchar();
+            getchar();
+            break;
+            system("cls"); 
+        }
+    }
+    if(!found){
+        cout << "data tidak ada";
+        getchar();
+        getchar();
+    }
+}
+
 void cari_data(){
     if (HEAD == NULL) {
         cout << "Belum ada data :(";
@@ -734,7 +795,7 @@ void cari_data(){
 
     do{
         cout << "Cari berdasarkan apa : "     << endl;
-        cout << "1. NO ID \t"         << "5. NO BPJS \t"     << "9. EXPIRED OBAT \t"     << endl;
+        cout << "1. NO ID PENGISIAN \t"         << "5. NO BPJS \t"     << "9. EXPIRED OBAT \t"     << endl;
         cout << "2. NO ID PEGAWAI \t" << "6. NAMA BUYER \t"     << "10. SUPPLIER \t"     << endl;
         cout << "3. NAMA APOTEKER \t" << "7. NAMA OBAT \t"      << "11. JUMLAH \t"      << endl;
         cout << "4. TANGGAL \t"       << "8. KODE OBAT \t"      << "12. HARGA TOTAL \t" << endl;
@@ -742,40 +803,40 @@ void cari_data(){
 
         cin >> choice;
         switch (choice) {
-                        case 1:
+                        case 2:
                             cari_IDapoteker();
                             break;
-                        // case 2:
-                        //     cari_apoteker();
-                        //     break;
-                        // case 3:
-                        //     cari_tanggal();
-                        //     break;
-                        // case 4:
-                        //     cari_bpjs();
-                        //     break;
-                        // case 5:
-                        //     cari_namabuyer();
-                        //     break;
-                        // case 6:
-                        //     cari_namaobat();
-                        //     break;
-                        // case 7:
-                        //     cari_kodeobat();
-                        //     break;
+                        case 3:
+                            cari_NAMAapoteker();
+                            break;
+                        case 4:
+                            cari_tanggalReceipt();
+                            break;
+                        case 5:
+                            cari_NObpjs();
+                            break;
+                        case 6:
+                            cari_namabuyer();
+                            break;
+                        case 7:
+                            cari_namaobat();
+                            break;
                         case 8:
+                            cari_kodeobat();
+                            break;
+                        case 9:
                             cari_expobat();
                             break;
-                        // case 9:
-                        //     cari_supplier();
-                        //     break;
-                        // case 10:
-                        //     cari_jumlahobat();
-                        //     break;
-                        // case 11:
-                        //     cari_hargatotal();
-                        //     break;
+                        case 10:
+                            cari_NAMAsupplier();
+                            break;
+                        case 11:
+                            cari_jumlahobat();
+                            break;
                         case 12:
+                            cari_hargatotal();
+                            break;
+                        case 13:
                             cout << "Keluar";
                             getch();
                             break;
