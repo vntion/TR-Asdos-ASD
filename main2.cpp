@@ -1480,7 +1480,7 @@ void menuUtama(){
             cari_data();
         }
         if (input == 6) {
-            urutkan_data();
+            sort_data();
         }
         if (input == 7) {
             break;
