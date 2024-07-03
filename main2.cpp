@@ -128,7 +128,6 @@ void tambah_data(){
     if (input_jumlah_data == 0) return;
     cout << endl << endl;
 
-    Data*
 
     int i = 1; // Iteration
 
@@ -640,8 +639,6 @@ void cari_id(){
     while (temp != NULL) {
         if(search_idpengisian == temp->no_id){
             temp = temp->next;
-        }
-        else{
             cout << "No id :" << temp -> no_id << endl;
             cout << "NO id pegawai :" << temp->no_id_apoteker << endl;
             cout << "Nama Apoteker :" << temp -> nama_apoteker << endl;
@@ -658,9 +655,8 @@ void cari_id(){
             found = true;
             getchar();
             getchar();
-            break;
             system("cls");
-        }
+        
     }
     if(!found){
         cout << "data tidak ada";
