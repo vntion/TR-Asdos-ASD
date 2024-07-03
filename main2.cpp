@@ -387,64 +387,64 @@ void edit_data(){
     set_data();
 }
 
-void cari_data(){
-    int choice;
-    do{
-        cout << "Cari berdasarkan apa : "     << endl;
-        cout << "1. NO ID \t"         << "5. NAMA BUYER \t"     << "9. SUPPLIER \t"     << endl;
-        cout << "2. NAMA APOTEKER \t" << "6. NAMA OBAT \t"      << "10. JUMLAH \t"      << endl;
-        cout << "3. TANGGAL \t"       << "7. KODE OBAT \t"      << "11. HARGA TOTAL \t" << endl;
-        cout << "4. NO BPJS \t"       << "8. EXPIRED OBAT \t"   << "12. KEMBALI \t"     << endl;
+// void cari_data(){
+//     int choice;
+//     do{
+//         cout << "Cari berdasarkan apa : "     << endl;
+//         cout << "1. NO ID \t"         << "5. NAMA BUYER \t"     << "9. SUPPLIER \t"     << endl;
+//         cout << "2. NAMA APOTEKER \t" << "6. NAMA OBAT \t"      << "10. JUMLAH \t"      << endl;
+//         cout << "3. TANGGAL \t"       << "7. KODE OBAT \t"      << "11. HARGA TOTAL \t" << endl;
+//         cout << "4. NO BPJS \t"       << "8. EXPIRED OBAT \t"   << "12. KEMBALI \t"     << endl;
 
-        switch (choice) {
-                        case 1:
-                            cari_id();
-                            break;
-                        case 2:
-                            cari_apoteker();
-                            break;
-                        case 3:
-                            cari_tanggal();
-                            break;
-                        case 4:
-                            cari_bpjs();
-                            break;
-                        case 5:
-                            cari_namabuyer();
-                            break;
-                        case 6:
-                            cari_namaobat();
-                            break;
-                        case 7:
-                            cari_kodeobat();
-                            break;
-                        case 8:
-                            cari_expobat();
-                            break;
-                        case 9:
-                            cari_supplier();
-                            break;
-                        case 10:
-                            cari_jumlahobat();
-                            break;
-                        case 11:
-                            cari_hargatotal();
-                            break;
-                        case 12:
-                            cout << "Keluar";
-                            getchar();
-                            getchar();
-                            break;
-                        default:
-                            cout << "Pilihan tidak valid.";
-                            getchar();
-                            getchar();
-                            break;
+//         switch (choice) {
+//                         case 1:
+//                             cari_id();
+//                             break;
+//                         case 2:
+//                             cari_apoteker();
+//                             break;
+//                         case 3:
+//                             cari_tanggal();
+//                             break;
+//                         case 4:
+//                             cari_bpjs();
+//                             break;
+//                         case 5:
+//                             cari_namabuyer();
+//                             break;
+//                         case 6:
+//                             cari_namaobat();
+//                             break;
+//                         case 7:
+//                             cari_kodeobat();
+//                             break;
+//                         case 8:
+//                             cari_expobat();
+//                             break;
+//                         case 9:
+//                             cari_supplier();
+//                             break;
+//                         case 10:
+//                             cari_jumlahobat();
+//                             break;
+//                         case 11:
+//                             cari_hargatotal();
+//                             break;
+//                         case 12:
+//                             cout << "Keluar";
+//                             getchar();
+//                             getchar();
+//                             break;
+//                         default:
+//                             cout << "Pilihan tidak valid.";
+//                             getchar();
+//                             getchar();
+//                             break;
 
-                } while (choice != 12);
-    }while(choice !=12);
+//                 } while (choice != 12);
+//     }while(choice !=12);
     
-}
+// }
 
 void urutkan_data(){
 
