@@ -275,15 +275,15 @@ void lihat_data(){
 }
 
 void hapus_data(){
+    cout << "=====================================================================" << endl;
+    cout << "||                                    HAPUS DATA                   ||" << endl;
+    cout << "=====================================================================" << endl;
+
     if (HEAD == NULL) {
         cout << "Belum ada data :(";
         getch();
         return;
     }
-
-    cout << "=====================================================================" << endl;
-    cout << "||                                    HAPUS DATA                   ||" << endl;
-    cout << "=====================================================================" << endl;
 
     // Render tabel data
     Data* temp = HEAD;
@@ -325,6 +325,7 @@ void hapus_data(){
         // Cek apakah data ditemukan atau tidak
         if (!found) {
             cout << "ID tidak ditemukan!";
+            search = HEAD;
             getch();
         }
         if (found) break;
@@ -359,6 +360,10 @@ void hapus_data(){
 }
 
 void edit_data(){
+    cout << "=====================================================================" << endl;
+    cout << "||                                 EDIT DATA                       ||" << endl;
+    cout << "=====================================================================" << endl;
+
     if (HEAD == NULL) {
         cout << "Belum ada data :(";
         getch();
@@ -394,7 +399,8 @@ void edit_data(){
 
         // Cek apakah data ditemukan atau tidak
         if (!found) {
-            cout << "Data tidak ditemukan!";
+            cout << "Data tidak ditemukan!" << endl;
+            temp = HEAD;
             getch();
         }
         if (found) break;
