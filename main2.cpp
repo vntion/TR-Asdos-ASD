@@ -792,7 +792,7 @@ void cari_tanggalReceipt(){
 }
                            
 void cari_NObpjs(){
-    string search_bpjs;
+    int search_bpjs;
 
     do {
         cout << "Masukkan keyword nama yang ingin dicari : ";
@@ -1160,7 +1160,7 @@ void cari_data(){
                 break;
             }
         }
-        if (choice) break;
+        if (choice == 0) break;
         switch (choice) {
                         case 1:
                             cari_id();
