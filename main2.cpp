@@ -9,6 +9,7 @@
 using namespace std;
 
 const string nama_file = "data2.txt";
+bool benar = false;
 
 // Linked list
 struct Data{
@@ -943,11 +944,11 @@ void cari_jumlahobat(){
 }
 
 void cari_hargatotal(){
-    string search_bpjs;
+    string search_harga;
 
     do {
         cout << "Masukkan keyword nama yang ingin dicari : ";
-        cin >> search_supplier;
+        cin >> search_harga;
         
         if (cin.fail()) {
             cin.clear();
