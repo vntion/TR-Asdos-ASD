@@ -638,7 +638,6 @@ void cari_id(){
     Data* temp = HEAD;
     while (temp != NULL) {
         if(search_idpengisian == temp->no_id){
-            temp = temp->next;
             cout << "No id :" << temp -> no_id << endl;
             cout << "NO id pegawai :" << temp->no_id_apoteker << endl;
             cout << "Nama Apoteker :" << temp -> nama_apoteker << endl;
@@ -653,15 +652,15 @@ void cari_id(){
             cout << "Harga Total :" << temp -> harga_total << endl << endl;
 
             found = true;
+        }
+            temp = temp->next;
+    }
             getchar();
             getchar();
             system("cls");
-        
-    }
+
     if(!found){
         cout << "data tidak ada";
-        getchar();
-        getchar();
     }
 }
 
