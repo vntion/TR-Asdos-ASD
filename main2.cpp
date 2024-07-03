@@ -50,9 +50,11 @@ void get_data(){
     while (getline(inFile, line)) {
         string arr[12];
         int i = 0;
-        stringstream ssin(line);
-        while (ssin.good() && i < 12) {
-            ssin >> arr[i];
+        stringstream data(line);
+        string line2;
+        while (data.good() && getline(data, line2, ';') && i < 12) {
+            // cout << "Mengisi arr[" << i << "] dengan nilai: " << line2 << endl;
+            arr[i] = line2;
             i++;
         }
 
@@ -64,11 +66,11 @@ void get_data(){
         newData->nomor_bpjs = arr[4];
         newData->nama_buyer = arr[5];
         newData->nama_obat = arr[6];
-        newData->kode_obat = stoi(arr[8]);
-        newData->expired_obat = arr[9];
-        newData->supplier = arr[10];
-        newData->jumlah = stoi(arr[11]);
-        newData->harga_total = stol(arr[12]);
+        newData->kode_obat = stoi(arr[7]);
+        newData->expired_obat = arr[8];
+        newData->supplier = arr[9];
+        newData->jumlah = stoi(arr[10]);
+        newData->harga_total = stol(arr[11]);
         newData->next = NULL;
 
         if (HEAD == NULL) HEAD = newData;
@@ -93,8 +95,8 @@ void set_data() {
   Data* temp = HEAD;
 
   while (temp != NULL) {
-    outFile << temp -> no_id << " " << temp->no_id_apoteker << " " <<temp -> nama_apoteker << " " << temp -> tanggal << " " << temp -> nomor_bpjs << " " << temp -> nama_buyer << " " << temp -> nama_obat << " " <<
-    temp -> kode_obat << " " << temp -> expired_obat << " " << temp -> supplier << " " << temp -> jumlah << " " << temp -> harga_total << endl;
+    outFile << temp -> no_id << ";" << temp->no_id_apoteker << ";" <<temp -> nama_apoteker << ";" << temp -> tanggal << ";" << temp -> nomor_bpjs << ";" << temp -> nama_buyer << ";" << temp -> nama_obat << ";" <<
+    temp -> kode_obat << ";" << temp -> expired_obat << ";" << temp -> supplier << ";" << temp -> jumlah << ";" << temp -> harga_total << ";" << endl;
     temp = temp -> next;
   }
 
