@@ -5,6 +5,50 @@
 #include <conio.h>
 #include <cstdlib>
 #include <limits>
+#include <windows.h>
+
+//////////////////////////////////////////////////
+WORD original = 0;
+
+
+
+// Line and bar characters
+const int lineH1 = 205, linev1 = 186;
+const int corner1 = 201, corner2 = 187, corner3 = 200, corner4 = 188;
+const int bar1 = 177, bar2 = 219;
+
+// Function to set console text color
+void SetConsoleColour(WORD* original, DWORD Colour) {
+    CONSOLE_SCREEN_BUFFER_INFO Info;
+    HANDLE hStdout = GetStdHandle(STD_OUTPUT_HANDLE);
+    GetConsoleScreenBufferInfo(hStdout, &Info);
+    *original = Info.wAttributes;
+    SetConsoleTextAttribute(hStdout, Colour);
+}
+
+// Function to reset console text color to original
+void ResetConsoleColour(WORD original) {
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), original);
+}
+
+void gotoxy(int x, int y) {
+    COORD coord;
+    coord.X = x;
+    coord.Y = y;
+    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
+}
+
+
+
+
+
+
+
+
+
+
+
+////////////////////////////////////////////////////
 
 using namespace std;
 
@@ -101,6 +145,35 @@ void set_data() {
 
   outFile.close();
 }
+void Nav_TambahData(){
+    system("cls");
+    
+    HANDLE color = GetStdHandle(STD_OUTPUT_HANDLE);
+    SetConsoleColour(&original,BACKGROUND_BLUE | BACKGROUND_GREEN | BACKGROUND_RED);
+   
+    ////////////////////////////////NAVIGASI////////////////////////////////////////
+    for(int i=0 ;i<139;i++){
+    gotoxy(i,0);cout << (char)lineH1;
+    }//bar
+    for(int i=0 ;i<139;i++){
+    gotoxy(i,2);cout << (char)lineH1;
+    }//bar
+    gotoxy(50,1);cout << " [ =========== TAMBAH DATA =========== ]";
+    SetConsoleColour(&original,FOREGROUND_GREEN |BACKGROUND_INTENSITY);
+    gotoxy(5,4);cout << "[TAMBAH DATA]" << endl;
+    SetConsoleColour(&original,BACKGROUND_BLUE | BACKGROUND_GREEN | BACKGROUND_RED);
+    gotoxy(25,4);cout << "[LIHAT DATA]" << endl;
+    gotoxy(45,4);cout << "[HAPUS DATA]" << endl;
+    gotoxy(65,4);cout << "[EDIT DATA]" << endl;
+    gotoxy(85,4);cout << "[CARI DATA]" << endl;
+    gotoxy(105,4);cout << "[URUTKAN DATA]" << endl;
+    gotoxy(125,4);cout << "[KELUAR]" << endl;
+    for(int i=0 ;i<139;i++){
+    gotoxy(i,6);cout << (char)lineH1;
+    }//bar
+    ////////////////////////////////NAVIGASI////////////////////////////////////////
+    gotoxy(5,7);cout << "Kembali: 0" << endl << endl;
+}
 
 void tambah_data(){
     int input_jumlah_data; // Jumlah data yang ingin dimasukkan
@@ -108,18 +181,17 @@ void tambah_data(){
     long input_harga_total, input_nomor_bpjs;
     string input_nama_apoteker, input_nama_obat, input_expired_obat, input_supplier, input_nama_buyer, input_tanggal, nama_obat;
 
-    system("cls");
-    cout << "=====================================================================" << endl;
-    cout << "||                           MASUKKAN DATA                         ||" << endl;
-    cout << "=====================================================================" << endl;
-    cout << "Kembali: 0" << endl << endl;
+    Nav_TambahData();
 
     while (true) {
-        cout << "Masukkan Jumlah Data: ";
+    Nav_TambahData();
+        gotoxy(53,8);cout<< "Masukkan Jumlah Data: ";
         cin >> input_jumlah_data;
         if (cin.fail() || input_jumlah_data < 0) {
-            cout << "Invalid input, masukkan angka bulat" << endl;
+            Nav_TambahData();
+            gotoxy(53,10);cout << "Invalid input, masukkan angka bulat" << endl;
             clearInputBuffer();
+            cin.get();
         } else {
             break;
         }
@@ -133,13 +205,17 @@ void tambah_data(){
 
     // User memasukkan input data
     while (i <= input_jumlah_data) {
-        cout << "Data Apotik ke - " << i << endl << endl;
+        Nav_TambahData();
+
+        //Iterasi gotoxy
+
+        cout << "\tData Apotik ke - " << i << endl << endl;
 
         while (true) {
-            cout << "No id : ";
+            cout << "\t\t\t\t\t\tNo id\t\t : ";
             cin >> input_no_id;
             if (cin.fail() || input_no_id < 1) {
-                cout << "Invalid input, masukkan angka bulat" << endl;
+                cout << "\t\t\t\t\t\tInvalid input, masukkan angka bulat" << endl;
                 clearInputBuffer();
             } else {
                 break;
@@ -148,10 +224,10 @@ void tambah_data(){
         clearInputBuffer();
 
         while (true) {
-            cout << "No id apoteker : ";
+            cout << "\t\t\t\t\t\tNo id apoteker\t : ";
             cin >> input_no_id_pegawai;
             if (cin.fail() || input_no_id_pegawai < 1) {
-                cout << "Invalid input, masukkan angka bulat" << endl;
+                cout << "\t\t\t\t\t\tInvalid input, masukkan angka bulat" << endl;
                 clearInputBuffer();
             } else {
                 break;
@@ -159,17 +235,17 @@ void tambah_data(){
         }
         clearInputBuffer();
 
-        cout << "Nama Apoteker\t : ";
+        cout << "\t\t\t\t\t\tNama Apoteker\t : ";
         getline(cin, input_nama_apoteker);
 
-        cout << "Nama Pasien\t : ";
+        cout << "\t\t\t\t\t\tNama Pasien\t : ";
         getline(cin, input_nama_buyer);
 
         while (true) {
-            cout << "Nomor BPJS \t: ";
+            cout << "\t\t\t\t\t\tNomor BPJS\t : ";
             cin >> input_nomor_bpjs;
             if (cin.fail() || input_nomor_bpjs < 1) {
-                cout << "Invalid input, masukkan angka bulat" << endl;
+                cout << "\t\t\t\t\t\tInvalid input, masukkan angka bulat" << endl;
                 clearInputBuffer();
             } else {
                 break;
@@ -177,17 +253,17 @@ void tambah_data(){
         }
         clearInputBuffer();
 
-        cout << "Tanggal\t : ";
+        cout << "\t\t\t\t\t\tTanggal\t\t : ";
         getline(cin, input_tanggal);
 
-        cout << "Nama Obat\t : ";
+        cout << "\t\t\t\t\t\tNama Obat\t : ";
         getline(cin, input_nama_obat);
 
         while (true) {
-            cout << "Kode Obat \t: ";
+            cout << "\t\t\t\t\t\tKode Obat \t : ";
             cin >> input_kode_obat;
             if (cin.fail() || input_kode_obat < 1) {
-                cout << "Invalid input, masukkan angka bulat" << endl;
+                cout << "\t\t\t\t\t\tInvalid input, masukkan angka bulat" << endl;
                 clearInputBuffer();
             } else {
                 break;
@@ -195,17 +271,17 @@ void tambah_data(){
         }
         clearInputBuffer();
 
-        cout << "Expired Obat\t : ";
+        cout << "\t\t\t\t\t\tExpired Obat\t : ";
         getline(cin, input_expired_obat);
 
-        cout << "Supplier\t : ";
+        cout << "\t\t\t\t\t\tSupplier\t : ";
         getline(cin, input_supplier);
 
         while (true) {
-            cout << "Jumlah : ";
+            cout << "\t\t\t\t\t\tJumlah\t\t : ";
             cin >> input_jumlah;
             if (cin.fail() || input_jumlah < 1) {
-                cout << "Invalid input, masukkan angka bulat" << endl;
+                cout << "\t\t\t\t\t\tInvalid input, masukkan angka bulat" << endl;
                 clearInputBuffer();
             } else {
                 break;
@@ -214,10 +290,10 @@ void tambah_data(){
         clearInputBuffer();
 
         while (true) {
-            cout << "Harga total : ";
+            cout << "\t\t\t\t\t\tHarga total\t : ";
             cin >> input_harga_total;
             if (cin.fail() || input_harga_total < 1) {
-                cout << "Invalid input, masukkan angka bulat" << endl;
+                cout << "\t\t\t\t\t\tInvalid input, masukkan angka bulat" << endl;
                 clearInputBuffer();
             } else {
                 break;
@@ -249,100 +325,117 @@ void tambah_data(){
             Data* temp = HEAD;
             while (temp->next != NULL) temp = temp->next;
             temp->next = newData;
+            }
         }
-    }
+    
 
     // Menambahkan data ke file
     set_data();
-
-    cout << "=====================================================================" << endl;
-    cout << "Data berhasil ditambahkan!";
-    getch();
+    cout << endl << endl<<endl;
+    cout << "============================================================================================================================================" << endl;
+    cout << "\t\t\t\t\t\t\tData berhasil ditambahkan!"<<endl;
+    cout << "============================================================================================================================================" << endl;
+    cin.get();
 }
 
 void lihat_data(){
     system("cls");
-    cout << "=====================================================================" << endl;
-    cout << "||                                LIHAT DATA                       ||" << endl;
-    cout << "=====================================================================" << endl;
+    for(int i=0 ;i<139;i++){
+    gotoxy(i,0);cout << (char)lineH1;
+    }//bar
 
+    gotoxy(60,1);cout << " LIHAT DATA " << endl;
 
+    for(int i=0 ;i<139;i++){
+    gotoxy(i,2);cout << (char)lineH1;
+    }//bar
+    
     if (HEAD == NULL) {
-        cout << "Belum ada data :(";
+        cout << "\t\t\t\t\t\tBelum ada data :(";
         getch();
         return;
     }
-
+    cout << endl << endl;
     Data* temp = HEAD;
     int i = 1;
 
     while (temp != NULL) {
-        cout << "Data ke - " << i << endl;
-        cout << "No id :" << temp -> no_id << endl;
-        cout << "NO id pegawai :" << temp->no_id_apoteker << endl;
-        cout << "Nama Apoteker :" << temp -> nama_apoteker << endl;
-        cout << "Tanggal :" << temp -> tanggal << endl;
-        cout << "No BPJS :" << temp -> nomor_bpjs << endl;
-        cout << "Nama Buyer :" << temp -> nama_buyer << endl;
-        cout << "Nama Obat :" << temp -> nama_obat << endl;
-        cout << "Kode Obat :" << temp -> kode_obat << endl;
-        cout << "Expired Obat :" << temp -> expired_obat << endl;
-        cout << "Supplier :" << temp -> supplier << endl;
-        cout << "Jumlah :" << temp -> jumlah << endl;
-        cout << "Harga Total :" << temp -> harga_total << endl << endl;
+        cout << "\tData Apotik ke - " << i << endl;
+        cout << "\t\t\t\t\t\tNo id\t\t : " << temp -> no_id << endl;
+        cout << "\t\t\t\t\t\tNo id apoteker\t : " << temp->no_id_apoteker << endl;
+        cout << "\t\t\t\t\t\tNama Apoteker\t : " << temp -> nama_apoteker << endl;
+        cout << "\t\t\t\t\t\tTanggal\t\t : " << temp -> tanggal << endl;
+        cout << "\t\t\t\t\t\tNomor BPJS\t : " << temp -> nomor_bpjs << endl;
+        cout << "\t\t\t\t\t\tNama Buyer\t : " << temp -> nama_buyer << endl;
+        cout << "\t\t\t\t\t\tNama Obat\t : " << temp -> nama_obat << endl;
+        cout << "\t\t\t\t\t\tKode Obat \t : " << temp -> kode_obat << endl;
+        cout << "\t\t\t\t\t\tExpired Obat\t : " << temp -> expired_obat << endl;
+        cout << "\t\t\t\t\t\tSupplier\t : " << temp -> supplier << endl;
+        cout << "\t\t\t\t\t\tJumlah\t\t : " << temp -> jumlah << endl;
+        cout << "\t\t\t\t\t\tHarga total\t : " << temp -> harga_total << endl << endl;
         temp = temp -> next;
         i++;
     }
-
-    cout << "=====================================================================" << endl;
+    cout <<endl;
+    cout << "============================================================================================================================================" << endl;
     getch();
 }
 
 void hapus_data(){
+    //////////////////////////////////////////////////////////////////////////////////
     system("cls");
-    cout << "=====================================================================" << endl;
-    cout << "||                                 HAPUS DATA                      ||" << endl;
-    cout << "=====================================================================" << endl;
+    for(int i=0 ;i<139;i++){
+    gotoxy(i,0);cout << (char)lineH1;
+    }//bar
 
+    gotoxy(60,1);cout << " HAPUS DATA " << endl;
+
+    for(int i=0 ;i<139;i++){
+    gotoxy(i,2);cout << (char)lineH1;
+    }//bar
+    cout << endl << endl;
     if (HEAD == NULL) {
         cout << "Belum ada data :(";
         getch();
         return;
     }
     cout << "Kembali: 0" << endl << endl;
+    //////////////////////////////////////////////////////////////////////////////////
 
     // Render tabel data
     Data* temp = HEAD;
     int i = 1;
 
     while (temp != NULL) {
-        cout << "Data ke - " << i << endl;
-        cout << "No id :" << temp -> no_id << endl;
-        cout << "NO id pegawai :" << temp->no_id_apoteker << endl;
-        cout << "Nama Apoteker :" << temp -> nama_apoteker << endl;
-        cout << "Tanggal :" << temp -> tanggal << endl;
-        cout << "No BPJS :" << temp -> nomor_bpjs << endl;
-        cout << "Nama Buyer :" << temp -> nama_buyer << endl;
-        cout << "Nama Obat :" << temp -> nama_obat << endl;
-        cout << "Kode Obat :" << temp -> kode_obat << endl;
-        cout << "Expired Obat :" << temp -> expired_obat << endl;
-        cout << "Supplier :" << temp -> supplier << endl;
-        cout << "Jumlah :" << temp -> jumlah << endl;
-        cout << "Harga Total :" << temp -> harga_total << endl << endl;
+        cout << "\tData Apotik ke - " << i << endl;
+        cout << "\t\t\t\t\t\tNo id\t\t : " << temp -> no_id << endl;
+        cout << "\t\t\t\t\t\tNo id apoteker\t : " << temp->no_id_apoteker << endl;
+        cout << "\t\t\t\t\t\tNama Apoteker\t : " << temp -> nama_apoteker << endl;
+        cout << "\t\t\t\t\t\tTanggal\t\t : " << temp -> tanggal << endl;
+        cout << "\t\t\t\t\t\tNomor BPJS\t : " << temp -> nomor_bpjs << endl;
+        cout << "\t\t\t\t\t\tNama Buyer\t : " << temp -> nama_buyer << endl;
+        cout << "\t\t\t\t\t\tNama Obat\t : " << temp -> nama_obat << endl;
+        cout << "\t\t\t\t\t\tKode Obat \t : " << temp -> kode_obat << endl;
+        cout << "\t\t\t\t\t\tExpired Obat\t : " << temp -> expired_obat << endl;
+        cout << "\t\t\t\t\t\tSupplier\t : " << temp -> supplier << endl;
+        cout << "\t\t\t\t\t\tJumlah\t\t : " << temp -> jumlah << endl;
+        cout << "\t\t\t\t\t\tHarga total\t : " << temp -> harga_total << endl << endl;
         temp = temp -> next;
+        i++;
     }
-    cout << "=====================================================================" << endl;
-
+    cout << endl;
+    cout << "============================================================================================================================================" << endl;
+    cout << endl << endl;
     // Pencarian ID
     Data* search = HEAD;
     int cari_id;
     bool found = false;
     while (true) {
         while (true) {
-            cout << "Cari No ID yang mau dihapus :";
+            cout << "\tCari No ID yang mau dihapus : ";
             cin >> cari_id;
             if (cin.fail() || cari_id < 0) {
-                cout << "Invalid input, masukkan angka bulat" << endl;
+                cout << "\t input, masukkan angka bulat" << endl;
                 clearInputBuffer();
             } else {
                 break;
@@ -361,7 +454,7 @@ void hapus_data(){
         // Cek apakah data ditemukan atau tidak
         if (cari_id == 0) break;
         if (!found) {
-            cout << "ID tidak ditemukan!" << endl;
+            cout << "\t tidak ditemukan!" << endl;
             search = HEAD;
             getch();
         }
@@ -391,37 +484,69 @@ void hapus_data(){
 
     // Menambahkan data ke file
     set_data();
-
-    cout << "=====================================================================" << endl;
-    cout << "Data berhasil dihapus";
+    cout << endl << endl;
+    cout << "============================================================================================================================================" << endl;
+    cout << "\t\t\t\t\t\tDATA BERHASIL DIHAPUS"<<endl;
+    cout << "============================================================================================================================================" << endl;
     getch();
 
 }
 
 void edit_data(){
-    system("cls");
-    cout << "=====================================================================" << endl;
-    cout << "||                                 EDIT DATA                       ||" << endl;
-    cout << "=====================================================================" << endl;
+   system("cls");
+    for(int i=0 ;i<139;i++){
+    gotoxy(i,0);cout << (char)lineH1;
+    }//bar
+
+    gotoxy(60,1);cout << " EDIT DATA " << endl;
+
+    for(int i=0 ;i<139;i++){
+    gotoxy(i,2);cout << (char)lineH1;
+    }//bar
+    cout << endl << endl;
 
     if (HEAD == NULL) {
-        cout << "Belum ada data :(";
+        cout << "\t\t\t\t\t\tBelum ada data :(";
         getch();
         return;
     }
-    cout << "Kembali: 0" << endl << endl;
+    cout << "\tKembali: 0" << endl << endl;
 
     Data* temp = HEAD;
+
+    int i = 1;
+
+    while (temp != NULL) {
+        cout << "\tData Apotik ke - " << i << endl;
+        cout << "\t\t\t\t\t\tNo id\t\t : " << temp -> no_id << endl;
+        cout << "\t\t\t\t\t\tNo id apoteker\t : " << temp->no_id_apoteker << endl;
+        cout << "\t\t\t\t\t\tNama Apoteker\t : " << temp -> nama_apoteker << endl;
+        cout << "\t\t\t\t\t\tTanggal\t\t : " << temp -> tanggal << endl;
+        cout << "\t\t\t\t\t\tNomor BPJS\t : " << temp -> nomor_bpjs << endl;
+        cout << "\t\t\t\t\t\tNama Buyer\t : " << temp -> nama_buyer << endl;
+        cout << "\t\t\t\t\t\tNama Obat\t : " << temp -> nama_obat << endl;
+        cout << "\t\t\t\t\t\tKode Obat \t : " << temp -> kode_obat << endl;
+        cout << "\t\t\t\t\t\tExpired Obat\t : " << temp -> expired_obat << endl;
+        cout << "\t\t\t\t\t\tSupplier\t : " << temp -> supplier << endl;
+        cout << "\t\t\t\t\t\tJumlah\t\t : " << temp -> jumlah << endl;
+        cout << "\t\t\t\t\t\tHarga total\t : " << temp -> harga_total << endl << endl;
+        temp = temp -> next;
+        i++;
+    }
+    cout << endl;
+    cout << "============================================================================================================================================" << endl;
+    cout << endl << endl;
 
     // Cari ID
     int cari_id;
     bool found = false;
     while (true) {
-        cout << "Cari No ID yang mau diedit :";
+        
+        cout << "\t\t\t\t\t\tCari No ID yang mau di edit :";
         while (true) {
             cin >> cari_id;
             if (cin.fail() || cari_id < 0) {
-                cout << "Invalid input, masukkan angka bulat" << endl;
+                cout << "\t\t\t\t\t\tInvalid input, masukkan angka bulat" << endl;
                 clearInputBuffer();
             } else {
                 break;
@@ -441,7 +566,7 @@ void edit_data(){
         // Cek apakah data ditemukan atau tidak
         if (cari_id == 0) break;
         if (!found) {
-            cout << "Data tidak ditemukan!" << endl;
+            cout << "\t\t\t\t\t\tData tidak ditemukan!" << endl;
             temp = HEAD;
             getch();
         }
@@ -468,11 +593,27 @@ void edit_data(){
 
     // Pilih menu
     while (is_again) {
-        system("cls");
-        cout << "=====================================================================" << endl;
-        cout << "||                                 EDIT DATA                       ||" << endl;
-        cout << "=====================================================================" << endl;
-        cout << "Edit berdasarkan apa : "     << endl;
+    ///////////////////////////////////////////////////////////////////////////////////
+    system("cls");
+    for(int i=0 ;i<139;i++){
+    gotoxy(i,0);cout << (char)lineH1;
+    }//bar
+
+    gotoxy(60,1);cout << " EDIT DATA " << endl;
+
+    for(int i=0 ;i<139;i++){
+    gotoxy(i,2);cout << (char)lineH1;
+    }//bar
+    cout << endl << endl;
+    if (HEAD == NULL) {
+        cout << "\t\t\t\t\t\tBelum ada data :(";
+        getch();
+        return;
+    }
+    cout << "Kembali: 0" << endl << endl;
+    //////////////////////////////////////////////////////////////////////////////////
+        
+        gotoxy(50,6);cout << "Edit berdasarkan apa : "     << endl;
         cout << "1. NO ID \t"         << "5. NO BPJS \t"     << "9. EXPIRED OBAT \t"     << endl;
         cout << "2. NO ID PEGAWAI \t" << "6. NAMA BUYER \t"     << "10. SUPPLIER \t"     << endl;
         cout << "3. NAMA APOTEKER \t" << "7. NAMA OBAT \t"      << "11. JUMLAH \t"      << endl;
@@ -619,6 +760,7 @@ void edit_data(){
     set_data();
 }
 void cari_id(){
+    
     int search_idpengisian;
 
     do {
@@ -1990,20 +2132,30 @@ void printSorted(Data*& HEAD) {
 }
 
 void sort_data(){
-    system("cls");
-    cout << "=====================================================================" << endl;
-    cout << "||                             URUTKAN DATA                        ||" << endl;
-    cout << "=====================================================================" << endl;
+   
+    int choice1;
 
+    do{
+    ///////////////////////////////////////////////////////////////////////////////////
+    system("cls");
+    for(int i=0 ;i<139;i++){
+    gotoxy(i,0);cout << (char)lineH1;
+    }//bar
+
+    gotoxy(60,1);cout << " URUTKAN DATA" << endl;
+
+    for(int i=0 ;i<139;i++){
+    gotoxy(i,2);cout << (char)lineH1;
+    }//bar
+    cout << endl << endl;
     if (HEAD == NULL) {
-        cout << "Belum ada data :(";
+        cout << "\t\t\t\t\t\tBelum ada data :(";
         getch();
         return;
     }
-        int choice1;
-
-    do{
-        system("cls");
+    cout << endl;
+    //////////////////////////////////////////////////////////////////////////////////
+    
         cout << "Sort berdasarkan apa : "     << endl;
          cout << "1. NO ID \t"<< endl;
         cout << "2. NO ID PEGAWAI \t"<< endl;
@@ -2095,6 +2247,9 @@ void sort_data(){
 }
 
 void cari_data(){
+
+    
+
     if (HEAD == NULL) {
         cout << "Belum ada data :(";
         getch();
@@ -2104,7 +2259,25 @@ void cari_data(){
 
 
     do{
-        system("cls");
+    ///////////////////////////////////////////////////////////////////////////////////
+    system("cls");
+    for(int i=0 ;i<139;i++){
+    gotoxy(i,0);cout << (char)lineH1;
+    }//bar
+
+    gotoxy(60,1);cout << "CARI DATA " << endl;
+
+    for(int i=0 ;i<139;i++){
+    gotoxy(i,2);cout << (char)lineH1;
+    }//bar
+    cout << endl << endl;
+    if (HEAD == NULL) {
+        cout << "\t\t\t\t\t\tBelum ada data :(";
+        getch();
+        return;
+    }
+    cout<< endl;
+    //////////////////////////////////////////////////////////////////////////////////
         cout << "Cari berdasarkan apa : "     << endl;
          cout << "1. NO ID \t"<< endl;
         cout << "2. NO ID PEGAWAI \t"<< endl;
@@ -2188,51 +2361,262 @@ void menuUtama(){
 
     while (true) {
         system("cls");
-        cout << "1. Tambah data \t" << endl;
-        cout << "2. Lihat data \t" << endl;
-        cout << "3. Hapus data \t" << endl;
-        cout << "4. Edit data \t" << endl;
-        cout << "5. Cari data \t" << endl;
-        cout << "6. Urutkan data \t" << endl;
-        cout << "7. Keluar \t" << endl;
+        int key,select;
+        for(int i=0 ;i<139;i++){
+            gotoxy(i,0);cout << (char)lineH1;
+        }//bar
+        for(int i=0 ;i<139;i++){
+            gotoxy(i,2);cout << (char)lineH1;
+        }//bar
+        gotoxy(50,1);cout << " [ =========== MENU UTAMA =========== ]";
+        gotoxy(5,4);cout << "[TAMBAH DATA]" << endl;
+        gotoxy(25,4);cout << "[LIHAT DATA]" << endl;
+        gotoxy(45,4);cout << "[HAPUS DATA]" << endl;
+        gotoxy(65,4);cout << "[EDIT DATA]" << endl;
+        gotoxy(85,4);cout << "[CARI DATA]" << endl;
+        gotoxy(105,4);cout << "[URUTKAN DATA]" << endl;
+        gotoxy(125,4);cout << "[KELUAR]" << endl;
+        for(int i=0 ;i<139;i++){
+            gotoxy(i,6);cout << (char)lineH1;
+        }//bar
 
-        while (true) {
-            cin >> input;
-
-            if (cin.fail() || input < 1 || input > 7) {
-                cout << "Masukkan input yang valid (1-7)" << endl;
-                clearInputBuffer();
-            } else {
-                break;
+        //navigation
+        while((key = getch()) != 13 ){
+                if (key == 77)
+            {
+            select++;
+            if (select > 7)
+                {
+                select = 1;
+                }
+            
             }
-        }
-        clearInputBuffer();
+                else if (key == 75)
+            {
+            select--;
+            if (select < 1)
+                {
+                select = 7;
+                }
+            }
 
-        if (input == 1) {
+            if (select == 1){
+                    system("cls");
+                    SetConsoleColour(&original,BACKGROUND_BLUE | BACKGROUND_GREEN | BACKGROUND_RED);
+                    HANDLE color = GetStdHandle(STD_OUTPUT_HANDLE);
+                    for(int i=0 ;i<139;i++){
+                    gotoxy(i,0);cout << (char)lineH1;
+                    }//bar
+                    for(int i=0 ;i<139;i++){
+                    gotoxy(i,2);cout << (char)lineH1;
+                    }//bar
+                    gotoxy(50,1);cout << " [ =========== MENU UTAMA =========== ]";
+                    SetConsoleColour(&original,FOREGROUND_GREEN |BACKGROUND_INTENSITY);
+                    gotoxy(5,4);cout << "[TAMBAH DATA]" << endl;
+                    SetConsoleColour(&original,BACKGROUND_BLUE | BACKGROUND_GREEN | BACKGROUND_RED);
+                    gotoxy(25,4);cout << "[LIHAT DATA]" << endl;
+                    gotoxy(45,4);cout << "[HAPUS DATA]" << endl;
+                    gotoxy(65,4);cout << "[EDIT DATA]" << endl;
+                    gotoxy(85,4);cout << "[CARI DATA]" << endl;
+                    gotoxy(105,4);cout << "[URUTKAN DATA]" << endl;
+                    gotoxy(125,4);cout << "[KELUAR]" << endl;
+                    for(int i=0 ;i<139;i++){
+                    gotoxy(i,6);cout << (char)lineH1;
+                    }//bar
+            }
+
+            if (select == 2){
+                    system("cls");
+                    SetConsoleColour(&original,BACKGROUND_BLUE | BACKGROUND_GREEN | BACKGROUND_RED);
+                    HANDLE color = GetStdHandle(STD_OUTPUT_HANDLE);
+                    for(int i=0 ;i<139;i++){
+                    gotoxy(i,0);cout << (char)lineH1;
+                    }//bar
+                    for(int i=0 ;i<139;i++){
+                    gotoxy(i,2);cout << (char)lineH1;
+                    }//bar
+                    gotoxy(50,1);cout << " [ =========== MENU UTAMA =========== ]";
+                    gotoxy(5,4);cout << "[TAMBAH DATA]" << endl;
+                    SetConsoleColour(&original,FOREGROUND_GREEN |BACKGROUND_INTENSITY);
+                    gotoxy(25,4);cout << "[LIHAT DATA]" << endl;
+                    SetConsoleColour(&original,BACKGROUND_BLUE | BACKGROUND_GREEN | BACKGROUND_RED);
+                    gotoxy(45,4);cout << "[HAPUS DATA]" << endl;
+                    gotoxy(65,4);cout << "[EDIT DATA]" << endl;
+                    gotoxy(85,4);cout << "[CARI DATA]" << endl;
+                    gotoxy(105,4);cout << "[URUTKAN DATA]" << endl;
+                    gotoxy(125,4);cout << "[KELUAR]" << endl;
+                    for(int i=0 ;i<139;i++){
+                    gotoxy(i,6);cout << (char)lineH1;
+                    }//bar
+            }
+
+            if (select == 3){
+                    system("cls");
+                    HANDLE color = GetStdHandle(STD_OUTPUT_HANDLE);
+                    SetConsoleColour(&original,BACKGROUND_BLUE | BACKGROUND_GREEN | BACKGROUND_RED);
+                    for(int i=0 ;i<139;i++){
+                    gotoxy(i,0);cout << (char)lineH1;
+                    }//bar
+                    for(int i=0 ;i<139;i++){
+                    gotoxy(i,2);cout << (char)lineH1;
+                    }//bar
+                    gotoxy(50,1);cout << " [ =========== MENU UTAMA =========== ]";
+                    gotoxy(5,4);cout << "[TAMBAH DATA]" << endl;
+                    gotoxy(25,4);cout << "[LIHAT DATA]" << endl;
+                    SetConsoleColour(&original,FOREGROUND_GREEN |BACKGROUND_INTENSITY);
+                    gotoxy(45,4);cout << "[HAPUS DATA]" << endl;
+                    SetConsoleColour(&original,BACKGROUND_BLUE | BACKGROUND_GREEN | BACKGROUND_RED);
+                    gotoxy(65,4);cout << "[EDIT DATA]" << endl;
+                    gotoxy(85,4);cout << "[CARI DATA]" << endl;
+                    gotoxy(105,4);cout << "[URUTKAN DATA]" << endl;
+                    gotoxy(125,4);cout << "[KELUAR]" << endl;
+                    for(int i=0 ;i<139;i++){
+                    gotoxy(i,6);cout << (char)lineH1;
+                    }//bar
+            }
+
+            if (select == 4){
+                    system("cls");
+                    HANDLE color = GetStdHandle(STD_OUTPUT_HANDLE);
+                    SetConsoleColour(&original,BACKGROUND_BLUE | BACKGROUND_GREEN | BACKGROUND_RED);
+                    for(int i=0 ;i<139;i++){
+                    gotoxy(i,0);cout << (char)lineH1;
+                    }//bar
+                    for(int i=0 ;i<139;i++){
+                    gotoxy(i,2);cout << (char)lineH1;
+                    }//bar
+                    gotoxy(50,1);cout << " [ =========== MENU UTAMA =========== ]";
+                    gotoxy(5,4);cout << "[TAMBAH DATA]" << endl;
+                    gotoxy(25,4);cout << "[LIHAT DATA]" << endl;
+                    gotoxy(45,4);cout << "[HAPUS DATA]" << endl;
+                    SetConsoleColour(&original,FOREGROUND_GREEN |BACKGROUND_INTENSITY);
+                    gotoxy(65,4);cout << "[EDIT DATA]" << endl;
+                    SetConsoleColour(&original,BACKGROUND_BLUE | BACKGROUND_GREEN | BACKGROUND_RED);
+                    gotoxy(85,4);cout << "[CARI DATA]" << endl;
+                    gotoxy(105,4);cout << "[URUTKAN DATA]" << endl;
+                    gotoxy(125,4);cout << "[KELUAR]" << endl;
+                    for(int i=0 ;i<139;i++){
+                    gotoxy(i,6);cout << (char)lineH1;
+                    }//bar
+            }
+
+            if (select == 5){
+                    system("cls");
+                    HANDLE color = GetStdHandle(STD_OUTPUT_HANDLE);
+                    SetConsoleColour(&original,BACKGROUND_BLUE | BACKGROUND_GREEN | BACKGROUND_RED);
+                    for(int i=0 ;i<139;i++){
+                    gotoxy(i,0);cout << (char)lineH1;
+                    }//bar
+                    for(int i=0 ;i<139;i++){
+                    gotoxy(i,2);cout << (char)lineH1;
+                    }//bar
+                    gotoxy(50,1);cout << " [ =========== MENU UTAMA =========== ]";
+                    gotoxy(5,4);cout << "[TAMBAH DATA]" << endl;
+                    gotoxy(25,4);cout << "[LIHAT DATA]" << endl;
+                    gotoxy(45,4);cout << "[HAPUS DATA]" << endl;
+                    gotoxy(65,4);cout << "[EDIT DATA]" << endl;
+                    SetConsoleColour(&original,FOREGROUND_GREEN |BACKGROUND_INTENSITY);
+                    gotoxy(85,4);cout << "[CARI DATA]" << endl;
+                    SetConsoleColour(&original,BACKGROUND_BLUE | BACKGROUND_GREEN | BACKGROUND_RED);
+                    gotoxy(105,4);cout << "[URUTKAN DATA]" << endl;
+                    gotoxy(125,4);cout << "[KELUAR]" << endl;
+                    for(int i=0 ;i<139;i++){
+                    gotoxy(i,6);cout << (char)lineH1;
+                    }//bar
+            }
+
+            if (select == 6){
+                    system("cls");
+                    HANDLE color = GetStdHandle(STD_OUTPUT_HANDLE);
+                    SetConsoleColour(&original,BACKGROUND_BLUE | BACKGROUND_GREEN | BACKGROUND_RED);
+                    for(int i=0 ;i<139;i++){
+                    gotoxy(i,0);cout << (char)lineH1;
+                    }//bar
+                    for(int i=0 ;i<139;i++){
+                    gotoxy(i,2);cout << (char)lineH1;
+                    }//bar
+                    gotoxy(50,1);cout << " [ =========== MENU UTAMA =========== ]";
+                    gotoxy(5,4);cout << "[TAMBAH DATA]" << endl;
+                    gotoxy(25,4);cout << "[LIHAT DATA]" << endl;
+                    gotoxy(45,4);cout << "[HAPUS DATA]" << endl;
+                    gotoxy(65,4);cout << "[EDIT DATA]" << endl;
+                    gotoxy(85,4);cout << "[CARI DATA]" << endl;
+                    SetConsoleColour(&original,FOREGROUND_GREEN |BACKGROUND_INTENSITY);
+                    gotoxy(105,4);cout << "[URUTKAN DATA]" << endl;
+                    SetConsoleColour(&original,BACKGROUND_BLUE | BACKGROUND_GREEN | BACKGROUND_RED);
+                    gotoxy(125,4);cout << "[KELUAR]" << endl;
+                    for(int i=0 ;i<139;i++){
+                    gotoxy(i,6);cout << (char)lineH1;
+                    }//bar
+            }
+
+            if (select == 7){
+                    system("cls");
+                    HANDLE color = GetStdHandle(STD_OUTPUT_HANDLE);
+                    SetConsoleColour(&original,BACKGROUND_BLUE | BACKGROUND_GREEN | BACKGROUND_RED);
+                    for(int i=0 ;i<139;i++){
+                    gotoxy(i,0);cout << (char)lineH1;
+                    }//bar
+                    for(int i=0 ;i<139;i++){
+                    gotoxy(i,2);cout << (char)lineH1;
+                    }//bar
+                    gotoxy(50,1);cout << " [ =========== MENU UTAMA =========== ]";
+                    gotoxy(5,4);cout << "[TAMBAH DATA]" << endl;
+                    gotoxy(25,4);cout << "[LIHAT DATA]" << endl;
+                    gotoxy(45,4);cout << "[HAPUS DATA]" << endl;
+                    gotoxy(65,4);cout << "[EDIT DATA]" << endl;
+                    gotoxy(85,4);cout << "[CARI DATA]" << endl;
+                    gotoxy(105,4);cout << "[URUTKAN DATA]" << endl;
+                    SetConsoleColour(&original,FOREGROUND_GREEN |BACKGROUND_INTENSITY);
+                    gotoxy(125,4);cout << "[KELUAR]" << endl;
+                    SetConsoleColour(&original,BACKGROUND_BLUE | BACKGROUND_GREEN | BACKGROUND_RED);
+                    for(int i=0 ;i<139;i++){
+                    gotoxy(i,6);cout << (char)lineH1;
+                    }//bar
+            }
+
+        }
+        
+        // while (true) {
+        //     cin >> input;
+
+        //     if (cin.fail() || input < 1 || input > 7) {
+        //         cout << "Masukkan input yang valid (1-7)" << endl;
+        //         clearInputBuffer();
+        //     } else {
+        //         break;
+        //     }
+        // }
+        // clearInputBuffer();
+
+        if (select == 1) {
             tambah_data();
         }
-        if (input == 2) {
+        if (select == 2) {
             lihat_data();
         }
-        if (input == 3) {
+        if (select == 3) {
             hapus_data();
         }
-        if (input == 4) {
+        if (select == 4) {
             edit_data();
         }
-        if (input == 5) {
+        if (select == 5) {
             cari_data();
         }
-        if (input == 6) {
+        if (select == 6) {
             sort_data();
         }
-        if (input == 7) {
+        if (select == 7) {
             break;
         }
     }
 }
 
+
 int main(){
+    HANDLE color = GetStdHandle(STD_OUTPUT_HANDLE);
+    SetConsoleColour(&original,BACKGROUND_BLUE | BACKGROUND_GREEN | BACKGROUND_RED);
     get_data(); // Mengambil data dari file txt
     menuUtama();
 
