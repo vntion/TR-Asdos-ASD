@@ -579,7 +579,7 @@ void cari_idpengisian(){
         }
         else{
             cout << "Data ditemukan !" << endl;
-            cout << "Data ke - " << i << endl;
+            cout << "Data ke - " << endl;
             cout << "No id :" << temp -> no_id << endl;
             cout << "NO id pegawai :" << temp->no_id_apoteker << endl;
             cout << "Nama Apoteker :" << temp -> nama_apoteker << endl;
@@ -905,7 +905,7 @@ void cari_jumlahobat(){
 
     do {
         cout << "Masukkan keyword nama yang ingin dicari : ";
-        cin >> search_supplier;
+        cin >> search_jmlobat;
         
         if (cin.fail()) {
             cin.clear();
