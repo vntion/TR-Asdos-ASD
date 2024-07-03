@@ -562,7 +562,7 @@ void edit_data(){
     // Menambahkan data ke file
     set_data();
 }
-void cari_idpengisian(){
+void cari_id(){
     int search_idpengisian;
 
     do {
@@ -585,8 +585,6 @@ void cari_idpengisian(){
             temp = temp->next;
         }
         else{
-            cout << "Data ditemukan !" << endl;
-            cout << "Data ke - " << endl;
             cout << "No id :" << temp -> no_id << endl;
             cout << "NO id pegawai :" << temp->no_id_apoteker << endl;
             cout << "Nama Apoteker :" << temp -> nama_apoteker << endl;
@@ -1088,7 +1086,7 @@ void cari_data(){
 
     do{
         cout << "Cari berdasarkan apa : "     << endl;
-        cout << "1. NO ID PENGISIAN \t"         << "5. NO BPJS \t"     << "9. EXPIRED OBAT \t"     << endl;
+        cout << "1. NO ID \t"         << "5. NO BPJS \t"     << "9. EXPIRED OBAT \t"     << endl;
         cout << "2. NO ID PEGAWAI \t" << "6. NAMA BUYER \t"     << "10. SUPPLIER \t"     << endl;
         cout << "3. NAMA APOTEKER \t" << "7. NAMA OBAT \t"      << "11. JUMLAH \t"      << endl;
         cout << "4. TANGGAL \t"       << "8. KODE OBAT \t"      << "12. HARGA TOTAL \t" << endl;
@@ -1097,7 +1095,7 @@ void cari_data(){
         cin >> choice;
         switch (choice) {
                         case 1:
-                            cari_IDapoteker();
+                            cari_id();
                             break;
                         case 2:
                             cari_IDapoteker();
