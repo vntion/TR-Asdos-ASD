@@ -17,7 +17,7 @@ struct Data{
     int no_id_apoteker;
     string nama_apoteker;
     string tanggal;
-    string nomor_bpjs;
+    long nomor_bpjs;
     string nama_buyer;
     string nama_obat;
     int kode_obat;
@@ -62,7 +62,7 @@ void get_data(){
         newData->no_id_apoteker = stoi(arr[1]);
         newData -> nama_apoteker = arr[2];
         newData -> tanggal = arr[3];
-        newData->nomor_bpjs = arr[4];
+        newData->nomor_bpjs = stol(arr[4]);
         newData->nama_buyer = arr[5];
         newData->nama_obat = arr[6];
         newData->kode_obat = stoi(arr[7]);
@@ -105,27 +105,39 @@ void set_data() {
 void tambah_data(){
     int input_jumlah_data; // Jumlah data yang ingin dimasukkan
     int input_no_id, input_kode_obat, input_jumlah, input_no_id_pegawai;
-    long input_harga_total;
-    string input_nama_apoteker, input_nama_obat, input_expired_obat, input_supplier, input_nomor_bpjs, input_nama_buyer, input_tanggal, nama_obat;
+    long input_harga_total, input_nomor_bpjs;
+    string input_nama_apoteker, input_nama_obat, input_expired_obat, input_supplier, input_nama_buyer, input_tanggal, nama_obat;
 
+    system("cls");
     cout << "=====================================================================" << endl;
-    cout << "||                              MASUKKAN DATA                      ||" << endl;
+    cout << "||                           MASUKKAN DATA                         ||" << endl;
     cout << "=====================================================================" << endl;
+    cout << "Kembali: 0" << endl;
 
-    cout << "Masukkan Jumlah Data: ";
-    cin >> input_jumlah_data;
+    while (true) {
+        cout << "Masukkan Jumlah Data: ";
+        cin >> input_jumlah_data;
+        if (cin.fail() || input_jumlah_data < 0) {
+            cout << "Invalid input, masukkan angka bulat" << endl;
+            clearInputBuffer();
+        } else {
+            break;
+        }
+    }
+    clearInputBuffer();
+    if (input_jumlah_data == 0) return;
     cout << endl << endl;
 
     int i = 1; // Iteration
 
     // User memasukkan input data
-    do {
+    while (i <= input_jumlah_data) {
         cout << "Data Apotik ke - " << i << endl << endl;
 
         while (true) {
             cout << "No id : ";
             cin >> input_no_id;
-            if (cin.fail()) {
+            if (cin.fail() || input_no_id < 1) {
                 cout << "Invalid input, masukkan angka bulat" << endl;
                 clearInputBuffer();
             } else {
@@ -137,7 +149,7 @@ void tambah_data(){
         while (true) {
             cout << "No id apoteker : ";
             cin >> input_no_id_pegawai;
-            if (cin.fail()) {
+            if (cin.fail() || input_no_id_pegawai < 1) {
                 cout << "Invalid input, masukkan angka bulat" << endl;
                 clearInputBuffer();
             } else {
@@ -152,9 +164,17 @@ void tambah_data(){
         cout << "Nama Pasien\t : ";
         getline(cin, input_nama_buyer);
 
-        cout << "Nomor BPJS\t : ";
-        getline(cin, input_nomor_bpjs);
-
+        while (true) {
+            cout << "Nomor BPJS \t: ";
+            cin >> input_nomor_bpjs;
+            if (cin.fail() || input_nomor_bpjs < 1) {
+                cout << "Invalid input, masukkan angka bulat" << endl;
+                clearInputBuffer();
+            } else {
+                break;
+            }
+        }
+        clearInputBuffer();
 
         cout << "Tanggal\t : ";
         getline(cin, input_tanggal);
@@ -163,9 +183,9 @@ void tambah_data(){
         getline(cin, input_nama_obat);
 
         while (true) {
-            cout << "Kode Obat : ";
+            cout << "Kode Obat \t: ";
             cin >> input_kode_obat;
-            if (cin.fail()) {
+            if (cin.fail() || input_kode_obat < 1) {
                 cout << "Invalid input, masukkan angka bulat" << endl;
                 clearInputBuffer();
             } else {
@@ -183,7 +203,7 @@ void tambah_data(){
         while (true) {
             cout << "Jumlah : ";
             cin >> input_jumlah;
-            if (cin.fail()) {
+            if (cin.fail() || input_jumlah < 1) {
                 cout << "Invalid input, masukkan angka bulat" << endl;
                 clearInputBuffer();
             } else {
@@ -195,7 +215,7 @@ void tambah_data(){
         while (true) {
             cout << "Harga total : ";
             cin >> input_harga_total;
-            if (cin.fail()) {
+            if (cin.fail() || input_harga_total < 1) {
                 cout << "Invalid input, masukkan angka bulat" << endl;
                 clearInputBuffer();
             } else {
@@ -205,29 +225,30 @@ void tambah_data(){
         clearInputBuffer();
 
         i++;
-    } while (i <= input_jumlah_data);
+   
 
-    // Setelah user memasukkan input, proses selanjutnya memasukkan input ke data
-    Data* newData = new Data;
-    newData->no_id = input_no_id;
-    newData->no_id_apoteker = input_no_id_pegawai;
-    newData->nama_apoteker = input_nama_apoteker;
-    newData->tanggal = input_tanggal;
-    newData->nomor_bpjs = input_nomor_bpjs;
-    newData->nama_buyer = input_nama_buyer;
-    newData->nama_obat = input_nama_obat;
-    newData->kode_obat = input_kode_obat;
-    newData->expired_obat = input_expired_obat;
-    newData->supplier = input_supplier;
-    newData->jumlah = input_jumlah;
-    newData->harga_total = input_harga_total;
-    newData->next = NULL;
+        // Setelah user memasukkan input, proses selanjutnya memasukkan input ke data
+        Data* newData = new Data;
+        newData->no_id = input_no_id;
+        newData->no_id_apoteker = input_no_id_pegawai;
+        newData->nama_apoteker = input_nama_apoteker;
+        newData->tanggal = input_tanggal;
+        newData->nomor_bpjs = input_nomor_bpjs;
+        newData->nama_buyer = input_nama_buyer;
+        newData->nama_obat = input_nama_obat;
+        newData->kode_obat = input_kode_obat;
+        newData->expired_obat = input_expired_obat;
+        newData->supplier = input_supplier;
+        newData->jumlah = input_jumlah;
+        newData->harga_total = input_harga_total;
+        newData->next = NULL;
 
-    if (HEAD == NULL) HEAD = newData;
-    else {
-        Data* temp = HEAD;
-        while (temp->next != NULL) temp = temp->next;
-        temp->next = newData;
+        if (HEAD == NULL) HEAD = newData;
+        else {
+            Data* temp = HEAD;
+            while (temp->next != NULL) temp = temp->next;
+            temp->next = newData;
+        }
     }
 
     // Menambahkan data ke file
@@ -239,6 +260,7 @@ void tambah_data(){
 }
 
 void lihat_data(){
+    system("cls");
     cout << "=====================================================================" << endl;
     cout << "||                                LIHAT DATA                       ||" << endl;
     cout << "=====================================================================" << endl;
@@ -249,7 +271,7 @@ void lihat_data(){
         getch();
         return;
     }
-
+    
     Data* temp = HEAD;
     int i = 1;
 
@@ -275,8 +297,9 @@ void lihat_data(){
 }
 
 void hapus_data(){
+    system("cls");
     cout << "=====================================================================" << endl;
-    cout << "||                                    HAPUS DATA                   ||" << endl;
+    cout << "||                                 HAPUS DATA                      ||" << endl;
     cout << "=====================================================================" << endl;
 
     if (HEAD == NULL) {
@@ -284,6 +307,7 @@ void hapus_data(){
         getch();
         return;
     }
+    cout << "Kembali: 0" << endl;
 
     // Render tabel data
     Data* temp = HEAD;
@@ -305,14 +329,24 @@ void hapus_data(){
         cout << "Harga Total :" << temp -> harga_total << endl << endl;
         temp = temp -> next;
     }
+    cout << "=====================================================================" << endl;
 
     // Pencarian ID
     Data* search = HEAD;
     int cari_id;
     bool found = false;
     while (true) {
-        cout << "Cari No ID yang mau dihapus :";
-        cin >> cari_id;
+        while (true) {
+            cout << "Cari No ID yang mau dihapus :";
+            cin >> cari_id;
+            if (cin.fail() || cari_id < 0) {
+                cout << "Invalid input, masukkan angka bulat" << endl;
+                clearInputBuffer();
+            } else {
+                break;
+            }
+        }
+        clearInputBuffer();
 
         while (search != NULL) {
             if (search->no_id == cari_id) {
@@ -323,6 +357,7 @@ void hapus_data(){
         }
 
         // Cek apakah data ditemukan atau tidak
+        if (cari_id == 0) break;
         if (!found) {
             cout << "ID tidak ditemukan!";
             search = HEAD;
@@ -330,6 +365,8 @@ void hapus_data(){
         }
         if (found) break;
     }
+
+    if (cari_id == 0) return;
 
     ///// Proses hapus data berdasarkan id
     Data* cur = HEAD;
@@ -360,6 +397,7 @@ void hapus_data(){
 }
 
 void edit_data(){
+    system("cls");
     cout << "=====================================================================" << endl;
     cout << "||                                 EDIT DATA                       ||" << endl;
     cout << "=====================================================================" << endl;
@@ -369,6 +407,7 @@ void edit_data(){
         getch();
         return;
     }
+    cout << "Kembali: 0" << endl;
 
     Data* temp = HEAD;
 
@@ -379,7 +418,7 @@ void edit_data(){
         cout << "Cari No ID yang mau diedit :";
         while (true) {
             cin >> cari_id;
-            if (cin.fail()) {
+            if (cin.fail() || cari_id < 0) {
                 cout << "Invalid input, masukkan angka bulat" << endl;
                 clearInputBuffer();
             } else {
@@ -398,6 +437,7 @@ void edit_data(){
         }
 
         // Cek apakah data ditemukan atau tidak
+        if (cari_id == 0) break;
         if (!found) {
             cout << "Data tidak ditemukan!" << endl;
             temp = HEAD;
@@ -406,11 +446,13 @@ void edit_data(){
         if (found) break;
     }
 
+    if (cari_id == 0) return;
+
     int no_id;
     int no_id_apoteker;
     string nama_apoteker;
     string tanggal;
-    string nomor_bpjs;
+    long nomor_bpjs;
     string nama_buyer;
     string nama_obat;
     int kode_obat;
@@ -424,6 +466,10 @@ void edit_data(){
 
     // Pilih menu
     while (is_again) {
+        system("cls");
+        cout << "=====================================================================" << endl;
+        cout << "||                                 EDIT DATA                       ||" << endl;
+        cout << "=====================================================================" << endl;
         cout << "Edit berdasarkan apa : "     << endl;
         cout << "1. NO ID \t"         << "5. NO BPJS \t"     << "9. EXPIRED OBAT \t"     << endl;
         cout << "2. NO ID PEGAWAI \t" << "6. NAMA BUYER \t"     << "10. SUPPLIER \t"     << endl;
@@ -485,7 +531,15 @@ void edit_data(){
                 break;
             case 5:
                 cout << "No BPJS baru : ";
-                getline(cin, nomor_bpjs);
+                while (true) {
+                    cin >> nomor_bpjs;
+                    if (cin.fail()) {
+                        cout << "Invalid input, masukkan angka bulat" << endl;
+                        clearInputBuffer();
+                    } else {
+                        break;
+                    }
+                }
                 temp -> nomor_bpjs = nomor_bpjs;
                 break;
             case 6:
@@ -1076,13 +1130,18 @@ void cari_hargatotal(){
 }
 
 void cari_data(){
+    system("cls");
+    cout << "=====================================================================" << endl;
+    cout << "||                                 EDIT DATA                       ||" << endl;
+    cout << "=====================================================================" << endl;
+
     if (HEAD == NULL) {
         cout << "Belum ada data :(";
         getch();
         return;
     }
     int choice;
-
+    cout << "Kembali: 0" << endl;
 
     do{
         cout << "Cari berdasarkan apa : "     << endl;
@@ -1092,7 +1151,16 @@ void cari_data(){
         cout << "4. TANGGAL \t"       << "8. KODE OBAT \t"      << "12. HARGA TOTAL \t" << endl;
         cout << "13. KEMBALI \t"      << endl;
 
-        cin >> choice;
+        while (true) {
+            cin >> choice;
+            if (cin.fail()) {
+                cout << "Invalid input, masukkan angka bulat" << endl;
+                clearInputBuffer();
+            } else {
+                break;
+            }
+        }
+        if (choice) break;
         switch (choice) {
                         case 1:
                             cari_id();
@@ -1140,11 +1208,16 @@ void cari_data(){
                             break;
 
         }
-    }while(choice !=12);
+    } while (choice !=12);
 
 }
 
 void urutkan_data(){
+    system("cls");
+    cout << "=====================================================================" << endl;
+    cout << "||                             URUTKAN DATA                        ||" << endl;
+    cout << "=====================================================================" << endl;
+
     if (HEAD == NULL) {
         cout << "Belum ada data :(";
         getch();
@@ -1164,7 +1237,18 @@ void menuUtama(){
         cout << "5. Cari data \t" << endl;
         cout << "6. Urutkan data \t" << endl;
         cout << "7. Keluar \t" << endl;
-        cin >> input;
+
+        while (true) {
+            cin >> input;
+
+            if (cin.fail() || input < 1 || input > 7) {
+                cout << "Masukkan input yang valid (1-7)" << endl;
+                clearInputBuffer();
+            } else {
+                break;
+            }
+        }
+        clearInputBuffer();
 
         if (input == 1) {
             tambah_data();
@@ -1178,11 +1262,11 @@ void menuUtama(){
         if (input == 4) {
             edit_data();
         }
-         if (input == 5) {
+        if (input == 5) {
             cari_data();
         }
-         if (input == 6) {
-            edit_data();
+        if (input == 6) {
+            urutkan_data();
         }
         if (input == 7) {
             break;
