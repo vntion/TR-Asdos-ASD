@@ -80,7 +80,24 @@ void cari_NObpjs(){
     }
 }
                             
-void cari_namabuyer();
+void cari_namabuyer(){
+    string search_bpjs;
+
+    cout << "Masukkan keyword nama yang ingin dicari : ";
+    cin >> search_bpjs;
+
+    Buyer* temp = HEAD_Buyer;
+    while (temp != NULL) {
+        if(search_bpjs!=temp->nomor_bpjs){
+            temp = temp->next;
+        }
+        else{
+            cout << "Data ditemukan !" << endl;
+            cout << temp -> nomor_bpjs << endl;
+            cout << temp-> nama_buyer << endl;
+        }
+    }
+}
                            
 void cari_namaobat();
                             
