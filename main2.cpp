@@ -7,7 +7,6 @@
 
 using namespace std;
 
-const string pegawai[] = {"Budi", "Kusno", "Gusno"};
 const string nama_file = "data2.txt";
 
 // Linked list
@@ -153,7 +152,7 @@ void tambah_data(){
     // Setelah user memasukkan input, proses selanjutnya memasukkan input ke data
     Data* newData = new Data;
     newData->no_id = input_no_id;
-     newData->no_id_apoteker = input_no_id_pegawai;
+    newData->no_id_apoteker = input_no_id_pegawai;
     newData->nama_apoteker = input_nama_apoteker;
     newData->tanggal = input_tanggal;
     newData->nomor_bpjs = input_nomor_bpjs;
@@ -442,16 +441,169 @@ void cari_IDapoteker(){
     }
 }
 
+                           
+void cari_NAMAapoteker(){
+    string search_Namaapoteker;
+
+    cout << "Masukkan keyword nama yang ingin dicari : ";
+    cin >> search_Namaapoteker;
+
+    Data* temp = HEAD;
+    while (temp != NULL) {
+        if(search_Namaapoteker!=temp->nama_apoteker){
+            temp = temp->next;
+        }
+        else{
+            cout << "Data ditemukan !" << endl;
+            cout << temp->no_id_apoteker << endl;
+            cout << temp->nama_apoteker << endl;
+        }
+    }
+}
+
+void cari_tanggalReceipt(){
+    string search_tanggal;
+
+    cout << "Masukkan keyword nama yang ingin dicari : ";
+    cin >> search_tanggal;
+
+    Data* temp = HEAD;
+    while (temp != NULL) {
+        if(search_tanggal!=temp->tanggal){
+            temp = temp->next;
+        }
+        else{
+            cout << "Data ditemukan !" << endl;
+            cout << temp -> tanggal << endl;
+            cout << temp-> jumlah << endl;
+            cout << temp-> harga_total << endl;
+        }
+    }
+}
+                           
+void cari_NObpjs(){
+    string search_bpjs;
+
+    cout << "Masukkan keyword nama yang ingin dicari : ";
+    cin >> search_bpjs;
+
+    Data* temp = HEAD;
+    while (temp != NULL) {
+        if(search_bpjs!=temp->nomor_bpjs){
+            temp = temp->next;
+        }
+        else{
+            cout << "Data ditemukan !" << endl;
+            cout << temp -> nomor_bpjs << endl;
+            cout << temp-> nama_buyer << endl;
+        }
+    }
+}
+                            
+void cari_namabuyer(){
+    string search_bpjs;
+
+    cout << "Masukkan keyword nama yang ingin dicari : ";
+    cin >> search_bpjs;
+
+    Data* temp = HEAD;
+    while (temp != NULL) {
+        if(search_bpjs!=temp->nomor_bpjs){
+            temp = temp->next;
+        }
+        else{
+            cout << "Data ditemukan !" << endl;
+            cout << temp -> nomor_bpjs << endl;
+            cout << temp-> nama_buyer << endl;
+        }
+    }
+}
+
+void cari_namaobat(){
+    string search_obat;
+
+    cout << "Masukkan keyword nama yang ingin dicari : ";
+    cin >> search_obat;
+
+    Data* temp = HEAD;
+    while (temp != NULL) {
+        if(search_obat!=temp->nama_obat){
+            temp = temp->next;
+        }
+        else{
+            cout << "Data ditemukan !" << endl;
+            cout << temp-> nama_obat << endl;
+            cout << temp -> kode_obat << endl;
+            cout << temp -> expired_obat << endl;
+            cout << temp -> supplier << endl;
+        }
+    }
+}
+
+void cari_kodeobat(){
+    string search_idobat;
+
+    cout << "Masukkan keyword nama yang ingin dicari : ";
+    cin >> search_idobat;
+
+    Data* temp = HEAD;
+    while (temp != NULL) {
+        if(search_idobat!=temp->nomor_bpjs){
+            temp = temp->next;
+        }
+        else{
+            cout << "Data ditemukan !" << endl;
+            cout << temp-> nama_obat << endl;
+            cout << temp -> kode_obat << endl;
+            cout << temp -> expired_obat << endl;
+            cout << temp -> supplier << endl;
+        }
+    }
+}
+
+void cari_expobat(){
+    string search_exp;
+
+    cout << "Masukkan keyword nama yang ingin dicari : ";
+    cin >> search_exp;
+    bool found=false;
+
+    Data* temp = HEAD;
+    while (temp != NULL) {
+        if(search_exp!=temp->expired_obat){
+            temp = temp->next;
+        }
+        else{
+            cout << "Data ditemukan !" << endl;
+            cout << temp-> nama_obat << endl;
+            cout << temp -> kode_obat << endl;
+            cout << temp -> expired_obat << endl;
+            cout << temp -> supplier << endl;
+            found = true;
+            break;
+            getchar();
+            getchar();
+            system("cls");
+        }
+    }
+        if(!found){
+            cout << "data tidak ada";
+            getchar();
+            getchar();
+        }
+}
+
 void cari_data(){
     int choice;
 
 
     do{
         cout << "Cari berdasarkan apa : "     << endl;
-        cout << "1. NO ID \t"         << "5. NAMA BUYER \t"     << "9. SUPPLIER \t"     << endl;
-        cout << "2. NAMA APOTEKER \t" << "6. NAMA OBAT \t"      << "10. JUMLAH \t"      << endl;
-        cout << "3. TANGGAL \t"       << "7. KODE OBAT \t"      << "11. HARGA TOTAL \t" << endl;
-        cout << "4. NO BPJS \t"       << "8. EXPIRED OBAT \t"   << "12. KEMBALI \t"     << endl;
+        cout << "1. NO ID \t"         << "5. NO BPJS \t"     << "9. EXPIRED OBAT \t"     << endl;
+        cout << "2. NO ID PEGAWAI \t" << "6. NAMA BUYER \t"     << "10. SUPPLIER \t"     << endl;
+        cout << "3. NAMA APOTEKER \t" << "7. NAMA OBAT \t"      << "11. JUMLAH \t"      << endl;
+        cout << "4. TANGGAL \t"       << "8. KODE OBAT \t"      << "12. HARGA TOTAL \t" << endl;
+        cout << "13. KEMBALI \t"      << endl;
 
         cin >> choice;
         switch (choice) {
@@ -476,9 +628,9 @@ void cari_data(){
                         // case 7:
                         //     cari_kodeobat();
                         //     break;
-                        // case 8:
-                        //     cari_expobat();
-                        //     break;
+                        case 8:
+                            cari_expobat();
+                            break;
                         // case 9:
                         //     cari_supplier();
                         //     break;
@@ -488,16 +640,16 @@ void cari_data(){
                         // case 11:
                         //     cari_hargatotal();
                         //     break;
-                        // case 12:
-                        //     cout << "Keluar";
-                        //     getch();
-                        //     break;
+                        case 12:
+                            cout << "Keluar";
+                            getch();
+                            break;
                         default:
                             cout << "Pilihan tidak valid.";
                             getch();
                             break;
 
-                } while (choice != 12);
+        }
     }while(choice !=12);
 
 }
