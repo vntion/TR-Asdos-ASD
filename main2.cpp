@@ -4,6 +4,7 @@
 #include <sstream>
 #include <conio.h>
 #include <cstdlib>
+#include <limits>
 
 using namespace std;
 
@@ -424,20 +425,32 @@ void edit_data(){
 void cari_IDapoteker(){
     int search_id;
 
-    cout << "Masukkan keyword id yang ingin dicari : ";
-    cin >> search_id;
+    do {
+        cout << "Masukkan keyword id yang ingin dicari : ";
+        cin >> search_id;
+        if (cin.fail()) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout << "Masukkan input yang valid.\n";
+        }
+    } while (true);
+    
+    bool found=false;
 
     Data* temp = HEAD;
     while (temp != NULL) {
-        if(search_id!=temp->no_id){
+        if(search_id!=temp->no_id_apoteker){
             temp = temp->next;
         }
         else{
             cout << "Data ditemukan !" << endl;
-            cout << temp->no_id << endl;
+            cout << temp->no_id_apoteker << endl;
             cout << temp->nama_apoteker << endl;
-            break;
+            found = true;
         }
+    }
+    if(!found){
+        cout << "data tidak ada";
     }
 }
 
@@ -591,6 +604,27 @@ void cari_expobat(){
             getchar();
             getchar();
         }
+}
+
+void cari_NAMAsupplier(){
+    string search_supplier;
+
+    cout << "Masukkan keyword nama yang ingin dicari : ";
+    cin >> search_supplier;
+
+    Data* temp = HEAD;
+    while (temp != NULL) {
+        if(search_supplier!=temp->supplier){
+            temp = temp->next;
+        }
+        else{
+            cout << "Data ditemukan !" << endl;
+            cout << temp-> nama_obat << endl;
+            cout << temp -> kode_obat << endl;
+            cout << temp -> expired_obat << endl;
+            cout << temp -> supplier << endl;
+        }
+    }
 }
 
 void cari_data(){
