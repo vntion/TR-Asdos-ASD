@@ -11,12 +11,12 @@ void cari_IDapoteker(){
 
     Pharmacist* temp = HEAD_Pharmacist;
     while (temp != NULL) {
-        if(search_id!=temp->no_id){
+        if(search_id!=temp->no_id_pegawai){
             temp = temp->next;
         }
         else{
             cout << "Data ditemukan !" << endl;
-            cout << temp->no_id << endl;
+            cout << temp->no_id_pegawai << endl;
             cout << temp->nama_apoteker << endl;
         }
     }
@@ -35,7 +35,7 @@ void cari_NAMAapoteker(){
         }
         else{
             cout << "Data ditemukan !" << endl;
-            cout << temp->no_id << endl;
+            cout << temp->no_id_pegawai << endl;
             cout << temp->nama_apoteker << endl;
         }
     }
