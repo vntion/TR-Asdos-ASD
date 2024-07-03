@@ -634,17 +634,21 @@ void cari_IDapoteker(){
 
     Data* temp = HEAD;
     while (temp != NULL) {
-        if(search_id!=temp->no_id_apoteker){
-            temp = temp->next;
-        }
-        else{
+        if(search_id==temp->no_id_apoteker){
+        
             cout << "Data ditemukan !" << endl;
             cout << temp->no_id_apoteker << endl;
             cout << temp->nama_apoteker << endl;
            
             found = true;
+        
         }
+            temp = temp->next;
     }
+            getchar();
+            getchar();
+            system("cls");
+
     if(!found){
         cout << "data tidak ada";
     }
@@ -672,19 +676,20 @@ void cari_NAMAapoteker(){
     Data* temp = HEAD;
     while (temp != NULL) {
         if(search_Namaapoteker==temp->nama_apoteker){
-            temp = temp->next;
         
             cout << "Data ditemukan !" << endl;
             cout << temp->no_id_apoteker << endl;
-            cout << temp->nama_apoteker << endl;
+            cout << temp->nama_apoteker << endl << endl;
         
             found = true;
-            getchar();
-            getchar();
-            break;
-            system("cls");
         }
+        
+        temp = temp->next;
     }
+            getchar();
+            getchar();
+            system("cls");
+
     if(!found){
         cout << "data tidak ada";
         getchar();
@@ -712,22 +717,21 @@ void cari_tanggalReceipt(){
 
     Data* temp = HEAD;
     while (temp != NULL) {
-        if(search_tanggal != temp->tanggal){
-            temp = temp->next;
-        }
-        else{
+        if(search_tanggal == temp->tanggal){
+
             cout << "Data ditemukan !" << endl;
             cout << temp -> tanggal << endl;
             cout << temp-> jumlah << endl;
             cout << temp-> harga_total << endl;
 
             found = true;
-            getchar();
-            getchar();
-            break;
-            system("cls");
         }
+            temp = temp->next;
     }
+            getchar();
+            getchar();
+            system("cls");
+
     if(!found){
         cout << "data tidak ada";
         getchar();
@@ -755,21 +759,20 @@ void cari_NObpjs(){
 
     Data* temp = HEAD;
     while (temp != NULL) {
-        if(search_bpjs!=temp->nomor_bpjs){
-            temp = temp->next;
-        }
-        else{
+        if(search_bpjs==temp->nomor_bpjs){
+
             cout << "Data ditemukan !" << endl;
             cout << temp -> nomor_bpjs << endl;
             cout << temp-> nama_buyer << endl;
 
             found = true;
-            getchar();
-            getchar();
-            break;
-            system("cls");
         }
+            temp = temp->next;
     }
+            getchar();
+            getchar();
+            system("cls");
+
     if(!found){
         cout << "data tidak ada";
         getchar();
@@ -798,21 +801,20 @@ void cari_namabuyer(){
 
     Data* temp = HEAD;
     while (temp != NULL) {
-        if(search_namabuyer != temp->nama_buyer){
-            temp = temp->next;
-        }
-        else{
+        if(search_namabuyer == temp->nama_buyer){
+
             cout << "Data ditemukan !" << endl;
             cout << temp -> nomor_bpjs << endl;
             cout << temp-> nama_buyer << endl;
 
             found = true;
-            getchar();
-            getchar();
-            break;
-            system("cls");
         }
+            temp = temp->next;
     }
+            getchar();
+            getchar();
+            system("cls");
+
     if(!found){
         cout << "data tidak ada";
         getchar();
@@ -840,10 +842,8 @@ void cari_namaobat(){
 
     Data* temp = HEAD;
     while (temp != NULL) {
-        if(search_obat != temp->nama_obat){
-            temp = temp->next;
-        }
-        else{
+        if(search_obat == temp->nama_obat){
+
             cout << "Data ditemukan !" << endl;
             cout << temp-> nama_obat << endl;
             cout << temp -> kode_obat << endl;
@@ -851,12 +851,13 @@ void cari_namaobat(){
             cout << temp -> supplier << endl;
 
             found = true;
-            getchar();
-            getchar();
-            break;
-            system("cls");
         }
+            temp = temp->next;
     }
+            getchar();
+            getchar();
+            system("cls");
+
     if(!found){
         cout << "data tidak ada";
         getchar();
@@ -884,10 +885,8 @@ void cari_kodeobat(){
 
     Data* temp = HEAD;
     while (temp != NULL) {
-        if(search_IDobat!=temp->kode_obat){
-            temp = temp->next;
-        }
-        else{
+        if(search_IDobat==temp->kode_obat){
+
             cout << "Data ditemukan !" << endl;
             cout << temp-> nama_obat << endl;
             cout << temp -> kode_obat << endl;
@@ -895,12 +894,13 @@ void cari_kodeobat(){
             cout << temp -> supplier << endl;
 
             found = true;
-            getchar();
-            getchar();
-            break;
-            system("cls");
         }
+            temp = temp->next;
     }
+            getchar();
+            getchar();
+            system("cls");
+
     if(!found){
         cout << "data tidak ada";
         getchar();
@@ -928,10 +928,8 @@ void cari_expobat(){
 
     Data* temp = HEAD;
     while (temp != NULL) {
-        if(search_exp!=temp->expired_obat){
-            temp = temp->next;
-        }
-        else{
+        if(search_exp==temp->expired_obat){
+
             cout << "Data ditemukan !" << endl;
             cout << temp-> nama_obat << endl;
             cout << temp -> kode_obat << endl;
@@ -939,17 +937,18 @@ void cari_expobat(){
             cout << temp -> supplier << endl;
             
             found = true;
-            break;
+        }
+            temp = temp->next;
+    }
             getchar();
             getchar();
             system("cls");
-        }
+
+    if(!found){
+        cout << "data tidak ada";
+        getchar();
+        getchar();
     }
-        if(!found){
-            cout << "data tidak ada";
-            getchar();
-            getchar();
-        }
 }
 
 void cari_NAMAsupplier(){
@@ -971,11 +970,9 @@ void cari_NAMAsupplier(){
     bool found=false;
 
     Data* temp = HEAD;
-    while (temp != NULL) {
+    while (temp == NULL) {
         if(search_supplier!=temp->supplier){
-            temp = temp->next;
-        }
-        else{
+
             cout << "Data ditemukan !" << endl;
             cout << temp-> nama_obat << endl;
             cout << temp -> kode_obat << endl;
@@ -983,17 +980,18 @@ void cari_NAMAsupplier(){
             cout << temp -> supplier << endl;
 
             found = true;
-            break;
+        }
+            temp = temp->next;
+    }
             getchar();
             getchar();
             system("cls");
-        }
+
+    if(!found){
+        cout << "data tidak ada";
+        getchar();
+        getchar();
     }
-        if(!found){
-            cout << "data tidak ada";
-            getchar();
-            getchar();
-        }
 }
 
 void cari_jumlahobat(){
@@ -1015,23 +1013,22 @@ void cari_jumlahobat(){
     bool found=false;
 
     Data* temp = HEAD;
-    while (temp != NULL) {
+    while (temp == NULL) {
         if(search_jmlobat != temp->jumlah){
-            temp = temp->next;
-        }
-        else{
+
             cout << "Data ditemukan !" << endl;
             cout << temp -> tanggal << endl;
             cout << temp -> jumlah << endl;
             cout << temp -> harga_total << endl;
             
             found = true;
-            getchar();
-            getchar();
-            break;
-            system("cls"); 
         }
+            temp = temp->next;
     }
+            getchar();
+            getchar();
+            system("cls");
+
     if(!found){
         cout << "data tidak ada";
         getchar();
@@ -1058,21 +1055,21 @@ void cari_hargatotal(){
     bool found=false;
 
     Data* temp = HEAD;
-    while (temp != NULL) {
+    while (temp == NULL) {
         if(search_hargatot!=temp->harga_total){
-            temp = temp->next;
-        }
-        else{
+
             cout << "Data ditemukan !" << endl;
             cout << temp -> nomor_bpjs << endl;
             cout << temp-> nama_buyer << endl;
+
             found = true;
-            getchar();
-            getchar();
-            break;
-            system("cls"); 
         }
+            temp = temp->next;
     }
+            getchar();
+            getchar();
+            system("cls");
+
     if(!found){
         cout << "data tidak ada";
         getchar();
