@@ -290,6 +290,7 @@ void lihat_data(){
         cout << "Jumlah :" << temp -> jumlah << endl;
         cout << "Harga Total :" << temp -> harga_total << endl << endl;
         temp = temp -> next;
+        i++;
     }
 
     cout << "=====================================================================" << endl;
