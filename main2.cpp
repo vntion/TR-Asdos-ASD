@@ -346,11 +346,12 @@ void edit_data(){
 
     // Pilih menu
     while (is_again) {
-        cout << "1. NO ID \t"         << "5. NAMA BUYER \t"     << "9. SUPPLIER \t"     << endl;
-        cout << "2. NAMA APOTEKER \t" << "6. NAMA OBAT \t"      << "10. JUMLAH \t"      << endl;
-        cout << "3. TANGGAL \t"       << "7. KODE OBAT \t"      << "11. HARGA TOTAL \t" << endl;
-        cout << "4. NO BPJS \t"       << "8. EXPIRED OBAT \t"   << "12. KEMBALI \t"     << endl;
-
+        cout << "Cari berdasarkan apa : "     << endl;
+        cout << "1. NO ID \t"         << "5. NO BPJS \t"     << "9. EXPIRED OBAT \t"     << endl;
+        cout << "2. NO ID PEGAWAI \t" << "6. NAMA BUYER \t"     << "10. SUPPLIER \t"     << endl;
+        cout << "3. NAMA APOTEKER \t" << "7. NAMA OBAT \t"      << "11. JUMLAH \t"      << endl;
+        cout << "4. TANGGAL \t"       << "8. KODE OBAT \t"      << "12. HARGA TOTAL \t" << endl;
+        cout << "13. KEMBALI \t"      << endl;
         cout << "Pilihan : ";
         cin >> pilih_menu;
 
@@ -362,61 +363,66 @@ void edit_data(){
                 temp -> no_id = no_id;
                 break;
             case 2:
+                cout << "No Id Apoteker baru : ";
+                cin >> no_id_apoteker;
+                temp -> no_id_apoteker = no_id_apoteker;
+                break;
+            case 3:
                 cout << "Nama Apoteker baru : ";
                 cin >> nama_apoteker;
                 temp -> nama_apoteker = nama_apoteker;
                 break;
-            case 3:
+            case 4:
                 cout << "Tanggal baru : ";
                 cin >> tanggal;
                 temp -> tanggal = tanggal;
                 break;
-            case 4:
+            case 5:
                 cout << "No BPJS baru : ";
                 cin >> nomor_bpjs;
                 temp -> nomor_bpjs = nomor_bpjs;
                 break;
-            case 5:
+            case 6:
                 cout << "Nama Buyer baru : ";
                 cin >> nama_buyer;
                 temp -> nama_buyer = nama_buyer;
                 break;
-            case 6:
+            case 7:
                 cout << "Nama Obat baru : ";
                 cin >> nama_obat;
                 temp -> nama_obat = nama_obat;
                 break;
-            case 7:
+            case 8:
                 cout << "Kode Obat baru : ";
                 cin >> kode_obat;
                 temp -> kode_obat = kode_obat;
                 break;
-            case 8:
+            case 9:
                 cout << "Expired Obat baru : ";
                 cin >> expired_obat;
                 temp -> expired_obat = expired_obat;
                 break;
-            case 9:
+            case 10:
                 cout << "Supplier baru : ";
                 cin >> supplier;
                 temp -> supplier = supplier;
                 break;
-            case 10:
+            case 11:
                 cout << "Jumlah baru : ";
                 cin >> jumlah;
                 temp -> jumlah = jumlah;
                 break;
-            case 11:
+            case 12:
                 cout << "Harga Total baru : ";
                 cin >> harga_total;
                 temp -> harga_total = harga_total;
                 break;
-            case 12:
+            case 13:
                 cout << "Kembali" << endl;
                 is_again = false;
                 break;
             default:
-                cout << "Pilih antara angka yang ada di menu (1-12)" << endl;
+                cout << "Pilih antara angka yang ada di menu (1-13)" << endl;
         }
     }
 
@@ -718,6 +724,11 @@ void cari_NAMAsupplier(){
 }
 
 void cari_data(){
+    if (HEAD == NULL) {
+        cout << "Belum ada data :(";
+        getch();
+        return;
+    }
     int choice;
 
 
@@ -769,7 +780,7 @@ void cari_data(){
                             getch();
                             break;
                         default:
-                            cout << "Pilihan tidak valid.";
+                            cout << "Pilih antara angka yang ada di menu (1-13)";
                             getch();
                             break;
 
@@ -779,7 +790,11 @@ void cari_data(){
 }
 
 void urutkan_data(){
-
+    if (HEAD == NULL) {
+        cout << "Belum ada data :(";
+        getch();
+        return;
+    }
 }
 
 void menuUtama(){
