@@ -225,7 +225,7 @@ void tambah_data(){
         clearInputBuffer();
 
         i++;
-   
+
 
         // Setelah user memasukkan input, proses selanjutnya memasukkan input ke data
         Data* newData = new Data;
@@ -271,7 +271,7 @@ void lihat_data(){
         getch();
         return;
     }
-    
+
     Data* temp = HEAD;
     int i = 1;
 
@@ -360,7 +360,7 @@ void hapus_data(){
         // Cek apakah data ditemukan atau tidak
         if (cari_id == 0) break;
         if (!found) {
-            cout << "ID tidak ditemukan!";
+            cout << "ID tidak ditemukan!" << endl;
             search = HEAD;
             getch();
         }
@@ -631,7 +631,7 @@ void cari_id(){
             benar = true; // Input valid, keluar dari loop
         }
     } while (!benar);
-    
+
     bool found=false;
 
     Data* temp = HEAD;
@@ -652,7 +652,7 @@ void cari_id(){
             cout << "Supplier :" << temp -> supplier << endl;
             cout << "Jumlah :" << temp -> jumlah << endl;
             cout << "Harga Total :" << temp -> harga_total << endl << endl;
-            
+
             found = true;
             getchar();
             getchar();
@@ -673,7 +673,7 @@ void cari_IDapoteker(){
     do {
         cout << "Masukkan keyword nama yang ingin dicari : ";
         cin >> search_id;
-        
+
         if (cin.fail()) {
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
@@ -682,19 +682,19 @@ void cari_IDapoteker(){
             benar = true; // Input valid, keluar dari loop
         }
     } while (!benar);
-    
+
     bool found=false;
 
     Data* temp = HEAD;
     while (temp != NULL) {
         if(search_id==temp->no_id_apoteker){
-        
+
             cout << "Data ditemukan !" << endl;
             cout << temp->no_id_apoteker << endl;
             cout << temp->nama_apoteker << endl;
-           
+
             found = true;
-        
+
         }
             temp = temp->next;
     }
@@ -707,14 +707,14 @@ void cari_IDapoteker(){
     }
 }
 
-                           
+
 void cari_NAMAapoteker(){
     string search_Namaapoteker;
 
     do {
         cout << "Masukkan keyword nama yang ingin dicari : ";
         cin >> search_Namaapoteker;
-        
+
         if (cin.fail()) {
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
@@ -729,14 +729,14 @@ void cari_NAMAapoteker(){
     Data* temp = HEAD;
     while (temp != NULL) {
         if(search_Namaapoteker==temp->nama_apoteker){
-        
+
             cout << "Data ditemukan !" << endl;
             cout << temp->no_id_apoteker << endl;
             cout << temp->nama_apoteker << endl << endl;
-        
+
             found = true;
         }
-        
+
         temp = temp->next;
     }
             getchar();
@@ -756,7 +756,7 @@ void cari_tanggalReceipt(){
     do {
         cout << "Masukkan keyword nama yang ingin dicari : ";
         cin >> search_tanggal;
-        
+
         if (cin.fail()) {
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
@@ -791,14 +791,14 @@ void cari_tanggalReceipt(){
         getchar();
     }
 }
-                           
+
 void cari_NObpjs(){
     long search_bpjs;
 
     do {
         cout << "Masukkan keyword nama yang ingin dicari : ";
         cin >> search_bpjs;
-        
+
         if (cin.fail()) {
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
@@ -832,7 +832,7 @@ void cari_NObpjs(){
         getchar();
     }
 }
-                            
+
 void cari_namabuyer(){
     string search_namabuyer;
 
@@ -840,7 +840,7 @@ void cari_namabuyer(){
         cout << "Masukkan keyword nama yang ingin dicari : ";
         cin >> search_namabuyer;
 
-        
+
         if (cin.fail()) {
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
@@ -881,7 +881,7 @@ void cari_namaobat(){
     do {
         cout << "Masukkan keyword nama yang ingin dicari : ";
         cin >> search_obat;
-        
+
         if (cin.fail()) {
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
@@ -924,7 +924,7 @@ void cari_kodeobat(){
     do {
         cout << "Masukkan keyword nama yang ingin dicari : ";
         cin >> search_IDobat;
-        
+
         if (cin.fail()) {
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
@@ -967,7 +967,7 @@ void cari_expobat(){
     do {
         cout << "Masukkan keyword nama yang ingin dicari : ";
         cin >> search_exp;
-        
+
         if (cin.fail()) {
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
@@ -988,7 +988,7 @@ void cari_expobat(){
             cout << temp -> kode_obat << endl;
             cout << temp -> expired_obat << endl;
             cout << temp -> supplier << endl;
-            
+
             found = true;
         }
             temp = temp->next;
@@ -1010,7 +1010,7 @@ void cari_NAMAsupplier(){
     do {
         cout << "Masukkan keyword nama yang ingin dicari : ";
         cin >> search_supplier;
-        
+
         if (cin.fail()) {
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
@@ -1053,7 +1053,7 @@ void cari_jumlahobat(){
     do {
         cout << "Masukkan keyword nama yang ingin dicari : ";
         cin >> search_jmlobat;
-        
+
         if (cin.fail()) {
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
@@ -1073,7 +1073,7 @@ void cari_jumlahobat(){
             cout << temp -> tanggal << endl;
             cout << temp -> jumlah << endl;
             cout << temp -> harga_total << endl;
-            
+
             found = true;
         }
             temp = temp->next;
@@ -1095,7 +1095,7 @@ void cari_hargatotal(){
     do {
         cout << "Masukkan keyword nama yang ingin dicari : ";
         cin >> search_hargatot;
-        
+
         if (cin.fail()) {
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
@@ -1104,7 +1104,7 @@ void cari_hargatotal(){
             benar = true; // Input valid, keluar dari loop
         }
     } while (!benar);
-    
+
     bool found=false;
 
     Data* temp = HEAD;
@@ -1271,7 +1271,7 @@ void sort_IDapoteker(Data*& HEAD){
   } while (swapped);
 }
 
-                        
+
 void sort_NAMAapoteker(Data*& HEAD){
     int swapped;
   Data* ptr1;
@@ -1411,7 +1411,7 @@ void sort_tanggalReceipt(Data*& HEAD){
     lptr = ptr1;
   } while (swapped);
 }
-                           
+
 void sort_NObpjs(Data*& HEAD){
     int swapped;
   Data* ptr1;
@@ -1481,7 +1481,7 @@ void sort_NObpjs(Data*& HEAD){
     lptr = ptr1;
   } while (swapped);
 }
-                            
+
 void sort_namabuyer(Data*& HEAD){
     int swapped;
   Data* ptr1;
@@ -2006,15 +2006,16 @@ void sort_data(){
         int choice1;
 
     do{
+        system("cls");
         cout << "Sort berdasarkan apa : "     << endl;
-        cout << "1. NO ID \t";         
-        cout << "2. NO ID PEGAWAI \t"; 
-        cout << "3. NAMA APOTEKER \t"; 
-        cout << "4. TANGGAL \t";       
-        cout << "5. NO BPJS \t";     
-        cout << "6. NAMA BUYER \t";     
-        cout << "7. NAMA OBAT \t";      
-        cout << "8. KODE OBAT \t";      
+         cout << "1. NO ID \t"<< endl;
+        cout << "2. NO ID PEGAWAI \t"<< endl;
+        cout << "3. NAMA APOTEKER \t"<< endl;
+        cout << "4. TANGGAL \t"<< endl;
+        cout << "5. NO BPJS \t"<< endl;
+        cout << "6. NAMA BUYER \t"<< endl;
+        cout << "7. NAMA OBAT \t"<< endl;
+        cout << "8. KODE OBAT \t"<< endl;
         cout << "9. EXPIRED OBAT \t"     << endl;
         cout << "10. SUPPLIER \t"     << endl;
         cout << "11. JUMLAH \t"      << endl;
@@ -2024,7 +2025,7 @@ void sort_data(){
         while (true) {
                 cin >> choice1;
 
-                if (cin.fail() || cari_id < 0) {
+                if (cin.fail() || choice1 < 0) {
                 cout << "Invalid input, masukkan angka bulat" << endl;
                 clearInputBuffer();
             } else {
@@ -2032,7 +2033,7 @@ void sort_data(){
             }
         }
         clearInputBuffer();
-        
+
         switch (choice1) {
                         case 1:
                             sort_ID(HEAD);
@@ -2106,15 +2107,16 @@ void cari_data(){
 
 
     do{
-        cout << "Sort berdasarkan apa : "     << endl;
-        cout << "1. NO ID \t";         
-        cout << "2. NO ID PEGAWAI \t"; 
-        cout << "3. NAMA APOTEKER \t"; 
-        cout << "4. TANGGAL \t";       
-        cout << "5. NO BPJS \t";     
-        cout << "6. NAMA BUYER \t";     
-        cout << "7. NAMA OBAT \t";      
-        cout << "8. KODE OBAT \t";      
+        system("cls");
+        cout << "Cari berdasarkan apa : "     << endl;
+         cout << "1. NO ID \t"<< endl;
+        cout << "2. NO ID PEGAWAI \t"<< endl;
+        cout << "3. NAMA APOTEKER \t"<< endl;
+        cout << "4. TANGGAL \t"<< endl;
+        cout << "5. NO BPJS \t"<< endl;
+        cout << "6. NAMA BUYER \t"<< endl;
+        cout << "7. NAMA OBAT \t"<< endl;
+        cout << "8. KODE OBAT \t"<< endl;
         cout << "9. EXPIRED OBAT \t"     << endl;
         cout << "10. SUPPLIER \t"     << endl;
         cout << "11. JUMLAH \t"      << endl;
@@ -2124,7 +2126,7 @@ void cari_data(){
         while (true) {
                 cin >> choice2;
 
-                if (cin.fail() || cari_id < 0) {
+                if (cin.fail() || choice2 < 0) {
                 cout << "Invalid input, masukkan angka bulat" << endl;
                 clearInputBuffer();
             } else {
