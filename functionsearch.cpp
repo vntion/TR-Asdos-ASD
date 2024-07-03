@@ -30,10 +30,16 @@ void cari_IDapoteker(){
             cout << temp->no_id_apoteker << endl;
             cout << temp->nama_apoteker << endl;
             found = true;
+            getchar();
+            getchar();
+            break;
+            system("cls");
         }
     }
     if(!found){
         cout << "data tidak ada";
+        getchar();
+        getchar();
     }
 }
                            
@@ -54,10 +60,16 @@ void cari_NAMAapoteker(){
             cout << temp->no_id_apoteker << endl;
             cout << temp->nama_apoteker << endl;
             found = true;
+            getchar();
+            getchar();
+            break;
+            system("cls");
         }
     }
     if(!found){
         cout << "data tidak ada";
+        getchar();
+        getchar();
     }
 }
                             
@@ -79,10 +91,16 @@ void cari_tanggalReceipt(){
             cout << temp-> jumlah << endl;
             cout << temp-> harga_total << endl;
             found = true;
+            getchar();
+            getchar();
+            break;
+            system("cls");
         }
     }
     if(!found){
         cout << "data tidak ada";
+        getchar();
+        getchar();
     }
 }
                            
@@ -103,10 +121,16 @@ void cari_NObpjs(){
             cout << temp -> nomor_bpjs << endl;
             cout << temp-> nama_buyer << endl;
             found = true;
+            getchar();
+            getchar();
+            break;
+            system("cls"); 
         }
     }
     if(!found){
         cout << "data tidak ada";
+        getchar();
+        getchar();
     }
 }
                             
@@ -127,10 +151,16 @@ void cari_namabuyer(){
             cout << temp -> nomor_bpjs << endl;
             cout << temp-> nama_buyer << endl;
             found = true;
+            getchar();
+            getchar();
+            break;
+            system("cls"); 
         }
     }
     if(!found){
         cout << "data tidak ada";
+        getchar();
+        getchar();
     }
 }
                            
@@ -154,10 +184,16 @@ void cari_namaobat(){
             cout << temp -> expired_obat << endl;
             cout << temp -> supplier << endl;
             found = true;
+            getchar();
+            getchar();
+            break;
+            system("cls"); 
         }
     }
     if(!found){
         cout << "data tidak ada";
+        getchar();
+        getchar();
     }
 }
                             
@@ -180,10 +216,16 @@ void cari_kodeobat(){
             cout << temp -> expired_obat << endl;
             cout << temp -> supplier << endl;
             found = true;
+            getchar();
+            getchar();
+            break;
+            system("cls"); 
         }
     }
     if(!found){
         cout << "data tidak ada";
+        getchar();
+        getchar();
     }
 }
                             
@@ -214,6 +256,8 @@ void cari_expobat(){
 
     if(!found){
         cout << "data tidak ada";
+        getchar();
+        getchar();
     }
 }
                            
@@ -236,11 +280,17 @@ void cari_NAMAsupplier(){
             cout << temp -> expired_obat << endl;
             cout << temp -> supplier << endl;
             found = true;
+            getchar();
+            getchar();
+            break;
+            system("cls"); 
         }
     }
 
     if(!found){
         cout << "data tidak ada";
+        getchar();
+        getchar();
     }
 }
                            
@@ -262,10 +312,16 @@ void cari_jumlahobat(){
             cout << temp -> jumlah << endl;
             cout << temp -> harga_total << endl;
             found = true;
+            getchar();
+            getchar();
+            break;
+            system("cls"); 
         }
     }
     if(!found){
         cout << "data tidak ada";
+        getchar();
+        getchar();
     }
 }
                           
@@ -286,10 +342,16 @@ void cari_hargatotal(){
             cout << temp -> nomor_bpjs << endl;
             cout << temp-> nama_buyer << endl;
             found = true;
+            getchar();
+            getchar();
+            break;
+            system("cls"); 
         }
     }
     if(!found){
         cout << "data tidak ada";
+        getchar();
+        getchar();
     }
 }
 

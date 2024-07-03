@@ -31,6 +31,8 @@ Data* HEAD = NULL;
 ////////////////////////////////////////////////////////////////
 ///////////////////////////////////
 
+bool benar=false;
+
 void get_data(){
     ifstream inFile(nama_file);
 
@@ -432,8 +434,10 @@ void cari_IDapoteker(){
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
             cout << "Masukkan input yang valid.\n";
+        } else {
+            benar = true; // Input valid, keluar dari loop
         }
-    } while (true);
+    } while (!benar);
     
     bool found=false;
 
@@ -447,10 +451,16 @@ void cari_IDapoteker(){
             cout << temp->no_id_apoteker << endl;
             cout << temp->nama_apoteker << endl;
             found = true;
+            getchar();
+            getchar();
+            break;
+            system("cls");
         }
     }
     if(!found){
         cout << "data tidak ada";
+        getchar();
+        getchar();
     }
 }
 
@@ -458,8 +468,18 @@ void cari_IDapoteker(){
 void cari_NAMAapoteker(){
     string search_Namaapoteker;
 
-    cout << "Masukkan keyword nama yang ingin dicari : ";
-    cin >> search_Namaapoteker;
+    do {
+        cout << "Masukkan keyword nama yang ingin dicari : ";
+        cin >> search_Namaapoteker;
+
+        if (cin.fail()) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout << "Masukkan input yang valid.\n";
+        } else {
+            benar = true; // Input valid, keluar dari loop
+        }
+    } while (!benar);
 
     Data* temp = HEAD;
     while (temp != NULL) {
@@ -477,8 +497,18 @@ void cari_NAMAapoteker(){
 void cari_tanggalReceipt(){
     string search_tanggal;
 
-    cout << "Masukkan keyword nama yang ingin dicari : ";
-    cin >> search_tanggal;
+    do {
+        cout << "Masukkan keyword nama yang ingin dicari : ";
+        cin >> search_tanggal;
+
+        if (cin.fail()) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout << "Masukkan input yang valid.\n";
+        } else {
+            benar = true; // Input valid, keluar dari loop
+        }
+    } while (!benar);
 
     Data* temp = HEAD;
     while (temp != NULL) {
@@ -497,8 +527,17 @@ void cari_tanggalReceipt(){
 void cari_NObpjs(){
     string search_bpjs;
 
-    cout << "Masukkan keyword nama yang ingin dicari : ";
-    cin >> search_bpjs;
+    do {
+        cout << "Masukkan keyword nama yang ingin dicari : ";
+        cin >> search_bpjs;
+        if (cin.fail()) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout << "Masukkan input yang valid.\n";
+        } else {
+            benar = true; // Input valid, keluar dari loop
+        }
+    } while (!benar);
 
     Data* temp = HEAD;
     while (temp != NULL) {
@@ -516,8 +555,18 @@ void cari_NObpjs(){
 void cari_namabuyer(){
     string search_bpjs;
 
-    cout << "Masukkan keyword nama yang ingin dicari : ";
-    cin >> search_bpjs;
+    do {
+        cout << "Masukkan keyword nama yang ingin dicari : ";
+        cin >> search_bpjs;
+
+        if (cin.fail()) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout << "Masukkan input yang valid.\n";
+        } else {
+            benar = true; // Input valid, keluar dari loop
+        }
+    } while (!benar);
 
     Data* temp = HEAD;
     while (temp != NULL) {
@@ -535,8 +584,18 @@ void cari_namabuyer(){
 void cari_namaobat(){
     string search_obat;
 
-    cout << "Masukkan keyword nama yang ingin dicari : ";
-    cin >> search_obat;
+    do {
+        cout << "Masukkan keyword nama yang ingin dicari : ";
+        cin >> search_obat;
+
+        if (cin.fail()) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout << "Masukkan input yang valid.\n";
+        } else {
+            benar = true; // Input valid, keluar dari loop
+        }
+    } while (!benar);
 
     Data* temp = HEAD;
     while (temp != NULL) {
@@ -556,8 +615,18 @@ void cari_namaobat(){
 void cari_kodeobat(){
     string search_idobat;
 
-    cout << "Masukkan keyword nama yang ingin dicari : ";
-    cin >> search_idobat;
+    do {
+        cout << "Masukkan keyword nama yang ingin dicari : ";
+        cin >> search_idobat;
+
+        if (cin.fail()) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout << "Masukkan input yang valid.\n";
+        } else {
+            benar = true; // Input valid, keluar dari loop
+        }
+    } while (!benar);
 
     Data* temp = HEAD;
     while (temp != NULL) {
@@ -577,8 +646,19 @@ void cari_kodeobat(){
 void cari_expobat(){
     string search_exp;
 
-    cout << "Masukkan keyword nama yang ingin dicari : ";
-    cin >> search_exp;
+    do {
+        cout << "Masukkan keyword nama yang ingin dicari : ";
+        cin >> search_exp;
+
+        if (cin.fail()) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout << "Masukkan input yang valid.\n";
+        } else {
+            benar = true; // Input valid, keluar dari loop
+        }
+    } while (!benar);
+
     bool found=false;
 
     Data* temp = HEAD;
@@ -609,8 +689,18 @@ void cari_expobat(){
 void cari_NAMAsupplier(){
     string search_supplier;
 
-    cout << "Masukkan keyword nama yang ingin dicari : ";
-    cin >> search_supplier;
+    do {
+        cout << "Masukkan keyword nama yang ingin dicari : ";
+        cin >> search_supplier;
+        
+        if (cin.fail()) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout << "Masukkan input yang valid.\n";
+        } else {
+            benar = true; // Input valid, keluar dari loop
+        }
+    } while (!benar);
 
     Data* temp = HEAD;
     while (temp != NULL) {
