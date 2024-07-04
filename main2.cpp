@@ -541,39 +541,42 @@ void edit_data(){
     int cari_id;
     bool found = false;
     while (true) {
-        
-        cout << "\t\tCari No ID yang mau di edit :";
-        while (true) {
-            cin >> cari_id;
-            if (cin.fail() || cari_id < 0) {
-                cout << "\t\t\t\t\t\tInvalid input, masukkan angka bulat" << endl;
-                clearInputBuffer();
-            } else {
-                break;
-            }
+    cout << "\t\tCari No ID yang mau di edit :";
+    while (true) {
+        cin >> cari_id;
+        if (cin.fail() || cari_id < 0) {
+            cout << "\t\t\t\t\t\tInvalid input, masukkan angka bulat" << endl;
+            clearInputBuffer();
+        } else {
+            break;
         }
-        clearInputBuffer();
+    }
+    clearInputBuffer();
 
-        // Cari id dari linked list
-        while (temp != NULL) {
-            if (temp -> no_id == cari_id) {
-                found = true;
-                break;
-            }
-            temp = temp -> next;
-        }
+    // Reset temp to HEAD for each iteration
+    temp = HEAD;
 
-        // Cek apakah data ditemukan atau tidak
-        if (cari_id == 0) break;
-        if (!found) {
-            cout << "\t\t\t\t\t\tData tidak ditemukan!" << endl;
-            temp = HEAD;
-            getch();
+    // Cari id dari linked list
+    found = false;
+    while (temp != NULL) {
+        if (temp -> no_id == cari_id) {
+            found = true;
+            break;
         }
-        if (found) break;
+        temp = temp -> next;
     }
 
-    if (cari_id == 0) return;
+    // Cek apakah data ditemukan atau tidak
+    if (cari_id == 0) break;
+    if (!found) {
+        cout << "\t\t\t\t\t\tData tidak ditemukan!" << endl;
+        getch();
+    } else {
+        break;
+    }
+}
+
+if (cari_id == 0) return;
 
     int no_id;
     int no_id_apoteker;
@@ -610,22 +613,35 @@ void edit_data(){
         getch();
         return;
     }
-    cout << "Kembali: 0" << endl << endl;
     //////////////////////////////////////////////////////////////////////////////////
         
-        gotoxy(50,6);cout << "Edit berdasarkan apa : "     << endl;
-        cout << "1. NO ID \t"         << "5. NO BPJS \t"     << "9. EXPIRED OBAT \t"     << endl;
-        cout << "2. NO ID PEGAWAI \t" << "6. NAMA BUYER \t"     << "10. SUPPLIER \t"     << endl;
-        cout << "3. NAMA APOTEKER \t" << "7. NAMA OBAT \t"      << "11. JUMLAH \t"      << endl;
-        cout << "4. TANGGAL \t"       << "8. KODE OBAT \t"      << "12. HARGA TOTAL \t" << endl;
-        cout << "13. KEMBALI \t"      << endl;
-        cout << "Pilihan : ";
+        gotoxy(5,6);cout << "Edit berdasarkan apa : ";    
+        gotoxy(11,8);cout << "1. NO ID ";                 
+        gotoxy(11,9);cout << "2. NO ID PEGAWAI ";       
+        gotoxy(11,10);cout << "3. NAMA APOTEKER ";      
+        gotoxy(11,11);cout << "4. TANGGAL ";       
+        gotoxy(11,12);cout << "5. NO BPJS " ;
+        gotoxy(11,13);cout << "6. NAMA BUYER ";
+        gotoxy(11,14);cout << "7. NAMA OBAT " ;
+        gotoxy(11,15);cout<< "8. KODE OBAT ";
+        gotoxy(11,16);cout<< "9. EXPIRED OBAT ";
+        gotoxy(11,17);cout<< "10. SUPPLIER ";
+        gotoxy(11,18);cout<< "11. JUMLAH " ;
+        gotoxy(11,19);cout << "12. HARGA TOTAL ";
+        gotoxy(11,20);cout << "13. KEMBALI " ;
+
+        gotoxy(11,22);cout << "Pilihan : ";
+
+        for(int i =3 ; i< 35 ; i++){
+            gotoxy(35,i);cout << (char)linev1;
+        }
 
         while (true) {
-            cin >> pilih_menu;
+            gotoxy(22,22);cin >> pilih_menu;
             if (cin.fail()) {
-                cout << "Invalid input, masukkan angka bulat" << endl;
+               gotoxy(45,8);cout << "Invalid input, masukkan angka bulat" << endl;
                 clearInputBuffer();
+                getch();
             } else {
                 break;
             }
@@ -635,11 +651,11 @@ void edit_data(){
         // Setelah memilih menu
         switch (pilih_menu) {
             case 1:
-                cout << "No id baru : ";
+                gotoxy(45,8);cout << "No id baru : ";
                 while (true) {
-                    cin >> no_id;
+                    gotoxy(58,8);cin >> no_id;
                     if (cin.fail()) {
-                        cout << "Invalid input, masukkan angka bulat" << endl;
+                        gotoxy(45,10);cout << "Invalid input, masukkan angka bulat" << endl;
                         clearInputBuffer();
                     } else {
                         break;
@@ -649,11 +665,11 @@ void edit_data(){
                 temp -> no_id = no_id;
                 break;
             case 2:
-                cout << "No Id Apoteker baru : ";
+                gotoxy(45,8);cout << "No Id Apoteker baru : ";
                 while (true) {
-                    cin >> no_id_apoteker;
+                    gotoxy(67,8);cin >> no_id_apoteker;
                     if (cin.fail()) {
-                        cout << "Invalid input, masukkan angka bulat" << endl;
+                        gotoxy(45,10);cout << "Invalid input, masukkan angka bulat" << endl;
                         clearInputBuffer();
                     } else {
                         break;
@@ -663,21 +679,21 @@ void edit_data(){
                 temp -> no_id_apoteker = no_id_apoteker;
                 break;
             case 3:
-                cout << "Nama Apoteker baru : ";
-                getline(cin, nama_apoteker);
+                gotoxy(45,8);cout << "Nama Apoteker baru : ";
+                gotoxy(66,8);getline(cin, nama_apoteker);
                 temp -> nama_apoteker = nama_apoteker;
                 break;
             case 4:
-                cout << "Tanggal baru : ";
-                getline(cin, tanggal);
+                gotoxy(45,8);cout << "Tanggal baru : ";
+                gotoxy(60,8);getline(cin, tanggal);
                 temp -> tanggal = tanggal;
                 break;
             case 5:
-                cout << "No BPJS baru : ";
+                gotoxy(45,8);cout << "No BPJS baru : ";
                 while (true) {
-                    cin >> nomor_bpjs;
+                    gotoxy(60,8);cin >> nomor_bpjs;
                     if (cin.fail()) {
-                        cout << "Invalid input, masukkan angka bulat" << endl;
+                        gotoxy(45,10);cout << "Invalid input, masukkan angka bulat" << endl;
                         clearInputBuffer();
                     } else {
                         break;
@@ -686,21 +702,21 @@ void edit_data(){
                 temp -> nomor_bpjs = nomor_bpjs;
                 break;
             case 6:
-                cout << "Nama Buyer baru : ";
-                getline(cin, nama_buyer);
+                gotoxy(45,8);cout << "Nama Buyer baru : ";
+                gotoxy(63,8);getline(cin, nama_buyer);
                 temp -> nama_buyer = nama_buyer;
                 break;
             case 7:
-                cout << "Nama Obat baru : ";
-                getline(cin, nama_obat);
+                gotoxy(45,8);cout << "Nama Obat baru : ";
+                gotoxy(62,8);getline(cin, nama_obat);
                 temp -> nama_obat = nama_obat;
                 break;
             case 8:
-                cout << "Kode Obat baru : ";
+                gotoxy(45,8);cout << "Kode Obat baru : ";
                 while (true) {
-                    cin >> kode_obat;
+                    gotoxy(62,8);cin >> kode_obat;
                     if (cin.fail()) {
-                        cout << "Invalid input, masukkan angka bulat" << endl;
+                        gotoxy(45,10);cout << "Invalid input, masukkan angka bulat" << endl;
                         clearInputBuffer();
                     } else {
                         break;
@@ -710,21 +726,21 @@ void edit_data(){
                 temp -> kode_obat = kode_obat;
                 break;
             case 9:
-                cout << "Expired Obat baru : ";
-                getline(cin, expired_obat);
+                gotoxy(45,8);cout << "Expired Obat baru : ";
+                gotoxy(65,8);getline(cin, expired_obat);
                 temp -> expired_obat = expired_obat;
                 break;
             case 10:
-                cout << "Supplier baru : ";
-                getline(cin, supplier);
+                gotoxy(45,8);cout << "Supplier baru : ";
+                gotoxy(61,8);getline(cin, supplier);
                 temp -> supplier = supplier;
                 break;
             case 11:
-                cout << "Jumlah baru : ";
+                gotoxy(45,8);cout << "Jumlah baru : ";
                 while (true) {
-                    cin >> jumlah;
+                    gotoxy(59,8);cin >> jumlah;
                     if (cin.fail()) {
-                        cout << "Invalid input, masukkan angka bulat" << endl;
+                        gotoxy(45,10);cout << "Invalid input, masukkan angka bulat" << endl;
                         clearInputBuffer();
                     } else {
                         break;
@@ -734,11 +750,11 @@ void edit_data(){
                 temp -> jumlah = jumlah;
                 break;
             case 12:
-                cout << "Harga Total baru : ";
+                gotoxy(45,8);cout << "Harga Total baru : ";
                 while (true) {
-                    cin >> harga_total;
+                    gotoxy(64,8);cin >> harga_total;
                     if (cin.fail()) {
-                        cout << "Invalid input, masukkan angka bulat" << endl;
+                        gotoxy(45,10);cout << "Invalid input, masukkan angka bulat" << endl;
                         clearInputBuffer();
                     } else {
                         break;
@@ -748,11 +764,10 @@ void edit_data(){
                 temp -> harga_total = harga_total;
                 break;
             case 13:
-                cout << "Kembali" << endl;
                 is_again = false;
                 break;
             default:
-                cout << "Pilih antara angka yang ada di menu (1-13)" << endl;
+                break;
         }
     }
 
