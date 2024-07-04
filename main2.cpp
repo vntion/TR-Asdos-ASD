@@ -556,9 +556,6 @@ void edit_data(){
     }
     clearInputBuffer();
 
-    // Reset temp to HEAD for each iteration
-    temp = HEAD;
-
     // Cari id dari linked list
     found = false;
     while (temp != NULL) {
