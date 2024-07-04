@@ -535,8 +535,9 @@ void edit_data(){
     int cari_id;
     bool found = false;
     while (true) {
-    cout << "\t\tCari No ID yang mau di edit :";
+
     while (true) {
+        cout << "\t\tCari No ID yang mau di edit :";
         cin >> cari_id;
         if (cin.fail() || cari_id < 0) {
             cout << "\t\t\t\t\t\tInvalid input, masukkan angka bulat" << endl;
