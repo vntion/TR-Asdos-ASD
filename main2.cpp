@@ -145,12 +145,12 @@ void set_data() {
 
   outFile.close();
 }
-void Nav_TambahData(){
+void Nav_TambahData(bool cari = true){
     system("cls");
-    
+
     HANDLE color = GetStdHandle(STD_OUTPUT_HANDLE);
     SetConsoleColour(&original,BACKGROUND_BLUE | BACKGROUND_GREEN | BACKGROUND_RED);
-   
+
     ////////////////////////////////NAVIGASI////////////////////////////////////////
     for(int i=0 ;i<139;i++){
     gotoxy(i,0);cout << (char)lineH1;
@@ -172,7 +172,9 @@ void Nav_TambahData(){
     gotoxy(i,6);cout << (char)lineH1;
     }//bar
     ////////////////////////////////NAVIGASI////////////////////////////////////////
-    gotoxy(5,7);cout << "Kembali: 0" << endl << endl;
+    if (cari) {gotoxy(5,7);cout << "Kembali: 0" << endl << endl;}
+    else cout << endl << endl;
+
 }
 
 void tambah_data(){
@@ -205,7 +207,7 @@ void tambah_data(){
 
     // User memasukkan input data
     while (i <= input_jumlah_data) {
-        Nav_TambahData();
+        Nav_TambahData(false);
 
         //Iterasi gotoxy
 
@@ -327,7 +329,7 @@ void tambah_data(){
             temp->next = newData;
             }
         }
-    
+
 
     // Menambahkan data ke file
     set_data();
@@ -349,7 +351,7 @@ void lihat_data(){
     for(int i=0 ;i<139;i++){
     gotoxy(i,2);cout << (char)lineH1;
     }//bar
-    
+
     if (HEAD == NULL) {
         cout << "\t\t\t\t\t\tBelum ada data :(";
         getch();
@@ -435,7 +437,7 @@ void hapus_data(){
             cout << "\tCari No ID yang mau dihapus : ";
             cin >> cari_id;
             if (cin.fail() || cari_id < 0) {
-                cout << "\t input, masukkan angka bulat" << endl;
+                cout << "\t invalid input, masukkan angka bulat" << endl;
                 clearInputBuffer();
             } else {
                 break;
@@ -538,6 +540,7 @@ void edit_data(){
     cout << endl << endl;
 
     // Cari ID
+    temp = HEAD;
     int cari_id;
     bool found = false;
     while (true) {
@@ -608,18 +611,14 @@ if (cari_id == 0) return;
     gotoxy(i,2);cout << (char)lineH1;
     }//bar
     cout << endl << endl;
-    if (HEAD == NULL) {
-        cout << "\t\t\t\t\t\tBelum ada data :(";
-        getch();
-        return;
-    }
+
     //////////////////////////////////////////////////////////////////////////////////
-        
-        gotoxy(5,6);cout << "Edit berdasarkan apa : ";    
-        gotoxy(11,8);cout << "1. NO ID ";                 
-        gotoxy(11,9);cout << "2. NO ID PEGAWAI ";       
-        gotoxy(11,10);cout << "3. NAMA APOTEKER ";      
-        gotoxy(11,11);cout << "4. TANGGAL ";       
+
+        gotoxy(5,6);cout << "Edit berdasarkan apa : ";
+        gotoxy(11,8);cout << "1. NO ID ";
+        gotoxy(11,9);cout << "2. NO ID PEGAWAI ";
+        gotoxy(11,10);cout << "3. NAMA APOTEKER ";
+        gotoxy(11,11);cout << "4. TANGGAL ";
         gotoxy(11,12);cout << "5. NO BPJS " ;
         gotoxy(11,13);cout << "6. NAMA BUYER ";
         gotoxy(11,14);cout << "7. NAMA OBAT " ;
@@ -775,7 +774,7 @@ if (cari_id == 0) return;
     set_data();
 }
 void cari_id(){
-    
+
     int search_idpengisian;
 
     do {
@@ -1181,7 +1180,7 @@ void cari_NAMAsupplier(){
     while (temp == NULL) {
         if(search_supplier!=temp->supplier){
 
-          
+
             gotoxy(45,10);cout << "[ Data ditemukan! ]";
             gotoxy(45,12);cout << "Nama Obat : "  << temp-> nama_obat << endl;
             gotoxy(45,13);cout << "Kode Obat : "<< temp -> kode_obat << endl;
@@ -2147,29 +2146,29 @@ void printSorted(Data*& HEAD) {
 
   while (ptr!= NULL) {
             // gotoxy(45,i);cout << "No id :" << ptr -> no_id << endl;
-        
+
             // gotoxy(45,i);cout << "NO id pegawai :" << ptr->no_id_apoteker << endl;
-          
+
             // gotoxy(45,i);cout << "Nama Apoteker :" << ptr -> nama_apoteker << endl;
-      
+
             // gotoxy(45,i);cout << "Tanggal :" << ptr -> tanggal << endl;
-       
+
             // gotoxy(45,i);cout << "No BPJS :" << ptr -> nomor_bpjs << endl;
-       
+
             // gotoxy(45,i);cout << "Nama Buyer :" << ptr -> nama_buyer << endl;
-      
+
             // gotoxy(45,i);cout << "Nama Obat :" << ptr -> nama_obat << endl;
-       
+
             // gotoxy(45,i);cout << "Kode Obat :" << ptr -> kode_obat << endl;
-         
+
             // gotoxy(45,i);cout << "Expired Obat :" << ptr -> expired_obat << endl;
-      
+
             // gotoxy(45,i);cout << "Supplier :" << ptr -> supplier << endl;
-   
+
             // gotoxy(45,i);cout << "Jumlah :" << ptr -> jumlah << endl;
-      
+
             // gotoxy(45,i);cout << "Harga Total :" << ptr -> harga_total << endl << endl;
-            
+
         cout << "\t\t\t\t\t\tNo id\t\t : " << ptr -> no_id << endl;
         cout << "\t\t\t\t\t\tNo id apoteker\t : " << ptr->no_id_apoteker << endl;
         cout << "\t\t\t\t\t\tNama Apoteker\t : " << ptr -> nama_apoteker << endl;
@@ -2189,7 +2188,7 @@ void printSorted(Data*& HEAD) {
 }
 
 void sort_data(){
-   
+
     int choice1;
 
     do{
@@ -2212,7 +2211,7 @@ void sort_data(){
     }
     cout << endl;
     //////////////////////////////////////////////////////////////////////////////////
-    
+
         gotoxy(5,6);cout << "Sort berdasarkan apa : "   ;
         gotoxy(11,8);cout << "1. NO ID ";
         gotoxy(11,9);cout << "2. NO ID PEGAWAI ";
@@ -2347,7 +2346,7 @@ void cari_data(){
         gotoxy(11,18);cout << "11. JUMLAH ";
         gotoxy(11,19);cout << "12. HARGA TOTAL ";
         gotoxy(11,20);cout << "13. KEMBALI " ;
-        
+
         for(int i =3 ; i< 35 ; i++){
             gotoxy(35,i);cout << (char)linev1;
         }
@@ -2450,7 +2449,7 @@ void menuUtama(){
                 {
                 select = 1;
                 }
-            
+
             }
                 else if (key == 75)
             {
@@ -2637,7 +2636,7 @@ void menuUtama(){
             }
 
         }
-        
+
         // while (true) {
         //     cin >> input;
 
