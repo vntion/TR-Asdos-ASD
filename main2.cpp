@@ -783,28 +783,35 @@ void cari_id(){
     Data* temp = HEAD;
     while (temp != NULL) {
         if(search_idpengisian == temp->no_id){
-            gotoxy(45,10);cout << "No id :" << temp -> no_id << endl;
-            gotoxy(45,11);cout << "NO id pegawai :" << temp->no_id_apoteker << endl;
-            gotoxy(45,12);cout << "Nama Apoteker : " << temp -> nama_apoteker << endl;
-            gotoxy(45,13);cout << "Tanggal :" << temp -> tanggal << endl;
-            gotoxy(45,14);cout << "No BPJS :" << temp -> nomor_bpjs << endl;
-            gotoxy(45,15);cout << "Nama Buyer : " << temp -> nama_buyer << endl;
-            gotoxy(45,16);cout << "Nama Obat : " << temp -> nama_obat << endl;
-            gotoxy(45,17);cout << "Kode Obat : " << temp -> kode_obat << endl;
-            gotoxy(45,18);cout << "Expired Obat :"  << temp -> expired_obat << endl;
-            gotoxy(45,19);cout << "Supplier : " << temp -> supplier << endl;
-            gotoxy(45,20);cout << "Jumlah : " << temp -> jumlah << endl;
-            gotoxy(45,21);cout << "Harga Total : " << temp -> harga_total << endl << endl;
+
+            gotoxy(45,10);cout << "[ Data ditemukan! ]";
+
+            gotoxy(45,12);cout << "No id :" << temp -> no_id << endl;
+            gotoxy(45,13);cout << "NO id pegawai :" << temp->no_id_apoteker << endl;
+            gotoxy(45,14);cout << "Nama Apoteker : " << temp -> nama_apoteker << endl;
+            gotoxy(45,15);cout << "Tanggal :" << temp -> tanggal << endl;
+            gotoxy(45,16);cout << "No BPJS :" << temp -> nomor_bpjs << endl;
+            gotoxy(45,17);cout << "Nama Buyer : " << temp -> nama_buyer << endl;
+            gotoxy(45,18);cout << "Nama Obat : " << temp -> nama_obat << endl;
+            gotoxy(45,19);cout << "Kode Obat : " << temp -> kode_obat << endl;
+            gotoxy(45,20);cout << "Expired Obat :"  << temp -> expired_obat << endl;
+            gotoxy(45,21);cout << "Supplier : " << temp -> supplier << endl;
+            gotoxy(45,22);cout << "Jumlah : " << temp -> jumlah << endl;
+            gotoxy(45,23);cout << "Harga Total : " << temp -> harga_total << endl << endl;
 
             found = true;
         }
             temp = temp->next;
     }
-
+        getchar();
+        getchar();
+        
     if(!found){
         gotoxy(45,10);cout << "data tidak ada";
+         getchar();
+       
     }
-    cin.get();
+   
 }
 
 void cari_IDapoteker(){
@@ -840,11 +847,11 @@ void cari_IDapoteker(){
     }
             getchar();
             getchar();
-            system("cls");
+           
     if(!found){
         gotoxy(45,10);cout << "data tidak ada";
          getchar();
-        getchar();
+        
     }
 }
 
@@ -882,12 +889,12 @@ void cari_NAMAapoteker(){
     }
             getchar();
             getchar();
-            system("cls");
+           
 
     if(!found){
        gotoxy(45,10);cout << "data tidak ada";
         getchar();
-        getchar();
+       
     }
 }
 
@@ -924,12 +931,12 @@ void cari_tanggalReceipt(){
     }
             getchar();
             getchar();
-            system("cls");
+          
 
     if(!found){
         gotoxy(45,10);cout << "data tidak ada";
         getchar();
-        getchar();
+     
     }
 }
 
@@ -965,12 +972,12 @@ void cari_NObpjs(){
     }
             getchar();
             getchar();
-            system("cls");
+           
 
     if(!found){
         gotoxy(45,10);cout << "data tidak ada";
         getchar();
-        getchar();
+      
     }
 }
 
@@ -1007,12 +1014,12 @@ void cari_namabuyer(){
     }
             getchar();
             getchar();
-            system("cls");
+          
 
     if(!found){
         gotoxy(45,10);cout << "data tidak ada";
         getchar();
-        getchar();
+      
     }
 }
 
@@ -1050,12 +1057,12 @@ void cari_namaobat(){
     }
             getchar();
             getchar();
-            system("cls");
+  
 
     if(!found){
         gotoxy(45,10);cout << "data tidak ada";
         getchar();
-        getchar();
+     
     }
 }
 
@@ -1094,12 +1101,12 @@ void cari_kodeobat(){
     }
             getchar();
             getchar();
-            system("cls");
+         
 
     if(!found){
         gotoxy(45,10);cout << "data tidak ada";
         getchar();
-        getchar();
+    
     }
 }
 
@@ -1138,12 +1145,12 @@ void cari_expobat(){
     }
             getchar();
             getchar();
-            system("cls");
+         
 
     if(!found){
         gotoxy(45,10);cout << "data tidak ada";
         getchar();
-        getchar();
+      
     }
 }
 
@@ -1182,12 +1189,12 @@ void cari_NAMAsupplier(){
     }
             getchar();
             getchar();
-            system("cls");
+           
 
     if(!found){
         gotoxy(45,8);cout << "data tidak ada";
         getchar();
-        getchar();
+      
     }
 }
 
@@ -1224,12 +1231,12 @@ void cari_jumlahobat(){
     }
             getchar();
             getchar();
-            system("cls");
+        
 
     if(!found){
         gotoxy(45,10);cout << "data tidak ada";
         getchar();
-        getchar();
+  
     }
 }
 
@@ -1266,12 +1273,12 @@ void cari_hargatotal(){
     }
             getchar();
             getchar();
-            system("cls");
+        
 
     if(!found){
         gotoxy(45,10);cout << "data tidak ada";
         getchar();
-        getchar();
+   
     }
 }
 
