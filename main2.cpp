@@ -39,15 +39,6 @@ void gotoxy(int x, int y) {
 }
 
 
-
-
-
-
-
-
-
-
-
 ////////////////////////////////////////////////////
 
 using namespace std;
@@ -456,7 +447,7 @@ void hapus_data(){
         // Cek apakah data ditemukan atau tidak
         if (cari_id == 0) break;
         if (!found) {
-            cout << "\t tidak ditemukan!" << endl;
+            cout << "\t ID tidak ditemukan!" << endl;
             search = HEAD;
             getch();
         }
