@@ -344,7 +344,7 @@ void lihat_data(){
     }//bar
 
     if (HEAD == NULL) {
-        cout << "\t\t\t\t\t\tBelum ada data :(";
+        gotoxy(60,5);cout << "Belum ada data :(";
         getch();
         return;
     }
@@ -388,7 +388,7 @@ void hapus_data(){
     }//bar
     cout << endl << endl;
     if (HEAD == NULL) {
-        cout << "Belum ada data :(";
+        gotoxy(60,5);cout << "Belum ada data :(";
         getch();
         return;
     }
@@ -499,7 +499,7 @@ void edit_data(){
     cout << endl << endl;
 
     if (HEAD == NULL) {
-        cout << "\t\t\t\t\t\tBelum ada data :(";
+        gotoxy(60,5);cout << "Belum ada data :(";
         getch();
         return;
     }
