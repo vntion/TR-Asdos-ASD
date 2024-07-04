@@ -779,12 +779,12 @@ void cari_id(){
     int search_idpengisian;
 
     do {
-        cout << "Masukkan keyword id yang ingin dicari : ";
-        cin >> search_idpengisian;
+        gotoxy(45,8);cout << "Masukkan keyword id yang ingin dicari : ";
+        gotoxy(88,8);cin >> search_idpengisian;
         if (cin.fail()) {
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            cout << "Masukkan input yang valid.\n";
+            gotoxy(45,9);cout << "Masukkan input yang valid.\n";
         } else {
             benar = true; // Input valid, keluar dari loop
         }
@@ -795,43 +795,41 @@ void cari_id(){
     Data* temp = HEAD;
     while (temp != NULL) {
         if(search_idpengisian == temp->no_id){
-            cout << "No id :" << temp -> no_id << endl;
-            cout << "NO id pegawai :" << temp->no_id_apoteker << endl;
-            cout << "Nama Apoteker :" << temp -> nama_apoteker << endl;
-            cout << "Tanggal :" << temp -> tanggal << endl;
-            cout << "No BPJS :" << temp -> nomor_bpjs << endl;
-            cout << "Nama Buyer :" << temp -> nama_buyer << endl;
-            cout << "Nama Obat :" << temp -> nama_obat << endl;
-            cout << "Kode Obat :" << temp -> kode_obat << endl;
-            cout << "Expired Obat :" << temp -> expired_obat << endl;
-            cout << "Supplier :" << temp -> supplier << endl;
-            cout << "Jumlah :" << temp -> jumlah << endl;
-            cout << "Harga Total :" << temp -> harga_total << endl << endl;
+            gotoxy(45,10);cout << "No id :" << temp -> no_id << endl;
+            gotoxy(45,11);cout << "NO id pegawai :" << temp->no_id_apoteker << endl;
+            gotoxy(45,12);cout << "Nama Apoteker : " << temp -> nama_apoteker << endl;
+            gotoxy(45,13);cout << "Tanggal :" << temp -> tanggal << endl;
+            gotoxy(45,14);cout << "No BPJS :" << temp -> nomor_bpjs << endl;
+            gotoxy(45,15);cout << "Nama Buyer : " << temp -> nama_buyer << endl;
+            gotoxy(45,16);cout << "Nama Obat : " << temp -> nama_obat << endl;
+            gotoxy(45,17);cout << "Kode Obat : " << temp -> kode_obat << endl;
+            gotoxy(45,18);cout << "Expired Obat :"  << temp -> expired_obat << endl;
+            gotoxy(45,19);cout << "Supplier : " << temp -> supplier << endl;
+            gotoxy(45,20);cout << "Jumlah : " << temp -> jumlah << endl;
+            gotoxy(45,21);cout << "Harga Total : " << temp -> harga_total << endl << endl;
 
             found = true;
         }
             temp = temp->next;
     }
-            getchar();
-            getchar();
-            system("cls");
 
     if(!found){
-        cout << "data tidak ada";
+        gotoxy(45,10);cout << "data tidak ada";
     }
+    cin.get();
 }
 
 void cari_IDapoteker(){
     int search_id;
 
     do {
-        cout << "Masukkan keyword nama yang ingin dicari : ";
-        cin >> search_id;
+        gotoxy(45,8);cout << "Masukkan keyword nama yang ingin dicari : ";
+        gotoxy(87,8);cin >> search_id;
 
         if (cin.fail()) {
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            cout << "Masukkan input yang valid.\n";
+            gotoxy(45,9);cout << "Masukkan input yang valid.\n";
         } else {
             benar = true; // Input valid, keluar dari loop
         }
@@ -843,9 +841,9 @@ void cari_IDapoteker(){
     while (temp != NULL) {
         if(search_id==temp->no_id_apoteker){
 
-            cout << "Data ditemukan !" << endl;
-            cout << temp->no_id_apoteker << endl;
-            cout << temp->nama_apoteker << endl;
+            gotoxy(45,10);cout << "[ Data ditemukan! ]";
+            gotoxy(45,12);cout << "NO id pegawai : "  << temp->no_id_apoteker << endl;
+            gotoxy(45,13);cout << "Nama Apoteker : "<< temp->nama_apoteker << endl;
 
             found = true;
 
@@ -855,9 +853,10 @@ void cari_IDapoteker(){
             getchar();
             getchar();
             system("cls");
-
     if(!found){
-        cout << "data tidak ada";
+        gotoxy(45,10);cout << "data tidak ada";
+         getchar();
+        getchar();
     }
 }
 
@@ -866,13 +865,13 @@ void cari_NAMAapoteker(){
     string search_Namaapoteker;
 
     do {
-        cout << "Masukkan keyword nama yang ingin dicari : ";
-        cin >> search_Namaapoteker;
+        gotoxy(45,8);cout << "Masukkan keyword nama yang ingin dicari : ";
+        gotoxy(87,8);cin >> search_Namaapoteker;
 
         if (cin.fail()) {
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            cout << "Masukkan input yang valid.\n";
+            gotoxy(45,9);cout << "Masukkan input yang valid.\n";
         } else {
             benar = true; // Input valid, keluar dari loop
         }
@@ -884,9 +883,9 @@ void cari_NAMAapoteker(){
     while (temp != NULL) {
         if(search_Namaapoteker==temp->nama_apoteker){
 
-            cout << "Data ditemukan !" << endl;
-            cout << temp->no_id_apoteker << endl;
-            cout << temp->nama_apoteker << endl << endl;
+        gotoxy(45,10);cout << "[ Data ditemukan! ]" << endl;
+        gotoxy(45,12);cout << "NO id pegawai : "  << temp->no_id_apoteker << endl;
+        gotoxy(45,13);cout << "Nama Apoteker : "<< temp->nama_apoteker << endl;
 
             found = true;
         }
@@ -898,7 +897,7 @@ void cari_NAMAapoteker(){
             system("cls");
 
     if(!found){
-        cout << "data tidak ada";
+       gotoxy(45,10);cout << "data tidak ada";
         getchar();
         getchar();
     }
@@ -908,13 +907,13 @@ void cari_tanggalReceipt(){
     string search_tanggal;
 
     do {
-        cout << "Masukkan keyword nama yang ingin dicari : ";
-        cin >> search_tanggal;
+        gotoxy(45,8);cout << "Masukkan keyword nama yang ingin dicari : ";
+        gotoxy(87,8);cin >> search_tanggal;
 
         if (cin.fail()) {
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            cout << "Masukkan input yang valid.\n";
+            gotoxy(45,9);cout << "Masukkan input yang valid.\n";
         } else {
             benar = true; // Input valid, keluar dari loop
         }
@@ -926,10 +925,10 @@ void cari_tanggalReceipt(){
     while (temp != NULL) {
         if(search_tanggal == temp->tanggal){
 
-            cout << "Data ditemukan !" << endl;
-            cout << temp -> tanggal << endl;
-            cout << temp-> jumlah << endl;
-            cout << temp-> harga_total << endl;
+            gotoxy(45,10);cout << "[ Data ditemukan! ]" << endl;
+            gotoxy(45,12);cout << "Tanggal : "  << temp -> tanggal << endl;
+            gotoxy(45,13);cout << "Jumlah : " << temp-> jumlah << endl;
+            gotoxy(45,14);cout << "Harga Total : " << temp-> harga_total << endl;
 
             found = true;
         }
@@ -940,7 +939,7 @@ void cari_tanggalReceipt(){
             system("cls");
 
     if(!found){
-        cout << "data tidak ada";
+        gotoxy(45,10);cout << "data tidak ada";
         getchar();
         getchar();
     }
@@ -950,13 +949,13 @@ void cari_NObpjs(){
     long search_bpjs;
 
     do {
-        cout << "Masukkan keyword nama yang ingin dicari : ";
-        cin >> search_bpjs;
+        gotoxy(45,8);cout << "Masukkan keyword nama yang ingin dicari : ";
+        gotoxy(87,8);cin >> search_bpjs;
 
         if (cin.fail()) {
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            cout << "Masukkan input yang valid.\n";
+            gotoxy(45,9);cout << "Masukkan input yang valid.\n";
         } else {
             benar = true; // Input valid, keluar dari loop
         }
@@ -968,9 +967,9 @@ void cari_NObpjs(){
     while (temp != NULL) {
         if(search_bpjs==temp->nomor_bpjs){
 
-            cout << "Data ditemukan !" << endl;
-            cout << temp -> nomor_bpjs << endl;
-            cout << temp-> nama_buyer << endl;
+            gotoxy(45,10);cout << "[ Data ditemukan! ]";
+            gotoxy(45,12);cout << "No BPJS : "  << temp -> nomor_bpjs ;
+            gotoxy(45,13);cout << "Nama Buyer : "<< temp-> nama_buyer ;
 
             found = true;
         }
@@ -981,7 +980,7 @@ void cari_NObpjs(){
             system("cls");
 
     if(!found){
-        cout << "data tidak ada";
+        gotoxy(45,10);cout << "data tidak ada";
         getchar();
         getchar();
     }
@@ -991,14 +990,14 @@ void cari_namabuyer(){
     string search_namabuyer;
 
     do {
-        cout << "Masukkan keyword nama yang ingin dicari : ";
-        cin >> search_namabuyer;
+        gotoxy(45,8);cout << "Masukkan keyword nama yang ingin dicari : ";
+        gotoxy(87,8);cin >> search_namabuyer;
 
 
         if (cin.fail()) {
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            cout << "Masukkan input yang valid.\n";
+            gotoxy(45,9);cout << "Masukkan input yang valid.\n";
         } else {
             benar = true; // Input valid, keluar dari loop
         }
@@ -1010,9 +1009,9 @@ void cari_namabuyer(){
     while (temp != NULL) {
         if(search_namabuyer == temp->nama_buyer){
 
-            cout << "Data ditemukan !" << endl;
-            cout << temp -> nomor_bpjs << endl;
-            cout << temp-> nama_buyer << endl;
+           gotoxy(45,10);cout << "[ Data ditemukan! ]";
+            gotoxy(45,12);cout << "No BPJS : "  << temp -> nomor_bpjs ;
+            gotoxy(45,13);cout << "Nama Buyer : "<< temp-> nama_buyer ;
 
             found = true;
         }
@@ -1023,7 +1022,7 @@ void cari_namabuyer(){
             system("cls");
 
     if(!found){
-        cout << "data tidak ada";
+        gotoxy(45,10);cout << "data tidak ada";
         getchar();
         getchar();
     }
@@ -1033,13 +1032,13 @@ void cari_namaobat(){
     string search_obat;
 
     do {
-        cout << "Masukkan keyword nama yang ingin dicari : ";
-        cin >> search_obat;
+        gotoxy(45,8);cout << "Masukkan keyword nama yang ingin dicari : ";
+        gotoxy(87,8);cin >> search_obat;
 
         if (cin.fail()) {
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            cout << "Masukkan input yang valid.\n";
+            gotoxy(45,9);cout << "Masukkan input yang valid.\n";
         } else {
             benar = true; // Input valid, keluar dari loop
         }
@@ -1051,11 +1050,11 @@ void cari_namaobat(){
     while (temp != NULL) {
         if(search_obat == temp->nama_obat){
 
-            cout << "Data ditemukan !" << endl;
-            cout << temp-> nama_obat << endl;
-            cout << temp -> kode_obat << endl;
-            cout << temp -> expired_obat << endl;
-            cout << temp -> supplier << endl;
+            gotoxy(45,10);cout << "[ Data ditemukan! ]";
+            gotoxy(45,12);cout << "Nama Obat : "  << temp-> nama_obat << endl;
+            gotoxy(45,13);cout << "Kode Obat : "<< temp -> kode_obat << endl;
+            gotoxy(45,14);cout << "Expired Obat :"<< temp -> expired_obat << endl;
+            gotoxy(45,15);cout << "Supplier : " << temp -> supplier << endl;
 
             found = true;
         }
@@ -1066,7 +1065,7 @@ void cari_namaobat(){
             system("cls");
 
     if(!found){
-        cout << "data tidak ada";
+        gotoxy(45,10);cout << "data tidak ada";
         getchar();
         getchar();
     }
@@ -1076,13 +1075,13 @@ void cari_kodeobat(){
     int search_IDobat;
 
     do {
-        cout << "Masukkan keyword nama yang ingin dicari : ";
-        cin >> search_IDobat;
+         gotoxy(45,8);cout << "Masukkan keyword nama yang ingin dicari : ";
+         gotoxy(87,8);cin >> search_IDobat;
 
         if (cin.fail()) {
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            cout << "Masukkan input yang valid.\n";
+             gotoxy(45,9);cout << "Masukkan input yang valid.\n";
         } else {
             benar = true; // Input valid, keluar dari loop
         }
@@ -1094,11 +1093,12 @@ void cari_kodeobat(){
     while (temp != NULL) {
         if(search_IDobat==temp->kode_obat){
 
-            cout << "Data ditemukan !" << endl;
-            cout << temp-> nama_obat << endl;
-            cout << temp -> kode_obat << endl;
-            cout << temp -> expired_obat << endl;
-            cout << temp -> supplier << endl;
+            gotoxy(45,10);cout << "[ Data ditemukan! ]";
+            gotoxy(45,12);cout << "Nama Obat : "  << temp-> nama_obat << endl;
+            gotoxy(45,13);cout << "Kode Obat : "<< temp -> kode_obat << endl;
+            gotoxy(45,14);cout << "Expired Obat :"<< temp -> expired_obat << endl;
+            gotoxy(45,15);cout << "Supplier : " << temp -> supplier << endl;
+
 
             found = true;
         }
@@ -1109,7 +1109,7 @@ void cari_kodeobat(){
             system("cls");
 
     if(!found){
-        cout << "data tidak ada";
+        gotoxy(45,10);cout << "data tidak ada";
         getchar();
         getchar();
     }
@@ -1119,13 +1119,13 @@ void cari_expobat(){
     string search_exp;
 
     do {
-        cout << "Masukkan keyword nama yang ingin dicari : ";
-        cin >> search_exp;
+        gotoxy(45,8);cout << "Masukkan keyword nama yang ingin dicari : ";
+        gotoxy(87,8);cin >> search_exp;
 
         if (cin.fail()) {
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            cout << "Masukkan input yang valid.\n";
+           gotoxy(45,9); cout << "Masukkan input yang valid.\n";
         } else {
             benar = true; // Input valid, keluar dari loop
         }
@@ -1137,11 +1137,12 @@ void cari_expobat(){
     while (temp != NULL) {
         if(search_exp==temp->expired_obat){
 
-            cout << "Data ditemukan !" << endl;
-            cout << temp-> nama_obat << endl;
-            cout << temp -> kode_obat << endl;
-            cout << temp -> expired_obat << endl;
-            cout << temp -> supplier << endl;
+            gotoxy(45,10);cout << "[ Data ditemukan! ]";
+            gotoxy(45,12);cout << "Nama Obat : "  << temp-> nama_obat << endl;
+            gotoxy(45,13);cout << "Kode Obat : "<< temp -> kode_obat << endl;
+            gotoxy(45,14);cout << "Expired Obat :"<< temp -> expired_obat << endl;
+            gotoxy(45,15);cout << "Supplier : " << temp -> supplier << endl;
+
 
             found = true;
         }
@@ -1152,7 +1153,7 @@ void cari_expobat(){
             system("cls");
 
     if(!found){
-        cout << "data tidak ada";
+        gotoxy(45,10);cout << "data tidak ada";
         getchar();
         getchar();
     }
@@ -1162,13 +1163,13 @@ void cari_NAMAsupplier(){
     string search_supplier;
 
     do {
-        cout << "Masukkan keyword nama yang ingin dicari : ";
-        cin >> search_supplier;
+        gotoxy(45,8);cout << "Masukkan keyword nama yang ingin dicari : ";
+        gotoxy(87,8);cin >> search_supplier;
 
         if (cin.fail()) {
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            cout << "Masukkan input yang valid.\n";
+            gotoxy(45,9);cout << "Masukkan input yang valid.\n";
         } else {
             benar = true; // Input valid, keluar dari loop
         }
@@ -1180,11 +1181,12 @@ void cari_NAMAsupplier(){
     while (temp == NULL) {
         if(search_supplier!=temp->supplier){
 
-            cout << "Data ditemukan !" << endl;
-            cout << temp-> nama_obat << endl;
-            cout << temp -> kode_obat << endl;
-            cout << temp -> expired_obat << endl;
-            cout << temp -> supplier << endl;
+          
+            gotoxy(45,10);cout << "[ Data ditemukan! ]";
+            gotoxy(45,12);cout << "Nama Obat : "  << temp-> nama_obat << endl;
+            gotoxy(45,13);cout << "Kode Obat : "<< temp -> kode_obat << endl;
+            gotoxy(45,14);cout << "Expired Obat :"<< temp -> expired_obat << endl;
+            gotoxy(45,15);cout << "Supplier : " << temp -> supplier << endl;
 
             found = true;
         }
@@ -1195,7 +1197,7 @@ void cari_NAMAsupplier(){
             system("cls");
 
     if(!found){
-        cout << "data tidak ada";
+        gotoxy(45,8);cout << "data tidak ada";
         getchar();
         getchar();
     }
@@ -1205,13 +1207,13 @@ void cari_jumlahobat(){
     int search_jmlobat;
 
     do {
-        cout << "Masukkan keyword nama yang ingin dicari : ";
-        cin >> search_jmlobat;
+        gotoxy(45,8);cout << "Masukkan keyword nama yang ingin dicari : ";
+        gotoxy(87,8);cin >> search_jmlobat;
 
         if (cin.fail()) {
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            cout << "Masukkan input yang valid.\n";
+            gotoxy(45,9);cout << "Masukkan input yang valid.\n";
         } else {
             benar = true; // Input valid, keluar dari loop
         }
@@ -1223,10 +1225,10 @@ void cari_jumlahobat(){
     while (temp == NULL) {
         if(search_jmlobat != temp->jumlah){
 
-            cout << "Data ditemukan !" << endl;
-            cout << temp -> tanggal << endl;
-            cout << temp -> jumlah << endl;
-            cout << temp -> harga_total << endl;
+            gotoxy(45,10);cout << "[ Data ditemukan! ]";
+            gotoxy(45,12);cout << "Tanggal : " << temp -> tanggal ;
+            gotoxy(45,13);cout << "Jumlah : " << temp -> jumlah ;
+            gotoxy(45,21);cout << "Harga Total : " << temp -> harga_total;
 
             found = true;
         }
@@ -1237,7 +1239,7 @@ void cari_jumlahobat(){
             system("cls");
 
     if(!found){
-        cout << "data tidak ada";
+        gotoxy(45,10);cout << "data tidak ada";
         getchar();
         getchar();
     }
@@ -1247,8 +1249,8 @@ void cari_hargatotal(){
     long search_hargatot;
 
     do {
-        cout << "Masukkan keyword nama yang ingin dicari : ";
-        cin >> search_hargatot;
+        gotoxy(45,8);cout << "Masukkan keyword nama yang ingin dicari : ";
+        gotoxy(87,8);cin >> search_hargatot;
 
         if (cin.fail()) {
             cin.clear();
@@ -1265,9 +1267,10 @@ void cari_hargatotal(){
     while (temp == NULL) {
         if(search_hargatot!=temp->harga_total){
 
-            cout << "Data ditemukan !" << endl;
-            cout << temp -> nomor_bpjs << endl;
-            cout << temp-> nama_buyer << endl;
+            gotoxy(45,10);cout << "[ Data ditemukan! ]";
+            gotoxy(45,12);cout << "No BPJS : "  << temp -> nomor_bpjs ;
+            gotoxy(45,13);cout << "Nama Buyer : "<< temp-> nama_buyer ;
+            gotoxy(45,14);cout << "Harga Total : " << temp -> harga_total;
 
             found = true;
         }
@@ -1278,7 +1281,7 @@ void cari_hargatotal(){
             system("cls");
 
     if(!found){
-        cout << "data tidak ada";
+        gotoxy(45,10);cout << "data tidak ada";
         getchar();
         getchar();
     }
@@ -2128,19 +2131,58 @@ void sort_hargatotal(Data*& HEAD){
 
 void printSorted(Data*& HEAD) {
   Data* ptr = HEAD;
+
+    system("cls");
+    for(int i=0 ;i<139;i++){
+    gotoxy(i,0);cout << (char)lineH1;
+    }//bar
+
+    gotoxy(60,1);cout << " URUTKAN DATA" << endl;
+
+    for(int i=0 ;i<139;i++){
+    gotoxy(i,2);cout << (char)lineH1;
+    }//bar
+
+    cout << endl << endl;
+
   while (ptr!= NULL) {
-            cout << "No id :" << ptr -> no_id << endl;
-            cout << "NO id pegawai :" << ptr->no_id_apoteker << endl;
-            cout << "Nama Apoteker :" << ptr -> nama_apoteker << endl;
-            cout << "Tanggal :" << ptr -> tanggal << endl;
-            cout << "No BPJS :" << ptr -> nomor_bpjs << endl;
-            cout << "Nama Buyer :" << ptr -> nama_buyer << endl;
-            cout << "Nama Obat :" << ptr -> nama_obat << endl;
-            cout << "Kode Obat :" << ptr -> kode_obat << endl;
-            cout << "Expired Obat :" << ptr -> expired_obat << endl;
-            cout << "Supplier :" << ptr -> supplier << endl;
-            cout << "Jumlah :" << ptr -> jumlah << endl;
-            cout << "Harga Total :" << ptr -> harga_total << endl << endl;
+            // gotoxy(45,i);cout << "No id :" << ptr -> no_id << endl;
+        
+            // gotoxy(45,i);cout << "NO id pegawai :" << ptr->no_id_apoteker << endl;
+          
+            // gotoxy(45,i);cout << "Nama Apoteker :" << ptr -> nama_apoteker << endl;
+      
+            // gotoxy(45,i);cout << "Tanggal :" << ptr -> tanggal << endl;
+       
+            // gotoxy(45,i);cout << "No BPJS :" << ptr -> nomor_bpjs << endl;
+       
+            // gotoxy(45,i);cout << "Nama Buyer :" << ptr -> nama_buyer << endl;
+      
+            // gotoxy(45,i);cout << "Nama Obat :" << ptr -> nama_obat << endl;
+       
+            // gotoxy(45,i);cout << "Kode Obat :" << ptr -> kode_obat << endl;
+         
+            // gotoxy(45,i);cout << "Expired Obat :" << ptr -> expired_obat << endl;
+      
+            // gotoxy(45,i);cout << "Supplier :" << ptr -> supplier << endl;
+   
+            // gotoxy(45,i);cout << "Jumlah :" << ptr -> jumlah << endl;
+      
+            // gotoxy(45,i);cout << "Harga Total :" << ptr -> harga_total << endl << endl;
+            
+        cout << "\t\t\t\t\t\tNo id\t\t : " << ptr -> no_id << endl;
+        cout << "\t\t\t\t\t\tNo id apoteker\t : " << ptr->no_id_apoteker << endl;
+        cout << "\t\t\t\t\t\tNama Apoteker\t : " << ptr -> nama_apoteker << endl;
+        cout << "\t\t\t\t\t\tTanggal\t\t : " << ptr -> tanggal << endl;
+        cout << "\t\t\t\t\t\tNomor BPJS\t : " << ptr -> nomor_bpjs << endl;
+        cout << "\t\t\t\t\t\tNama Buyer\t : " << ptr -> nama_buyer << endl;
+        cout << "\t\t\t\t\t\tNama Obat\t : " << ptr -> nama_obat << endl;
+        cout << "\t\t\t\t\t\tKode Obat \t : " << ptr -> kode_obat << endl;
+        cout << "\t\t\t\t\t\tExpired Obat\t : " << ptr -> expired_obat << endl;
+        cout << "\t\t\t\t\t\tSupplier\t : " << ptr -> supplier << endl;
+        cout << "\t\t\t\t\t\tJumlah\t\t : " << ptr -> jumlah << endl;
+        cout << "\t\t\t\t\t\tHarga total\t : " << ptr -> harga_total << endl << endl;
+
     ptr = ptr->next;
   }
   getch();
@@ -2164,33 +2206,38 @@ void sort_data(){
     }//bar
     cout << endl << endl;
     if (HEAD == NULL) {
-        cout << "\t\t\t\t\t\tBelum ada data :(";
+        gotoxy(60,5);cout << "Belum ada data :(";
         getch();
         return;
     }
     cout << endl;
     //////////////////////////////////////////////////////////////////////////////////
     
-        cout << "Sort berdasarkan apa : "     << endl;
-         cout << "1. NO ID \t"<< endl;
-        cout << "2. NO ID PEGAWAI \t"<< endl;
-        cout << "3. NAMA APOTEKER \t"<< endl;
-        cout << "4. TANGGAL \t"<< endl;
-        cout << "5. NO BPJS \t"<< endl;
-        cout << "6. NAMA BUYER \t"<< endl;
-        cout << "7. NAMA OBAT \t"<< endl;
-        cout << "8. KODE OBAT \t"<< endl;
-        cout << "9. EXPIRED OBAT \t"     << endl;
-        cout << "10. SUPPLIER \t"     << endl;
-        cout << "11. JUMLAH \t"      << endl;
-        cout << "12. HARGA TOTAL \t" << endl;
-        cout << "13. KEMBALI \t"      << endl;
+        gotoxy(5,6);cout << "Sort berdasarkan apa : "   ;
+        gotoxy(11,8);cout << "1. NO ID ";
+        gotoxy(11,9);cout << "2. NO ID PEGAWAI ";
+        gotoxy(11,10);cout << "3. NAMA APOTEKER ";
+        gotoxy(11,11);cout << "4. TANGGAL ";
+        gotoxy(11,12);cout << "5. NO BPJS ";
+        gotoxy(11,13);cout << "6. NAMA BUYER ";
+        gotoxy(11,14);cout << "7. NAMA OBAT ";
+        gotoxy(11,15);cout << "8. KODE OBAT ";
+        gotoxy(11,16);cout << "9. EXPIRED OBAT ";
+        gotoxy(11,17);cout << "10. SUPPLIER ";
+        gotoxy(11,18);cout << "11. JUMLAH ";
+        gotoxy(11,19);cout << "12. HARGA TOTAL ";
+        gotoxy(11,20);cout << "13. KEMBALI " ;
+
+        for(int i =3 ; i< 35 ; i++){
+            gotoxy(35,i);cout << (char)linev1;
+        }
+        gotoxy(11,22);cout << "PILIHAN  : ";
 
         while (true) {
-                cin >> choice1;
+                gotoxy(22,22);cin >> choice1;
 
                 if (cin.fail() || choice1 < 0) {
-                cout << "Invalid input, masukkan angka bulat" << endl;
+                gotoxy(45,8);cout << "Invalid input, masukkan angka bulat" << endl;
                 clearInputBuffer();
             } else {
                 break;
@@ -2263,13 +2310,6 @@ void sort_data(){
 
 void cari_data(){
 
-    
-
-    if (HEAD == NULL) {
-        cout << "Belum ada data :(";
-        getch();
-        return;
-    }
     int choice2;
 
 
@@ -2287,32 +2327,38 @@ void cari_data(){
     }//bar
     cout << endl << endl;
     if (HEAD == NULL) {
-        cout << "\t\t\t\t\t\tBelum ada data :(";
+        gotoxy(60,5);cout << "Belum ada data :(";
         getch();
         return;
     }
     cout<< endl;
     //////////////////////////////////////////////////////////////////////////////////
-        cout << "Cari berdasarkan apa : "     << endl;
-         cout << "1. NO ID \t"<< endl;
-        cout << "2. NO ID PEGAWAI \t"<< endl;
-        cout << "3. NAMA APOTEKER \t"<< endl;
-        cout << "4. TANGGAL \t"<< endl;
-        cout << "5. NO BPJS \t"<< endl;
-        cout << "6. NAMA BUYER \t"<< endl;
-        cout << "7. NAMA OBAT \t"<< endl;
-        cout << "8. KODE OBAT \t"<< endl;
-        cout << "9. EXPIRED OBAT \t"     << endl;
-        cout << "10. SUPPLIER \t"     << endl;
-        cout << "11. JUMLAH \t"      << endl;
-        cout << "12. HARGA TOTAL \t" << endl;
-        cout << "13. KEMBALI \t"      << endl;
+        gotoxy(5,6);cout << "Cari berdasarkan apa : ";
+        gotoxy(11,8);cout << "1. NO ID ";
+        gotoxy(11,9);cout << "2. NO ID PEGAWAI ";
+        gotoxy(11,10);cout << "3. NAMA APOTEKER ";
+        gotoxy(11,11);cout << "4. TANGGAL ";
+        gotoxy(11,12);cout << "5. NO BPJS ";
+        gotoxy(11,13);cout << "6. NAMA BUYER ";
+        gotoxy(11,14);cout << "7. NAMA OBAT ";
+        gotoxy(11,15);cout << "8. KODE OBAT ";
+        gotoxy(11,16);cout << "9. EXPIRED OBAT ";
+        gotoxy(11,17);cout << "10. SUPPLIER ";
+        gotoxy(11,18);cout << "11. JUMLAH ";
+        gotoxy(11,19);cout << "12. HARGA TOTAL ";
+        gotoxy(11,20);cout << "13. KEMBALI " ;
+        
+        for(int i =3 ; i< 35 ; i++){
+            gotoxy(35,i);cout << (char)linev1;
+        }
+
+        gotoxy(11,22);cout << "PILIHAN  : ";
 
         while (true) {
-                cin >> choice2;
+            gotoxy(22,22);cin >> choice2;
 
                 if (cin.fail() || choice2 < 0) {
-                cout << "Invalid input, masukkan angka bulat" << endl;
+                  gotoxy(45,8);cout << "Invalid input, masukkan angka bulat" << endl;
                 clearInputBuffer();
             } else {
                 break;
@@ -2358,11 +2404,11 @@ void cari_data(){
                             cari_hargatotal();
                             break;
                         case 13:
-                            cout << "Keluar";
+                            gotoxy(45,10);cout << "Keluar";
                             getch();
                             break;
                         default:
-                            cout << "Pilih antara angka yang ada di menu (1-13)";
+                            gotoxy(45,8);cout << "Pilih antara angka yang ada di menu (1-13)";
                             getch();
                             break;
 
