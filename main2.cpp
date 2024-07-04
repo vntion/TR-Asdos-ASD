@@ -2200,7 +2200,7 @@ void sort_data(){
     }
     cout << endl;
     //////////////////////////////////////////////////////////////////////////////////
-
+        gotoxy(1,4);cout << "Kembali: 0";
         gotoxy(5,6);cout << "Sort berdasarkan apa : "   ;
         gotoxy(11,8);cout << "1. NO ID ";
         gotoxy(11,9);cout << "2. NO ID PEGAWAI ";
@@ -2223,7 +2223,7 @@ void sort_data(){
 
         while (true) {
                 gotoxy(22,22);cin >> choice1;
-
+                if (choice1 == 0) break;
                 if (cin.fail() || choice1 < 0) {
                 gotoxy(45,8);cout << "Invalid input, masukkan angka bulat" << endl;
                 clearInputBuffer();
@@ -2232,6 +2232,7 @@ void sort_data(){
             }
         }
         clearInputBuffer();
+        if (choice1 == 0) return;
 
         switch (choice1) {
                         case 1:
@@ -2321,6 +2322,7 @@ void cari_data(){
     }
     cout<< endl;
     //////////////////////////////////////////////////////////////////////////////////
+        gotoxy(1,4);cout << "Kembali: 0";
         gotoxy(5,6);cout << "Cari berdasarkan apa : ";
         gotoxy(11,8);cout << "1. NO ID ";
         gotoxy(11,9);cout << "2. NO ID PEGAWAI ";
@@ -2344,7 +2346,7 @@ void cari_data(){
 
         while (true) {
             gotoxy(22,22);cin >> choice2;
-
+                if (choice2 == 0) break;
                 if (cin.fail() || choice2 < 0) {
                   gotoxy(45,8);cout << "Invalid input, masukkan angka bulat" << endl;
                 clearInputBuffer();
@@ -2353,6 +2355,7 @@ void cari_data(){
             }
         }
         clearInputBuffer();
+        if (choice2 == 0) return;
 
         switch (choice2) {
                         case 1:
